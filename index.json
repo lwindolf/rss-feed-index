@@ -1,7 +1,7 @@
 {
   "meta": {
     "generated": 1757185097,
-    "offset": 20800
+    "offset": 20950
   },
   "domains": {
     "wordpress.org": [
@@ -91083,6 +91083,519 @@
         "t": 247,
         "d": 1757285105,
         "r": 20800
+      }
+    ],
+    "smtp2go.com": [
+      {
+        "n": "SMTP2GO",
+        "u": "https://www.smtp2go.com/feed/",
+        "i": "Reliable & Scalable Email Delivery Service",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4683,
+        "d": 1757285110,
+        "r": 20803
+      }
+    ],
+    "katiecouric.com": [
+      {
+        "n": "Katie Couric Media",
+        "u": "https://katiecouric.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 14990,
+        "d": 1757285112,
+        "r": 20805
+      },
+      {
+        "n": "\n\tComments for Katie Couric Media\t",
+        "u": "https://katiecouric.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 153,
+        "d": 1757285112,
+        "r": 20805
+      }
+    ],
+    "actu-environnement.com": [
+      {
+        "n": "Actu-Environnement : les infos du jour",
+        "u": "https://www.actu-environnement.com/ae/news/archives/rss.php4",
+        "i": "Toute l'actualité quotidienne en environnement et développement durable.",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "media"
+        ],
+        "t": null,
+        "d": 1757285114,
+        "r": 20807
+      }
+    ],
+    "hiwaay.net": [
+      {
+        "n": "HiWAAY Information Services",
+        "u": "https://www.hiwaay.net/feed/",
+        "i": "Our Networks Mean Business",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1467,
+        "d": 1757285120,
+        "r": 20808
+      },
+      {
+        "n": "\n\tComments for HiWAAY Information Services\t",
+        "u": "https://www.hiwaay.net/comments/feed/",
+        "i": "Our Networks Mean Business",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757285120,
+        "r": 20808
+      }
+    ],
+    "telltale.com": [
+      {
+        "n": "Telltale Games",
+        "u": "https://telltale.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 15671,
+        "d": 1757285133,
+        "r": 20817
+      },
+      {
+        "n": "\n\tComments for Telltale Games\t",
+        "u": "https://telltale.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757285133,
+        "r": 20817
+      }
+    ],
+    "abduzeedo.com": [
+      {
+        "n": "abdz—do - Thoughts on design, inspiration, UX career",
+        "u": "https://abduzeedo.com/rss.xml",
+        "i": "abdz. inspiration feed",
+        "f": "rss2.0",
+        "ns": [
+          "dc"
+        ],
+        "t": 6467,
+        "d": 1757285143,
+        "r": 20822
+      }
+    ],
+    "academie-francaise.fr": [
+      {
+        "n": "Académie française",
+        "u": "https://www.academie-francaise.fr/rss.xml",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "atom",
+          "content",
+          "foaf",
+          "og",
+          "rdfs",
+          "sioc",
+          "sioct",
+          "skos",
+          "xsd"
+        ],
+        "t": 1022,
+        "d": 1757285239,
+        "r": 20837
+      }
+    ],
+    "mtbiker.sk": [
+      {
+        "n": "MTBIKER",
+        "u": "https://rss.mtbiker.sk/rss.xml",
+        "i": "Denne zo sveta MTBIKER",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 296,
+        "d": 1757285258,
+        "r": 20843
+      }
+    ],
+    "seattlemet.com": [
+      {
+        "n": "Seattle Met",
+        "u": "https://seattlemet.com/feed",
+        "f": "atom",
+        "ns": [
+          "media"
+        ],
+        "t": 72,
+        "d": 1757285282,
+        "r": 20857
+      }
+    ],
+    "extra.hu": [
+      {
+        "n": "DotRoll",
+        "u": "https://dotroll.com/hu/feed/",
+        "i": "Domain regisztráció és hosting",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 15509,
+        "d": 1757285290,
+        "r": 20861
+      }
+    ],
+    "thecarconnection.com": [
+      {
+        "n": "The Car Connection",
+        "u": "https://feeds.feedburner.com/TheCarConnection-NewsAndBlogs",
+        "i": "Latest news, reviews, and more from around the The Car Connection",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc",
+          "content",
+          "slash"
+        ],
+        "t": 512,
+        "d": 1757285318,
+        "r": 20875
+      },
+      {
+        "n": "The Car Connection",
+        "u": "https://feeds.feedburner.com/TheCarConnection-CarReviews",
+        "i": "Latest news, reviews, and more from around the The Car Connection",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc",
+          "content"
+        ],
+        "t": 534,
+        "d": 1757285318,
+        "r": 20875
+      }
+    ],
+    "topito.com": [
+      {
+        "n": "Topito",
+        "u": "https://www.topito.com/feed",
+        "i": "La vie, du côté top",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 394,
+        "d": 1757285360,
+        "r": 20889
+      }
+    ],
+    "casetify.com": [
+      {
+        "n": "Casetify",
+        "u": "https://casetify.blogspot.com/feeds/posts/default",
+        "f": "atom",
+        "ns": [
+          "openSearch",
+          "blogger",
+          "georss",
+          "gd",
+          "thr"
+        ],
+        "t": 0,
+        "d": 1757285397,
+        "r": 20910
+      },
+      {
+        "n": "Stories by Casetify on Medium",
+        "u": "https://medium.com/feed/@Casetify_Official",
+        "i": "Stories by Casetify on Medium",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom",
+          "cc"
+        ],
+        "t": 2806,
+        "d": 1757285398,
+        "r": 20910
+      }
+    ],
+    "sunderlandecho.com": [
+      {
+        "n": "Sunderland Echo",
+        "u": "https://www.sunderlandecho.com/rss",
+        "i": "Visit now for the latest news direct from Sunderland Echo and updated throughout the day",
+        "f": "rss2.0",
+        "ns": [
+          "media",
+          "dc",
+          "atom"
+        ],
+        "t": 108,
+        "d": 1757285400,
+        "r": 20911
+      }
+    ],
+    "talkorigins.org": [
+      {
+        "u": "https://talkorigins.org/rss/talkorigins.xml",
+        "ns": [
+          "blogChannel"
+        ],
+        "t": null,
+        "d": 1757285409,
+        "r": 20919
+      }
+    ],
+    "buyandsellhair.com": [
+      {
+        "n": "Ads – BuyandSellHair.com",
+        "u": "https://buyandsellhair.com/feed/?post_type=ad_listing",
+        "i": "The #1 Global Human Hair Marketplace - Buy & Sell Hair Now!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 187,
+        "d": 1757285426,
+        "r": 20925
+      },
+      {
+        "n": "BuyandSellHair.com",
+        "u": "https://buyandsellhair.com/feed/",
+        "i": "The #1 Global Human Hair Marketplace - Buy & Sell Hair Now!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 187,
+        "d": 1757285427,
+        "r": 20925
+      },
+      {
+        "n": "Comments for BuyandSellHair.com",
+        "u": "https://buyandsellhair.com/comments/feed/",
+        "i": "The #1 Global Human Hair Marketplace - Buy & Sell Hair Now!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 301,
+        "d": 1757285428,
+        "r": 20925
+      }
+    ],
+    "truthorfiction.com": [
+      {
+        "n": "Truth or Fiction? – Seeking truth, exposing fiction",
+        "u": "https://www.truthorfiction.com/feed/",
+        "i": "Seeking truth, exposing fiction",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 12232,
+        "d": 1757285441,
+        "r": 20933
+      }
+    ],
+    "ewu.edu": [
+      {
+        "n": "Eastern Washington University",
+        "u": "https://www.ewu.edu/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757285444,
+        "r": 20934
+      },
+      {
+        "n": "\n\tComments for Eastern Washington University\t",
+        "u": "https://www.ewu.edu/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757285445,
+        "r": 20934
+      }
+    ],
+    "mercer.edu": [
+      {
+        "n": "Mercer University",
+        "u": "https://www.mercer.edu/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757285533,
+        "r": 20941
+      },
+      {
+        "n": "\n\tComments for Mercer University\t",
+        "u": "https://www.mercer.edu/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757285533,
+        "r": 20941
+      }
+    ],
+    "kyoto-np.co.jp": [
+      {
+        "n": "京都新聞デジタル｜京都新聞社",
+        "u": "https://www.kyoto-np.co.jp/list/feed/rss",
+        "i": "京都新聞社の運営するサイト「京都新聞デジタル」が配信するRSSフィードです。",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "media"
+        ],
+        "t": 0,
+        "d": 1757285538,
+        "r": 20942
+      }
+    ],
+    "unionesarda.it": [
+      {
+        "n": "L'Unione Sarda.it",
+        "u": "https://www.unionesarda.it/sitemaps/rss",
+        "i": "notizie, video, foto e approfondimenti. - L'Unione Sarda.it",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc"
+        ],
+        "t": 44,
+        "d": 1757285541,
+        "r": 20945
+      }
+    ],
+    "newyorkupstate.com": [
+      {
+        "n": "newyorkupstate.com",
+        "u": "https://www.newyorkupstate.com/arc/outboundfeeds/rss/?outputType=xml",
+        "i": "newyorkupstate.com News Feed",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "content",
+          "dc",
+          "sy",
+          "media"
+        ],
+        "t": 832,
+        "d": 1757285549,
+        "r": 20946
       }
     ]
   }
