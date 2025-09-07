@@ -60,3 +60,12 @@ All sites having feeds should see 2+nr of feeds (specified by `<link rel="altern
 Crawler user agent is
 
     Mozilla/5.0 (compatible; rss-feed-index-bot/0.9; +https://github.com/lwindolf/rss-feed-index)
+
+## Website Build
+
+Prepare for deployment run:
+
+    npm i
+    npm run build-www
+
+Test locally with `npx serve www`

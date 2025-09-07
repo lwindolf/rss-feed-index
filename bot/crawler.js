@@ -121,7 +121,7 @@ async function run() {
             result.domains[domains[i]] = feeds;
 
         // save updated index
-        if (i % 10 == 0) {
+        if (i % 50 == 0) {
             result.meta.offset = i;
             fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
         }

@@ -4,7 +4,8 @@
         "description": "Crawler to build an RSS feed index for the most popular websites",
         "type": "module",
         "scripts": {
-                "crawl": "cd js && node crawler.js"
+                "crawl": "cd bot && node crawler.js",
+                "build-www": "./build-index.sh"
         },
         "dependencies": {
                 "jsdom": "^22.1.0",
