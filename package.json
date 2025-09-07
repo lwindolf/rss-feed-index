@@ -1,0 +1,13 @@
+{
+        "name": "rss-feed-index",
+        "version": "0.1",
+        "description": "Crawler to build an RSS feed index for the most popular websites",
+        "type": "module",
+        "scripts": {
+                "crawl": "cd js && node crawler.js"
+        },
+        "dependencies": {
+                "jsdom": "^22.1.0",
+                "robots-parser": "^3.0.1"
+        }
+}
