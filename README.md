@@ -1,7 +1,12 @@
 
-This repo hosts both a crawler for news feeds (RSS, Atom, ...) and the crawling result
-for the [majestic million websites](https://majestic.com/reports/majestic-million) which
+# RSS Feed Index
+
+This repo hosts
+
+1. a crawler for news feeds (RSS, Atom, ...)
+2. the current crawling result `index.json` for the [majestic million websites](https://majestic.com/reports/majestic-million) which
 is [CC BY Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/deed.en) licensed.
+3. a Github Pages site to present the results (to be implemented)
 
 ## Feed Catalog Format
 
@@ -50,8 +55,7 @@ All of the text fields are to be considered UTF-8 plain text and might need esca
 - no parallel crawling
 
 Effectivley most sites without a feed should be hit by 2 requests only.
-And all site with feed should see 2+nr of feeds (specified by `<link rel="alternate" ...>`)
-requests.
+All sites having feeds should see 2+nr of feeds (specified by `<link rel="alternate" ...>`) requests.
 
 Crawler user agent is
 
