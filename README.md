@@ -42,7 +42,7 @@ All of the text fields are to be considered UTF-8 plain text and might need esca
 
 ## Crawler Usage
 
-    curl https://downloads.majestic.com/majestic_million.csv
+    wget https://downloads.majestic.com/majestic_million.csv
     npm i
     npm run crawl
 
