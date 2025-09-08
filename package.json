@@ -4,7 +4,7 @@
         "description": "Crawler + website for the feeds of the top 1 million websites",
         "type": "module",
         "scripts": {
-                "crawl": "cd bot && node crawler.js",
+                "crawl": "node bot/crawler.js",
                 "build-www": "./build-index.sh"
         },
         "dependencies": {

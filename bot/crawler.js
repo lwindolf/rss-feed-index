@@ -80,7 +80,7 @@ async function processDomain(url, rank = undefined) {
     return feeds;
 }
 
-async function run(indexFile = "../index.json", offset = 0, count = 1000000) {
+async function run(indexFile = "index.json", offset = 0, count = 1000000) {
     const start = offset;
     let result = {
         meta: {
@@ -99,13 +99,19 @@ async function run(indexFile = "../index.json", offset = 0, count = 1000000) {
     }
 
     // load majestic top 1 million sites
-    const majesticFile = "../majestic_million.csv";
+    const majesticFile = "majestic_million.csv";
     const majesticData = fs.readFileSync(majesticFile, 'utf8');
     const lines = majesticData.split('\n');
     const domains = lines.slice(1).map(line => line.split(',')[2]).filter(Boolean);
 
     // loop over all domains
     for (let i = result.meta.offset; i < domains.length; i++) {
+        // stop after meta.count domains
+        if (i >= start + result.meta.count) {
+            console.log(`Reached crawl count of ${result.meta.count} domains.`);
+            break;
+        }
+
         // skip if already in index and recently updated
         if (result.domains[domains[i]] &&
             result.domains[domains[i]].length > 0) {
@@ -126,12 +132,6 @@ async function run(indexFile = "../index.json", offset = 0, count = 1000000) {
             result.meta.offset = i;
             fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
         }
-
-        // stop after meta.count domains
-        if (i >= start + result.meta.count) {
-            console.log(`Reached crawl count of ${result.meta.count} domains.`);
-            break;
-        }
     }
 
     console.log("Crawling completed.");
@@ -145,9 +145,7 @@ if (args.length > 1) {
         }).catch(err => {
             console.error(`Error processing domain ${args[1]}:`, err);
         });
-    }
-
-    if (args[0] === '--merge') {
+    } else if (args[0] === '--merge') {
         if (args.length < 3) {
             console.error("Usage: node crawler.js --merge <source JSON> <target JSON>");
             process.exit(1);
@@ -186,15 +184,20 @@ if (args.length > 1) {
         // Save merged target data
         fs.writeFileSync(targetFile, JSON.stringify(targetData, null, 2));
         console.log(`Merged ${sourceFile} into ${targetFile}.`);
-    }
-
-    if (args[0] === '--parallel') {
+    } else if (args[0] === '--parallel') {
         if (args.length < 4) {
             console.error("Usage: node crawler.js --parallel <worker nr> <offset> <count>");
             process.exit(1);
         } else {
-            run(`../index${args[1]}.json`, parseInt(args[2]), parseInt(args[3]));
+            run(`index${args[1]}.json`, parseInt(args[2]), parseInt(args[3]));
         }
+    } else {
+        console.error("Unknown command. Usage:");
+        console.error("  node crawler.js");
+        console.error("  node crawler.js --test <domain>");
+        console.error("  node crawler.js --merge <source JSON> <target JSON>");
+        console.error("  node crawler.js --parallel <worker nr> <offset> <count>");
+        process.exit(1);
     }
 } else {
     run();
