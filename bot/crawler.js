@@ -147,6 +147,47 @@ if (args.length > 1) {
         });
     }
 
+    if (args[0] === '--merge') {
+        if (args.length < 3) {
+            console.error("Usage: node crawler.js --merge <source JSON> <target JSON>");
+            process.exit(1);
+        }
+        const sourceFile = args[1];
+        const targetFile = args[2];
+        if (!fs.existsSync(sourceFile)) {
+            console.error(`Source file ${sourceFile} does not exist.`);
+            process.exit(1);
+        }
+        if (!fs.existsSync(targetFile)) {
+            console.error(`Target file ${targetFile} does not exist.`);
+            process.exit(1);
+        }
+        const sourceData = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
+        const targetData = JSON.parse(fs.readFileSync(targetFile, 'utf8'));
+        
+        // Merge domains
+        for (const [domain, feeds] of Object.entries(sourceData.domains)) {
+            if (!targetData.domains[domain]) {
+                targetData.domains[domain] = feeds;
+            } else {
+                // Merge feeds, avoiding duplicates
+                const existingUrls = new Set(targetData.domains[domain].map(f => f.u));
+                feeds.forEach(feed => {
+                    if (!existingUrls.has(feed.u)) {
+                        targetData.domains[domain].push(feed);
+                    }
+                });
+            }
+        }
+
+        targetData.meta.generated = Math.max(sourceData.meta.generated, targetData.meta.generated)
+        targetData.meta.offset = Math.max(sourceData.meta.offset, targetData.meta.offset);
+
+        // Save merged target data
+        fs.writeFileSync(targetFile, JSON.stringify(targetData, null, 2));
+        console.log(`Merged ${sourceFile} into ${targetFile}.`);
+    }
+
     if (args[0] === '--parallel') {
         if (args.length < 4) {
             console.error("Usage: node crawler.js --parallel <worker nr> <offset> <count>");
