@@ -8,6 +8,7 @@ import { Feed } from './feed.js';
 import { linkAutoDiscover } from './parsers/autodiscover.js';
 import robotsParser from '../node_modules/robots-parser/Robots.js';
 
+import process from 'process';
 import fs from 'fs';
 
 async function processDomain(url, rank = undefined) {
@@ -79,17 +80,16 @@ async function processDomain(url, rank = undefined) {
     return feeds;
 }
 
-async function run() {
+async function run(indexFile = "../index.json", offset = 0, count = 1000000) {
     let result = {
         meta: {
             generated: Math.floor(new Date().getTime() / 1000),
             // saving the loop offset ensures the crawler can be restarted
-            offset: 0
+            offset,
+            count
         },
         domains: {}
     };
-
-    const indexFile = "../index.json";
 
     // load existing index if it exists
     if (fs.existsSync(indexFile)) {
@@ -130,14 +130,24 @@ async function run() {
     console.log("Crawling completed.");
 }
 
-// Check for command-line arguments
 const args = process.argv.slice(2);
-if (args.length > 0) {
-    processDomain(args[0]).then(feeds => {
-        console.log(`Feeds discovered for ${args[0]}:`, feeds);
-    }).catch(err => {
-        console.error(`Error processing domain ${args[0]}:`, err);
-    });
+if (args.length > 1) {
+    if (args[0] === '--test') {
+        processDomain(args[1]).then(feeds => {
+            console.log(`Feeds discovered for ${args[1]}:`, feeds);
+        }).catch(err => {
+            console.error(`Error processing domain ${args[1]}:`, err);
+        });
+    }
+
+    if (args[0] === '--parallel') {
+        if (args.length < 4) {
+            console.error("Usage: node crawler.js --parallel <worker nr> <offset> <count>");
+            process.exit(1);
+        } else {
+            run(`../index${args[1]}.json`, parseInt(args[2]), parseInt(args[3]));
+        }
+    }
 } else {
     run();
 }
