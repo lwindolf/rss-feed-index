@@ -81,6 +81,7 @@ async function processDomain(url, rank = undefined) {
 }
 
 async function run(indexFile = "../index.json", offset = 0, count = 1000000) {
+    const start = offset;
     let result = {
         meta: {
             generated: Math.floor(new Date().getTime() / 1000),
@@ -124,6 +125,12 @@ async function run(indexFile = "../index.json", offset = 0, count = 1000000) {
         if (i % 50 == 0) {
             result.meta.offset = i;
             fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
+        }
+
+        // stop after meta.count domains
+        if (i >= start + result.meta.count) {
+            console.log(`Reached crawl count of ${result.meta.count} domains.`);
+            break;
         }
     }
 
