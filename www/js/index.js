@@ -29,7 +29,11 @@ function loadRandom() {
                 list.forEach(k => {
                         const div = document.createElement('div');
                         div.className = 'feed-entry';
-                        div.innerHTML = `<a href="${k.url}" target="_blank">${k.name}</a>`;
+                        const link = document.createElement('a');
+                        link.href = k.url;
+                        link.target = '_blank';
+                        link.textContent = k.name;
+                        div.appendChild(link);
                         container.appendChild(div);
                 });
         });
@@ -60,7 +64,11 @@ function performSearch(event) {
                 list.forEach(k => {
                         const div = document.createElement('div');
                         div.className = 'feed-entry';
-                        div.innerHTML = `<a href="${k.url}" target="_blank">${k.name}</a>`;
+                        const link = document.createElement('a');
+                        link.href = k.url;
+                        link.target = '_blank';
+                        link.textContent = k.name;
+                        div.appendChild(link);
                         container.appendChild(div);
                 });
 
