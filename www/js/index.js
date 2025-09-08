@@ -82,3 +82,4 @@ function performSearch(event) {
 loadMeta();
 loadRandom();
 document.getElementById('search').addEventListener('input', performSearch);
+document.getElementById('search').focus();

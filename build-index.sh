@@ -3,9 +3,13 @@
 set -euo pipefail
 
 test -d www/data || mkdir -p www/data
-jq -c '[.domains[][] | { "key" : .u, "value": .n}] | from_entries' index.json >www/data/url-title.json
+
+# Extract all domains url/name tuples
+# - Flatten the array of arrays
+# - Filter out Wordpress wfw comment feeds
+jq -c '[.domains[][] | select(.u and (.u | contains("/comments/feed") | not)) | { "key" : .u, "value": .n}] | from_entries' index.json >www/data/url-title.json
 
 domainCount=$(jq '.domains | length' index.json)
-feedCount=$(jq '.domains[] | length' index.json | awk '{s+=$1} END {print s}')
+feedCount=$(jq . www/data/url-title.json | wc -l)
 jq -c '.meta | .domains='$domainCount' | .feeds='$feedCount' | .' index.json >www/data/meta.json
 

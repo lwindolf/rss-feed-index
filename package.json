@@ -1,7 +1,7 @@
 {
         "name": "rss-feed-index",
         "version": "0.1",
-        "description": "Crawler to build an RSS feed index for the most popular websites",
+        "description": "Crawler + website for the feeds of the top 1 million websites",
         "type": "module",
         "scripts": {
                 "crawl": "cd bot && node crawler.js",
