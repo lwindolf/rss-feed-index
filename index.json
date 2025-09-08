@@ -1,7 +1,7 @@
 {
   "meta": {
     "generated": 1757346235,
-    "offset": 32000
+    "offset": 34000
   },
   "domains": {
     "wordpress.org": [
@@ -139038,6 +139038,7364 @@
         "t": 235,
         "d": 1757348070,
         "r": 31992
+      }
+    ],
+    "s66.click": [
+      {
+        "n": "s66",
+        "u": "https://s66.click/feed/",
+        "i": "Nhà cái s666",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 9546,
+        "d": 1757346106,
+        "r": 33000
+      }
+    ],
+    "sacoronavirus.co.za": [
+      {
+        "n": "SA Corona Virus  Online Portal",
+        "u": "https://sacoronavirus.co.za/feed/",
+        "i": "Latest News, Resources & Information from the Department of Health South Africa",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757346145,
+        "r": 33021
+      },
+      {
+        "n": "\n\tComments for SA Corona Virus  Online Portal\t",
+        "u": "https://sacoronavirus.co.za/comments/feed/",
+        "i": "Latest News, Resources & Information from the Department of Health South Africa",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346146,
+        "r": 33021
+      }
+    ],
+    "bnn.de": [
+      {
+        "n": "Home – Badische Neueste Nachrichten",
+        "u": "https://bnn.de/feed",
+        "i": "Ihre regionale Tageszeitung für Karlsruhe und Umgebung",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "content",
+          "media",
+          "articlett"
+        ],
+        "t": 151,
+        "d": 1757346151,
+        "r": 33025
+      }
+    ],
+    "cruse.org.uk": [
+      {
+        "n": "Cruse Bereavement Support",
+        "u": "https://www.cruse.org.uk/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 191,
+        "d": 1757346166,
+        "r": 33029
+      },
+      {
+        "n": "\n\tComments for Cruse Bereavement Support\t",
+        "u": "https://www.cruse.org.uk/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346166,
+        "r": 33029
+      }
+    ],
+    "kidshelpphone.ca": [
+      {
+        "n": "Kids Help Phone",
+        "u": "https://kidshelpphone.ca/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": null,
+        "d": 1757346175,
+        "r": 33036
+      }
+    ],
+    "businessesforsale.com": [
+      {
+        "n": "Businesses For Sale in Worldwide",
+        "u": "https://www.businessesforsale.com/search/businesses-for-sale.rss",
+        "i": "BusinessesForSale.com",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 199,
+        "d": 1757346176,
+        "r": 33037
+      }
+    ],
+    "theloadstar.com": [
+      {
+        "n": "The Loadstar",
+        "u": "https://theloadstar.com/feed/",
+        "i": "Making sense of the supply chain",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 740,
+        "d": 1757346543,
+        "r": 33069
+      }
+    ],
+    "aae.org": [
+      {
+        "n": "American Association of Endodontists",
+        "u": "https://www.aae.org/feed/",
+        "i": "The root canal specialists",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7592,
+        "d": 1757346563,
+        "r": 33074
+      },
+      {
+        "n": "\n\tComments for American Association of Endodontists\t",
+        "u": "https://www.aae.org/comments/feed/",
+        "i": "The root canal specialists",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346564,
+        "r": 33074
+      }
+    ],
+    "sofasandcouches.com": [
+      {
+        "n": "New Products",
+        "u": "https://www.sofasandcouches.com/feed/products-new.rss",
+        "i": "Our latest products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 575,
+        "d": 1757346566,
+        "r": 33078
+      },
+      {
+        "n": "Old Products",
+        "u": "https://www.sofasandcouches.com/feed/products-old.rss",
+        "i": "Our oldest products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 570,
+        "d": 1757346567,
+        "r": 33078
+      },
+      {
+        "n": "Recently Updated Products",
+        "u": "https://www.sofasandcouches.com/feed/products-updated.rss",
+        "i": "Our recently updated products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 578,
+        "d": 1757346567,
+        "r": 33078
+      },
+      {
+        "n": "Random Products",
+        "u": "https://www.sofasandcouches.com/feed/products-random.rss",
+        "i": "A random selection of products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 566,
+        "d": 1757346571,
+        "r": 33078
+      },
+      {
+        "n": "Popular Products",
+        "u": "https://www.sofasandcouches.com/feed/products-popular.rss",
+        "i": "Our most popular products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 570,
+        "d": 1757346571,
+        "r": 33078
+      },
+      {
+        "n": "New Articles",
+        "u": "https://www.sofasandcouches.com/feed/articles-new.rss",
+        "i": "Our latest articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 228,
+        "d": 1757346572,
+        "r": 33078
+      },
+      {
+        "n": "Old Articles",
+        "u": "https://www.sofasandcouches.com/feed/articles-old.rss",
+        "i": "Our oldest articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 228,
+        "d": 1757346572,
+        "r": 33078
+      },
+      {
+        "n": "Recently Updated Articles",
+        "u": "https://www.sofasandcouches.com/feed/articles-updated.rss",
+        "i": "Our recently updated articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 228,
+        "d": 1757346572,
+        "r": 33078
+      },
+      {
+        "n": "Random Articles",
+        "u": "https://www.sofasandcouches.com/feed/articles-random.rss",
+        "i": "A random selection of articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 228,
+        "d": 1757346573,
+        "r": 33078
+      },
+      {
+        "n": "Popular Articles",
+        "u": "https://www.sofasandcouches.com/feed/articles-popular.rss",
+        "i": "Our most popular articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 228,
+        "d": 1757346573,
+        "r": 33078
+      }
+    ],
+    "weatherfordflooring.com": [
+      {
+        "n": "Weatherford Flooring",
+        "u": "https://weatherfordflooring.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 268,
+        "d": 1757346607,
+        "r": 33107
+      },
+      {
+        "n": "\n\tComments for Weatherford Flooring\t",
+        "u": "https://weatherfordflooring.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 234,
+        "d": 1757346609,
+        "r": 33107
+      }
+    ],
+    "saatchigallery.com": [
+      {
+        "n": "Saatchi Gallery",
+        "u": "https://www.saatchigallery.com/feed",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 11901,
+        "d": 1757346636,
+        "r": 33131
+      },
+      {
+        "n": "\n\tComments for Saatchi Gallery\t",
+        "u": "https://www.saatchigallery.com/comments/feed",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346638,
+        "r": 33131
+      }
+    ],
+    "poetsandquants.com": [
+      {
+        "n": "Poets&Quants",
+        "u": "https://poetsandquants.com/feed/",
+        "i": "Covering all that matters in the business school world, with in-depth analysis of B-schools rankings and full-time MBA programs",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 17016,
+        "d": 1757346646,
+        "r": 33139
+      },
+      {
+        "n": "\n\tComments for Poets&Quants\t",
+        "u": "https://poetsandquants.com/comments/feed/",
+        "i": "Covering all that matters in the business school world, with in-depth analysis of B-schools rankings and full-time MBA programs",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 708,
+        "d": 1757346647,
+        "r": 33139
+      }
+    ],
+    "diariodecadiz.es": [
+      {
+        "n": "Diario de Cádiz - Portada",
+        "u": "https://www.diariodecadiz.es/rss/",
+        "i": "Diario de Cádiz - Portada",
+        "f": "rss2.0",
+        "ns": [
+          "media",
+          "dc",
+          "dcterms",
+          "atom",
+          "content"
+        ],
+        "t": 174,
+        "d": 1757346715,
+        "r": 33164
+      }
+    ],
+    "sketchapp.com": [
+      {
+        "n": "Sketch Blog",
+        "u": "https://sketchapp.com/blog/feed.xml",
+        "f": "atom",
+        "ns": [],
+        "t": 142,
+        "d": 1757346724,
+        "r": 33175
+      }
+    ],
+    "brad.ac.uk": [
+      {
+        "n": "University of Bradford News RSS Feed",
+        "u": "https://www.bradford.ac.uk/news/rss.xml",
+        "i": "A feed of the top news articles from the University of Bradford, West Yorkshire, United Kingdom.",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom",
+          "media"
+        ],
+        "t": 173,
+        "d": 1757346729,
+        "r": 33176
+      },
+      {
+        "n": "Bradford Life",
+        "u": "https://www.bradford.ac.uk/blogs/bradford-life/rss.xml",
+        "i": "Welcome to the University of Bradford 'Bradford Life' Blog.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 161,
+        "d": 1757346730,
+        "r": 33176
+      },
+      {
+        "n": "Honorary Award Community",
+        "u": "https://www.bradford.ac.uk/blogs/honorary-award-community/rss.xml",
+        "i": "Welcome to the University of Bradford 'Honorary Award Community' Blog.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 220,
+        "d": 1757346730,
+        "r": 33176
+      }
+    ],
+    "laut.de": [
+      {
+        "u": "https://laut.de/_feeds/news/rss",
+        "ns": [],
+        "t": null,
+        "d": 1757346740,
+        "r": 33191
+      },
+      {
+        "u": "https://laut.de/_feeds/alben/rss",
+        "ns": [],
+        "t": null,
+        "d": 1757346740,
+        "r": 33191
+      },
+      {
+        "n": "News – laut.de – Täglich aktuelle Nachrichten aus der Musikwelt",
+        "u": "https://laut.de/_feeds/news/atom1.0",
+        "f": "atom",
+        "ns": [],
+        "t": 130,
+        "d": 1757346740,
+        "r": 33191
+      },
+      {
+        "n": "Alben – laut.de – Frische CD-Kritiken",
+        "u": "https://laut.de/_feeds/alben/atom1.0",
+        "f": "atom",
+        "ns": [],
+        "t": 53,
+        "d": 1757346741,
+        "r": 33191
+      }
+    ],
+    "chcf.org": [
+      {
+        "n": "California Health Care Foundation",
+        "u": "https://www.chcf.org/feed/",
+        "i": "Health Care for All Californians",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7869,
+        "d": 1757346757,
+        "r": 33200
+      }
+    ],
+    "quyluattrungveso.shop": [
+      {
+        "n": "My Blog",
+        "u": "https://quyluattrungveso.shop/feed/",
+        "i": "My WordPress Blog",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 3463,
+        "d": 1757346764,
+        "r": 33202
+      },
+      {
+        "n": "\n\tBình luận cho My Blog\t",
+        "u": "https://quyluattrungveso.shop/comments/feed/",
+        "i": "My WordPress Blog",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346765,
+        "r": 33202
+      }
+    ],
+    "tarki.hu": [
+      {
+        "n": " TÁRKI Zrt. - Érték-elkötelezett szakszerűség | Körültekintő elemzések | Megbízható adatok",
+        "u": "https://tarki.hu/rss.xml",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "dc"
+        ],
+        "t": 563,
+        "d": 1757346787,
+        "r": 33213
+      }
+    ],
+    "outdoorhub.com": [
+      {
+        "n": "OutdoorHub",
+        "u": "https://www.outdoorhub.com/feed/",
+        "i": "Outdoors and Online",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7968,
+        "d": 1757346816,
+        "r": 33227
+      },
+      {
+        "n": "\n\tComments for OutdoorHub\t",
+        "u": "https://www.outdoorhub.com/comments/feed/",
+        "i": "Outdoors and Online",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346817,
+        "r": 33227
+      }
+    ],
+    "michaelhyatt.com": [
+      {
+        "n": "Full Focus",
+        "u": "https://fullfocus.co/feed/",
+        "i": "Win at Work and Succeed at Life",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 525,
+        "d": 1757346826,
+        "r": 33232
+      }
+    ],
+    "cardiagtech.my": [
+      {
+        "n": "CARDIAGTECH",
+        "u": "https://cardiagtech.my/feed/",
+        "i": "Best Car Diagnostic|Car Repair Training Service",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 212,
+        "d": 1757346867,
+        "r": 33244
+      },
+      {
+        "n": "\n\tComments for CARDIAGTECH\t",
+        "u": "https://cardiagtech.my/comments/feed/",
+        "i": "Best Car Diagnostic|Car Repair Training Service",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346867,
+        "r": 33244
+      }
+    ],
+    "highereddive.com": [
+      {
+        "n": "Higher Ed Dive - Latest News",
+        "u": "https://www.highereddive.com/feeds/news/",
+        "i": "Higher Education News",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 315,
+        "d": 1757346889,
+        "r": 33263
+      }
+    ],
+    "honestlywtf.com": [
+      {
+        "n": "Honestly WTF",
+        "u": "https://honestlywtf.com/feed/",
+        "i": "A daily dose of fashion discoveries and inspirations, contributed by a stylist and a designer who both see the world through rose-colored shades.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 431,
+        "d": 1757346995,
+        "r": 33281
+      },
+      {
+        "n": "\n\tComments for Honestly WTF\t",
+        "u": "https://honestlywtf.com/comments/feed/",
+        "i": "A daily dose of fashion discoveries and inspirations, contributed by a stylist and a designer who both see the world through rose-colored shades.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 116,
+        "d": 1757346996,
+        "r": 33281
+      }
+    ],
+    "la-studioweb.com": [
+      {
+        "n": "LA-Studio",
+        "u": "https://la-studioweb.com/feed/",
+        "i": "We Bring Beauty to WordPress",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 6544,
+        "d": 1757346999,
+        "r": 33283
+      },
+      {
+        "n": "\n\tComments for LA-Studio\t",
+        "u": "https://la-studioweb.com/comments/feed/",
+        "i": "We Bring Beauty to WordPress",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347000,
+        "r": 33283
+      }
+    ],
+    "overclockers.com": [
+      {
+        "n": "Overclockers",
+        "u": "https://www.overclockers.com/feed/",
+        "i": "The Performance Computing Community",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "georss",
+          "geo"
+        ],
+        "t": 647,
+        "d": 1757347009,
+        "r": 33292
+      },
+      {
+        "n": "\n\tComments for Overclockers\t",
+        "u": "https://www.overclockers.com/comments/feed/",
+        "i": "The Performance Computing Community",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "georss",
+          "geo"
+        ],
+        "t": null,
+        "d": 1757347009,
+        "r": 33292
+      }
+    ],
+    "deavita.fr": [
+      {
+        "n": "Deavita.fr",
+        "u": "https://deavita.fr/feed/",
+        "i": "l'art de vivre sans effort !",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 551,
+        "d": 1757347044,
+        "r": 33315
+      },
+      {
+        "n": "\n\tComments for Deavita.fr\t",
+        "u": "https://deavita.fr/comments/feed/",
+        "i": "l'art de vivre sans effort !",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347045,
+        "r": 33315
+      }
+    ],
+    "healthyseminars.com": [
+      {
+        "n": "Healthy Seminars",
+        "u": "https://healthyseminars.com/rss.xml",
+        "i": "Professional Development CEU's for Chinese Medicine and Acupuncture Practitioners (online and live webinar courses)",
+        "f": "rss2.0",
+        "ns": [
+          "dc"
+        ],
+        "t": 739,
+        "d": 1757347047,
+        "r": 33316
+      }
+    ],
+    "visitseattle.org": [
+      {
+        "n": "Visit Seattle",
+        "u": "https://visitseattle.org/feed/",
+        "i": "Your next great adventure",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 421,
+        "d": 1757347052,
+        "r": 33321
+      },
+      {
+        "n": "\n\tComments for Visit Seattle\t",
+        "u": "https://visitseattle.org/comments/feed/",
+        "i": "Your next great adventure",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 283,
+        "d": 1757347053,
+        "r": 33321
+      }
+    ],
+    "dailywritingtips.com": [
+      {
+        "n": "DAILY WRITING TIPS",
+        "u": "https://www.dailywritingtips.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 23276,
+        "d": 1757347062,
+        "r": 33328
+      },
+      {
+        "n": "\n\tComments for DAILY WRITING TIPS\t",
+        "u": "https://www.dailywritingtips.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 389,
+        "d": 1757347062,
+        "r": 33328
+      }
+    ],
+    "kobv.de": [
+      {
+        "n": "KOBV",
+        "u": "https://www.kobv.de/feed/",
+        "i": "Kooperativer Bibliotheksverbund Berlin-Brandenburg",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 345,
+        "d": 1757347072,
+        "r": 33331
+      },
+      {
+        "n": "\n\tKommentare für KOBV\t",
+        "u": "https://www.kobv.de/comments/feed/",
+        "i": "Kooperativer Bibliotheksverbund Berlin-Brandenburg",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347072,
+        "r": 33331
+      }
+    ],
+    "pixolv.com": [
+      {
+        "n": "Pixolv SEO Audit Agency",
+        "u": "https://pixolv.com/feed/",
+        "i": "SEO Audit Agency",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 10821,
+        "d": 1757347077,
+        "r": 33333
+      },
+      {
+        "n": "\n\tComments for Pixolv SEO Audit Agency\t",
+        "u": "https://pixolv.com/comments/feed/",
+        "i": "SEO Audit Agency",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347078,
+        "r": 33333
+      }
+    ],
+    "diariocorreo.pe": [
+      {
+        "n": "Diario Correo",
+        "u": "https://diariocorreo.pe/arcio/rss/",
+        "i": "Diario Correo News Feed",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "content",
+          "dc",
+          "sy",
+          "media"
+        ],
+        "t": 3424,
+        "d": 1757347105,
+        "r": 33353
+      }
+    ],
+    "hosteltur.com": [
+      {
+        "n": "Hosteltur Edición España",
+        "u": "https://www.hosteltur.com/feed",
+        "i": "Hosteltur Edición España | Portal líder en español de noticias de turismo. Conozca toda la información y noticias turísticas en la edición digital de Hosteltur.",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc"
+        ],
+        "t": 3685,
+        "d": 1757347108,
+        "r": 33355
+      },
+      {
+        "n": "Hoteles y Alojamientos en Hosteltur edición España",
+        "u": "https://www.hosteltur.com/feed/hoteles-y-alojamientos",
+        "i": "Hoteles y Alojamientos en Hosteltur edición España | Portal líder en español de noticias de turismo. Conozca toda la información y noticias turísticas en la edición digital de Hosteltur.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4777,
+        "d": 1757347109,
+        "r": 33355
+      },
+      {
+        "n": "Distribución en Hosteltur edición España",
+        "u": "https://www.hosteltur.com/feed/distribucion",
+        "i": "Distribución en Hosteltur edición España | Portal líder en español de noticias de turismo. Conozca toda la información y noticias turísticas en la edición digital de Hosteltur.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4777,
+        "d": 1757347109,
+        "r": 33355
+      },
+      {
+        "n": "Economía en Hosteltur edición España",
+        "u": "https://www.hosteltur.com/feed/economia",
+        "i": "Economía en Hosteltur edición España | Portal líder en español de noticias de turismo. Conozca toda la información y noticias turísticas en la edición digital de Hosteltur.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4777,
+        "d": 1757347110,
+        "r": 33355
+      },
+      {
+        "n": "Turismo sostenible",
+        "u": "https://www.hosteltur.com/feed/tag/turismo-sostenible",
+        "i": "Turismo sostenible | Portal líder en español de noticias de turismo. Conozca toda la información y noticias turísticas en la edición digital de Hosteltur.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7529,
+        "d": 1757347112,
+        "r": 33355
+      },
+      {
+        "n": "Transportes en Hosteltur edición España",
+        "u": "https://www.hosteltur.com/feed/transportes",
+        "i": "Transportes en Hosteltur edición España | Portal líder en español de noticias de turismo. Conozca toda la información y noticias turísticas en la edición digital de Hosteltur.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4777,
+        "d": 1757347113,
+        "r": 33355
+      },
+      {
+        "n": "concurso Imserso",
+        "u": "https://www.hosteltur.com/feed/tag/concurso-imserso",
+        "i": "concurso Imserso | Portal líder en español de noticias de turismo. Conozca toda la información y noticias turísticas en la edición digital de Hosteltur.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7529,
+        "d": 1757347114,
+        "r": 33355
+      }
+    ],
+    "d-dub.com": [
+      {
+        "n": "D-Dub Software",
+        "u": "https://www.d-dub.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2108,
+        "d": 1757347122,
+        "r": 33361
+      },
+      {
+        "n": "\n\tComments for D-Dub Software\t",
+        "u": "https://www.d-dub.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 101,
+        "d": 1757347122,
+        "r": 33361
+      }
+    ],
+    "domainsherpa.com": [
+      {
+        "n": "DomainSherpaDomainSherpa - Community News",
+        "u": "https://domainsherpa.com/feed/community-news.rss",
+        "i": "The Domain Name Authority",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 343,
+        "d": 1757347126,
+        "r": 33367
+      }
+    ],
+    "dressforthewedding.com": [
+      {
+        "n": "Dress for the Wedding",
+        "u": "https://www.dressforthewedding.com/feed/",
+        "i": "Dresses for wedding guests, brides, bridesmaids, and mothers | Wedding party attire",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 622,
+        "d": 1757347159,
+        "r": 33382
+      },
+      {
+        "n": "\n\tComments for Dress for the Wedding\t",
+        "u": "https://www.dressforthewedding.com/comments/feed/",
+        "i": "Dresses for wedding guests, brides, bridesmaids, and mothers | Wedding party attire",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 106,
+        "d": 1757347159,
+        "r": 33382
+      }
+    ],
+    "bnonews.com": [
+      {
+        "n": "BNO News",
+        "u": "https://bnonews.com/index.php/feed/",
+        "i": "Breaking news and developing stories from the U.S. and around the world",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2117,
+        "d": 1757347164,
+        "r": 33384
+      },
+      {
+        "n": "\n\tComments for BNO News\t",
+        "u": "https://bnonews.com/index.php/comments/feed/",
+        "i": "Breaking news and developing stories from the U.S. and around the world",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347164,
+        "r": 33384
+      }
+    ],
+    "ecotextile.com": [
+      {
+        "n": "Ecotextile News",
+        "u": "https://www.ecotextile.com/feed/",
+        "i": "The Environmental Magazine for Global Textile and Fashion Supply Chains",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 418,
+        "d": 1757347201,
+        "r": 33403
+      },
+      {
+        "n": "\n\tComments for Ecotextile News\t",
+        "u": "https://www.ecotextile.com/comments/feed/",
+        "i": "The Environmental Magazine for Global Textile and Fashion Supply Chains",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347203,
+        "r": 33403
+      }
+    ],
+    "niagaraparks.com": [
+      {
+        "n": "Niagara Parks",
+        "u": "https://www.niagaraparks.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347213,
+        "r": 33406
+      }
+    ],
+    "indexrise.com": [
+      {
+        "n": "IndexRise.com",
+        "u": "https://www.indexrise.com/feed/",
+        "i": "Digital Marketing Services",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347289,
+        "r": 33411
+      },
+      {
+        "n": "\n\tComments for IndexRise.com\t",
+        "u": "https://www.indexrise.com/comments/feed/",
+        "i": "Digital Marketing Services",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347297,
+        "r": 33411
+      }
+    ],
+    "bemyeyes.com": [
+      {
+        "n": "Be My Eyes",
+        "u": "https://www.bemyeyes.com/feed/",
+        "i": "Let’s see the world together",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 5351,
+        "d": 1757347298,
+        "r": 33413
+      },
+      {
+        "n": "\n\tComments for Be My Eyes\t",
+        "u": "https://www.bemyeyes.com/comments/feed/",
+        "i": "Let’s see the world together",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347299,
+        "r": 33413
+      }
+    ],
+    "dlvr.it": [
+      {
+        "n": "dlvr.it",
+        "u": "https://dlvrit.com/feed/",
+        "i": "Smart Social Media Automation",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347302,
+        "r": 33416
+      },
+      {
+        "n": "\n\tComments for dlvr.it\t",
+        "u": "https://dlvrit.com/comments/feed/",
+        "i": "Smart Social Media Automation",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347303,
+        "r": 33416
+      }
+    ],
+    "cammatch.io": [
+      {
+        "n": "Cam Match",
+        "u": "https://cammatch.io/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 17943,
+        "d": 1757347305,
+        "r": 33418
+      },
+      {
+        "n": "\n\tComments for Cam Match\t",
+        "u": "https://cammatch.io/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347306,
+        "r": 33418
+      },
+      {
+        "n": "\n\tComments on: Home\t",
+        "u": "https://cammatch.io/home/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347306,
+        "r": 33418
+      }
+    ],
+    "sat.services": [
+      {
+        "n": "Sat Services",
+        "u": "https://sat.services/feed/",
+        "i": "Sat Services",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": null,
+        "d": 1757347307,
+        "r": 33419
+      },
+      {
+        "n": "\n\tComentarios en Sat Services\t",
+        "u": "https://sat.services/comments/feed/",
+        "i": "Sat Services",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": null,
+        "d": 1757347307,
+        "r": 33419
+      },
+      {
+        "n": "\n\tComentarios en: INICIO\t",
+        "u": "https://sat.services/sample-page/feed/",
+        "i": "Sat Services",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": null,
+        "d": 1757347307,
+        "r": 33419
+      }
+    ],
+    "slamdunk.shop": [
+      {
+        "n": "Slamdunk.Shop",
+        "u": "https://slamdunk.shop/feed/",
+        "i": "Сервис поиска и доставки спортивных товаров",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 16186,
+        "d": 1757347310,
+        "r": 33423
+      },
+      {
+        "n": "\n\tКомментарии на сайте Slamdunk.Shop\t",
+        "u": "https://slamdunk.shop/comments/feed/",
+        "i": "Сервис поиска и доставки спортивных товаров",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 59,
+        "d": 1757347311,
+        "r": 33423
+      }
+    ],
+    "invenglobal.com": [
+      {
+        "n": "Inven Global",
+        "u": "https://www.invenglobal.com/feed/atom",
+        "f": "atom",
+        "ns": [],
+        "t": 202,
+        "d": 1757347325,
+        "r": 33427
+      }
+    ],
+    "worldsoccertalk.com": [
+      {
+        "n": "World Soccer Talk",
+        "u": "https://worldsoccertalk.com/rss/feed",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "media",
+          "atom",
+          "georss",
+          "sy"
+        ],
+        "t": 4903,
+        "d": 1757347360,
+        "r": 33431
+      },
+      {
+        "n": "World Soccer Talk",
+        "u": "https://worldsoccertalk.com/rss/feed",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "media",
+          "atom",
+          "georss",
+          "sy"
+        ],
+        "t": 4903,
+        "d": 1757347369,
+        "r": 33431
+      }
+    ],
+    "gry-online.pl": [
+      {
+        "n": "GRY-OnLine Newsroom",
+        "u": "https://www.gry-online.pl/rss/news.xml",
+        "i": "Newsroom GRY-OnLine to wiadomości, wideo, analizy, raporty, zestawienia i informacje prasowe na temat gier komputerowych i konsolowych, technologii, filmów i seriali.",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc",
+          "media",
+          "content"
+        ],
+        "t": 618,
+        "d": 1757347472,
+        "r": 33463
+      }
+    ],
+    "abtasty.com": [
+      {
+        "n": "abtasty",
+        "u": "https://www.abtasty.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 12724,
+        "d": 1757347493,
+        "r": 33468
+      }
+    ],
+    "paulcraigroberts.org": [
+      {
+        "n": "PaulCraigRoberts.org",
+        "u": "https://www.paulcraigroberts.org/feed/",
+        "i": "Institute for Political Economy",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1479,
+        "d": 1757347498,
+        "r": 33470
+      },
+      {
+        "n": "\n\tComments for PaulCraigRoberts.org\t",
+        "u": "https://www.paulcraigroberts.org/comments/feed/",
+        "i": "Institute for Political Economy",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 128,
+        "d": 1757347498,
+        "r": 33470
+      }
+    ],
+    "wpath.org": [
+      {
+        "n": "WPATH",
+        "u": "https://wpath.org/feed/",
+        "i": "World Professional Association for Transgender Health",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 310,
+        "d": 1757347533,
+        "r": 33494
+      },
+      {
+        "n": "\n\tComments for WPATH\t",
+        "u": "https://wpath.org/comments/feed/",
+        "i": "World Professional Association for Transgender Health",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347533,
+        "r": 33494
+      }
+    ],
+    "precisely.com": [
+      {
+        "n": "Precisely",
+        "u": "https://www.precisely.com/feed/",
+        "i": "Your data is meant to be loved",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7503,
+        "d": 1757347551,
+        "r": 33500
+      },
+      {
+        "n": "\n\tComments for Precisely\t",
+        "u": "https://www.precisely.com/comments/feed/",
+        "i": "Your data is meant to be loved",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347553,
+        "r": 33500
+      }
+    ],
+    "iot-analytics.com": [
+      {
+        "n": "IoT Analytics",
+        "u": "https://iot-analytics.com/feed/",
+        "i": "Your Global IoT Market Research Partner",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1345,
+        "d": 1757347555,
+        "r": 33501
+      },
+      {
+        "n": "\n\tComments for IoT Analytics\t",
+        "u": "https://iot-analytics.com/comments/feed/",
+        "i": "Your Global IoT Market Research Partner",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347556,
+        "r": 33501
+      }
+    ],
+    "wusf.org": [
+      {
+        "n": "WUSF Public Media | Your Tampa NPR Station - Local News And Information",
+        "u": "https://www.wusf.org/index.rss",
+        "i": "WUSF: WUSF 89.7 is an NPR affiliate in the greater Tampa Bay area and source for news, health, education, politics, the environment, and other information.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757347577,
+        "r": 33520
+      }
+    ],
+    "pittsburghmagazine.com": [
+      {
+        "n": "Pittsburgh Magazine",
+        "u": "https://www.pittsburghmagazine.com/feed/",
+        "i": "Pittsburgh Magazine: Restaurants, Best of, Entertainment, Doctors, Sports, Weddings",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8179,
+        "d": 1757347584,
+        "r": 33525
+      }
+    ],
+    "mosquitto.org": [
+      {
+        "u": "https://mosquitto.org//rss.xml",
+        "ns": [
+          "dc",
+          "atom"
+        ],
+        "t": null,
+        "d": 1757347593,
+        "r": 33537
+      }
+    ],
+    "gola.co.uk": [
+      {
+        "n": " from Gola Online",
+        "u": "https://www.gola.co.uk/rss/latest_products/en",
+        "i": "The Latest products from Gola Online",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 435,
+        "d": 1757347616,
+        "r": 33548
+      }
+    ],
+    "turnto23.com": [
+      {
+        "n": "Homepage",
+        "u": "https://www.turnto23.com/index.rss",
+        "i": "Homepage",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "content"
+        ],
+        "t": 3878,
+        "d": 1757347621,
+        "r": 33552
+      }
+    ],
+    "sanbi.org": [
+      {
+        "n": "SANBI",
+        "u": "https://www.sanbi.org/feed/",
+        "i": "Biodiversity of life",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 388,
+        "d": 1757347630,
+        "r": 33557
+      },
+      {
+        "n": "\n\tComments for SANBI\t",
+        "u": "https://www.sanbi.org/comments/feed/",
+        "i": "Biodiversity of life",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347630,
+        "r": 33557
+      }
+    ],
+    "getdroidtips.com": [
+      {
+        "n": "Get Droid Tips",
+        "u": "https://www.getdroidtips.com/feed/",
+        "i": "Custom ROM | Firmware Flash File | Android APK | MIUI | Stock ROM",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 555,
+        "d": 1757347632,
+        "r": 33558
+      },
+      {
+        "n": "\n\tComments for Get Droid Tips\t",
+        "u": "https://www.getdroidtips.com/comments/feed/",
+        "i": "Custom ROM | Firmware Flash File | Android APK | MIUI | Stock ROM",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 228,
+        "d": 1757347632,
+        "r": 33558
+      }
+    ],
+    "grocerydive.com": [
+      {
+        "n": "Grocery Dive - Latest News",
+        "u": "https://www.grocerydive.com/feeds/news/",
+        "i": "Grocery news",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 347,
+        "d": 1757347634,
+        "r": 33559
+      }
+    ],
+    "technews.tw": [
+      {
+        "n": "TechNews 科技新報",
+        "u": "https://technews.tw/feed/",
+        "i": "市場和業內人士關心的趨勢、內幕與新聞",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 65,
+        "d": 1757347639,
+        "r": 33560
+      },
+      {
+        "n": "「TechNews 科技新報」的迴響",
+        "u": "https://technews.tw/comments/feed/",
+        "i": "市場和業內人士關心的趨勢、內幕與新聞",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 219,
+        "d": 1757347640,
+        "r": 33560
+      }
+    ],
+    "startup.info": [
+      {
+        "n": "Startup Info",
+        "u": "https://startup.info/feed/",
+        "i": "Startups & Innovation Collaborative Magazine",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 224,
+        "d": 1757347659,
+        "r": 33562
+      },
+      {
+        "n": "\n\tComments for Startup Info\t",
+        "u": "https://startup.info/comments/feed/",
+        "i": "Startups & Innovation Collaborative Magazine",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 202,
+        "d": 1757347659,
+        "r": 33562
+      }
+    ],
+    "hkedcity.net": [
+      {
+        "n": "香港教育城",
+        "u": "https://www.edcity.hk/home/zh-hant/feed/",
+        "i": "香港教育城",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347667,
+        "r": 33563
+      },
+      {
+        "n": "\n\tComments for 香港教育城\t",
+        "u": "https://www.edcity.hk/home/zh-hant/comments/feed/",
+        "i": "香港教育城",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347667,
+        "r": 33563
+      }
+    ],
+    "ilm.com": [
+      {
+        "n": "Industrial Light & Magic",
+        "u": "https://www.ilm.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 22057,
+        "d": 1757347710,
+        "r": 33595
+      },
+      {
+        "n": "\n\tComments for Industrial Light & Magic\t",
+        "u": "https://www.ilm.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347711,
+        "r": 33595
+      },
+      {
+        "n": "\n\tComments on: Home\t",
+        "u": "https://www.ilm.com/home/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347711,
+        "r": 33595
+      }
+    ],
+    "hardwaretimes.com": [
+      {
+        "n": "Hardware Times",
+        "u": "https://hardwaretimes.com/feed/",
+        "i": "It Just Works!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8390,
+        "d": 1757347712,
+        "r": 33596
+      },
+      {
+        "n": "\n\tComments for Hardware Times\t",
+        "u": "https://hardwaretimes.com/comments/feed/",
+        "i": "It Just Works!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347713,
+        "r": 33596
+      }
+    ],
+    "religiondispatches.org": [
+      {
+        "n": "Religion Dispatches",
+        "u": "https://religiondispatches.org/feed/",
+        "i": "Religion Dispatches",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 96,
+        "d": 1757347713,
+        "r": 33597
+      }
+    ],
+    "techsupportalert.com": [
+      {
+        "n": "Techsupportalert",
+        "u": "https://www.techsupportalert.com/feed/",
+        "i": "Techsupportalert",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 5371,
+        "d": 1757347728,
+        "r": 33604
+      }
+    ],
+    "wheelbase.co.uk": [
+      {
+        "n": "Wheelbase",
+        "u": "https://www.wheelbase.co.uk/feed/",
+        "i": "The UK's Largest Cycle Store",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 562,
+        "d": 1757347778,
+        "r": 33627
+      },
+      {
+        "n": "\n\tComments for Wheelbase\t",
+        "u": "https://www.wheelbase.co.uk/comments/feed/",
+        "i": "The UK's Largest Cycle Store",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347780,
+        "r": 33627
+      }
+    ],
+    "iproup.com": [
+      {
+        "n": "iProUp.com - Últimas noticias sobre economía digital, criptomonedas, bitcoin, ethereum, dólar cripto, inversiones, billeteras digitales, economía del conocimiento, trabajo, emprendimientos, comercio electrónico e industria 4.0 ",
+        "u": "https://www.iproup.com/rss/home",
+        "i": "Últimas noticias sobre economía digital, criptomonedas, bitcoin, ethereum, dólar cripto, inversiones, billeteras digitales, economía del conocimiento, trabajo, emprendimientos, comercio electrónico e industria 4.0",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 2057,
+        "d": 1757347782,
+        "r": 33630
+      }
+    ],
+    "softgarden.io": [
+      {
+        "n": "softgarden",
+        "u": "https://softgarden.com/de/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 6877,
+        "d": 1757347790,
+        "r": 33636
+      },
+      {
+        "n": "\n\tKommentare für softgarden\t",
+        "u": "https://softgarden.com/de/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 587,
+        "d": 1757347790,
+        "r": 33636
+      }
+    ],
+    "bedetheque.com": [
+      {
+        "n": "BD Gest'",
+        "u": "https://www.bdgest.com/rss",
+        "i": "L'actualite BD du site www.bdgest.com",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 1104,
+        "d": 1757347792,
+        "r": 33637
+      }
+    ],
+    "metroweekly.com": [
+      {
+        "n": "Metro Weekly",
+        "u": "https://www.metroweekly.com/feed/",
+        "i": "LGBTQ news, arts, politics, culture and nightlife",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 428,
+        "d": 1757347794,
+        "r": 33638
+      },
+      {
+        "n": "Metro Weekly",
+        "u": "https://www.metroweekly.com/feed/rss/",
+        "i": "LGBTQ news, arts, politics, culture and nightlife",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 428,
+        "d": 1757347796,
+        "r": 33638
+      },
+      {
+        "n": "Metro Weekly",
+        "u": "https://www.metroweekly.com/feed/atom/",
+        "f": "atom",
+        "ns": [
+          "thr"
+        ],
+        "t": 428,
+        "d": 1757347796,
+        "r": 33638
+      },
+      {
+        "n": "Metro Weekly",
+        "u": "https://www.metroweekly.com/feed/",
+        "i": "LGBTQ news, arts, politics, culture and nightlife",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 428,
+        "d": 1757347797,
+        "r": 33638
+      },
+      {
+        "n": "\n\tComments for Metro Weekly\t",
+        "u": "https://www.metroweekly.com/comments/feed/",
+        "i": "LGBTQ news, arts, politics, culture and nightlife",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 212,
+        "d": 1757347797,
+        "r": 33638
+      }
+    ],
+    "iditarod.com": [
+      {
+        "n": "Iditarod",
+        "u": "https://iditarod.com/feed/",
+        "i": "Last Great Race on Earth®",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7382,
+        "d": 1757347800,
+        "r": 33640
+      },
+      {
+        "n": "\n\tComments for Iditarod\t",
+        "u": "https://iditarod.com/comments/feed/",
+        "i": "Last Great Race on Earth®",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 319,
+        "d": 1757347801,
+        "r": 33640
+      }
+    ],
+    "flashusdt.co": [
+      {
+        "n": "USDT FLASH SOFTWARE SENDER",
+        "u": "https://flashusdt.co/feed/",
+        "i": "FLASH USDT SOFTWARE 2025",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 42297,
+        "d": 1757347808,
+        "r": 33647
+      },
+      {
+        "n": "\n\tComments for USDT FLASH SOFTWARE SENDER\t",
+        "u": "https://flashusdt.co/comments/feed/",
+        "i": "FLASH USDT SOFTWARE 2025",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347811,
+        "r": 33647
+      }
+    ],
+    "cowboysindians.com": [
+      {
+        "n": "\n\tComments on: Home\t",
+        "u": "https://www.cowboysindians.com/home/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347829,
+        "r": 33659
+      }
+    ],
+    "backpackinglight.com": [
+      {
+        "n": "Backpacking Light",
+        "u": "https://backpackinglight.com/feed/",
+        "i": "Pack less. Be more.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 465,
+        "d": 1757347834,
+        "r": 33660
+      },
+      {
+        "n": "\n\tComments for Backpacking Light\t",
+        "u": "https://backpackinglight.com/comments/feed/",
+        "i": "Pack less. Be more.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 49,
+        "d": 1757347835,
+        "r": 33660
+      }
+    ],
+    "psyche.co": [
+      {
+        "n": "Psyche | Know Your Self",
+        "u": "https://psyche.co/feed.rss",
+        "i": "Psyche is a magazine to help you understand your self and live well. Discover articles and videos on emotions, mental health, spirituality, relationships and community.",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc"
+        ],
+        "t": 635,
+        "d": 1757347840,
+        "r": 33666
+      },
+      {
+        "n": "Psyche | Know Your Self",
+        "u": "https://psyche.co/feed.atom",
+        "f": "atom",
+        "ns": [
+          "foaf",
+          "rdf",
+          "rdfs"
+        ],
+        "t": 0,
+        "d": 1757347840,
+        "r": 33666
+      }
+    ],
+    "digitalagencynetwork.com": [
+      {
+        "n": "Digital Agency Network",
+        "u": "https://digitalagencynetwork.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 628,
+        "d": 1757347845,
+        "r": 33668
+      }
+    ],
+    "whittierdailynews.com": [
+      {
+        "n": "Whittier Daily News",
+        "u": "https://www.whittierdailynews.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media",
+          "dcterms"
+        ],
+        "t": 6354,
+        "d": 1757347852,
+        "r": 33673
+      },
+      {
+        "n": "\n\tComments for Whittier Daily News\t",
+        "u": "https://www.whittierdailynews.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media",
+          "dcterms"
+        ],
+        "t": null,
+        "d": 1757347852,
+        "r": 33673
+      }
+    ],
+    "discerningcyclist.com": [
+      {
+        "n": "Discerning Cyclist",
+        "u": "https://discerningcyclist.com/feed/",
+        "i": "Cycling in Style",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 18021,
+        "d": 1757347873,
+        "r": 33684
+      },
+      {
+        "n": "\n\tComments for Discerning Cyclist\t",
+        "u": "https://discerningcyclist.com/comments/feed/",
+        "i": "Cycling in Style",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 493,
+        "d": 1757347873,
+        "r": 33684
+      },
+      {
+        "n": "Cycling Stories",
+        "u": "https://discerningcyclist.com/stories/feed/",
+        "i": "Cycling in Style",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 43882,
+        "d": 1757347874,
+        "r": 33684
+      }
+    ],
+    "surfacemag.com": [
+      {
+        "n": "SURFACE",
+        "u": "https://surfacemag.com/feed",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 366,
+        "d": 1757347916,
+        "r": 33697
+      }
+    ],
+    "spreadprivacy.com": [
+      {
+        "n": "Spread Privacy",
+        "u": "https://spreadprivacy.com/rss/",
+        "i": "The Official DuckDuckGo Blog",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom",
+          "media"
+        ],
+        "t": 14778,
+        "d": 1757347927,
+        "r": 33705
+      }
+    ],
+    "sportraffic.com": [
+      {
+        "n": "SporTraffic.com",
+        "u": "https://sportraffic.com/feed/",
+        "i": "Volleyball and Beach Volleyball Equipment | SporTraffic.Com",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 12993,
+        "d": 1757347965,
+        "r": 33727
+      }
+    ],
+    "spectrumnews.org": [
+      {
+        "n": "Spectrum – The Transmitter",
+        "u": "https://www.thetransmitter.org/./spectrum/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 117,
+        "d": 1757347990,
+        "r": 33739
+      }
+    ],
+    "hoodmwr.com": [
+      {
+        "n": "Hood MWR",
+        "u": "https://www.hoodmwr.com/feed/",
+        "i": "My World Ranker",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 39738,
+        "d": 1757348003,
+        "r": 33743
+      },
+      {
+        "n": "\n\tComments for Hood MWR\t",
+        "u": "https://www.hoodmwr.com/comments/feed/",
+        "i": "My World Ranker",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348003,
+        "r": 33743
+      }
+    ],
+    "watchesprime.com": [
+      {
+        "n": "Watches Prime",
+        "u": "https://watchesprime.com/feed/",
+        "i": "Best watches in Egypt !",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757348039,
+        "r": 33764
+      },
+      {
+        "n": "\n\tComments for Watches Prime\t",
+        "u": "https://watchesprime.com/comments/feed/",
+        "i": "Best watches in Egypt !",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348039,
+        "r": 33764
+      }
+    ],
+    "russianmachineneverbreaks.com": [
+      {
+        "n": "RMNB",
+        "u": "https://russianmachineneverbreaks.com/feed/",
+        "i": "The relentlessly fun hockey site, hopelessly devoted to the Washington Capitals and Alex Ovechkin. Our goal is to make hockey as fun to read about as it is to watch.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8552,
+        "d": 1757348043,
+        "r": 33767
+      },
+      {
+        "n": "\n\tComments for RMNB\t",
+        "u": "https://russianmachineneverbreaks.com/comments/feed/",
+        "i": "The relentlessly fun hockey site, hopelessly devoted to the Washington Capitals and Alex Ovechkin. Our goal is to make hockey as fun to read about as it is to watch.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 226,
+        "d": 1757348044,
+        "r": 33767
+      },
+      {
+        "n": "\n\tComments on: RMNB\t",
+        "u": "https://russianmachineneverbreaks.com/rmnb/feed/",
+        "i": "The relentlessly fun hockey site, hopelessly devoted to the Washington Capitals and Alex Ovechkin. Our goal is to make hockey as fun to read about as it is to watch.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348044,
+        "r": 33767
+      }
+    ],
+    "12go.asia": [
+      {
+        "n": "Transit in Asia (12go)",
+        "u": "https://12go.asia/rss.xml",
+        "i": "Public transportation updates over the ASEAN region",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1008,
+        "d": 1757348049,
+        "r": 33769
+      }
+    ],
+    "toptenz.net": [
+      {
+        "n": "Toptenz.net",
+        "u": "https://www.toptenz.net/feed",
+        "i": "Feed your brain",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1103,
+        "d": 1757348078,
+        "r": 33782
+      },
+      {
+        "n": "\n\tComments for Toptenz.net\t",
+        "u": "https://www.toptenz.net/comments/feed",
+        "i": "Feed your brain",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 375,
+        "d": 1757348078,
+        "r": 33782
+      }
+    ],
+    "hihostels.com": [
+      {
+        "n": "Hostelling International",
+        "u": "https://hihostels.com/feed/",
+        "i": "Discover the real hostel experience",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 5637,
+        "d": 1757348084,
+        "r": 33787
+      }
+    ],
+    "meagansmoda.com": [
+      {
+        "n": "Meagan's Moda",
+        "u": "https://www.meagansmoda.com/feed/",
+        "i": "Style for the Seasons",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 19990,
+        "d": 1757348149,
+        "r": 33807
+      },
+      {
+        "n": "\n\tComments for Meagan's Moda\t",
+        "u": "https://www.meagansmoda.com/comments/feed/",
+        "i": "Style for the Seasons",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 152,
+        "d": 1757348151,
+        "r": 33807
+      }
+    ],
+    "midwestliving.com": [
+      {
+        "n": "Midwest Living | Midwestern living, travel, food, & home",
+        "u": "https://feeds-api.dotdashmeredith.com/v1/rss/google/897be986-3713-4fb3-904f-8dfc4cdba23d",
+        "i": "Latest Midwest Living Articles and Recipes",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "dcterms",
+          "content",
+          "atom",
+          "media"
+        ],
+        "t": 138,
+        "d": 1757348168,
+        "r": 33813
+      }
+    ],
+    "towleroad.com": [
+      {
+        "n": "Towleroad Gay News",
+        "u": "https://www.towleroad.com/feed/",
+        "i": "Gay Blog Towleroad: More than gay news | gay men",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 2846,
+        "d": 1757348180,
+        "r": 33818
+      },
+      {
+        "n": "\n\tComments for Towleroad Gay News\t",
+        "u": "https://www.towleroad.com/comments/feed/",
+        "i": "Gay Blog Towleroad: More than gay news | gay men",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": null,
+        "d": 1757348180,
+        "r": 33818
+      }
+    ],
+    "worktribe.com": [
+      {
+        "n": "Worktribe",
+        "u": "https://www.worktribe.com/feed/",
+        "i": "Research and Curriculum Management Software for HE",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7336,
+        "d": 1757348190,
+        "r": 33824
+      },
+      {
+        "n": "\n\tComments for Worktribe\t",
+        "u": "https://www.worktribe.com/comments/feed/",
+        "i": "Research and Curriculum Management Software for HE",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348190,
+        "r": 33824
+      }
+    ],
+    "labiotech.eu": [
+      {
+        "n": "Labiotech.eu",
+        "u": "https://www.labiotech.eu/feed/",
+        "i": "The European Biotech News Website",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 754,
+        "d": 1757348199,
+        "r": 33830
+      },
+      {
+        "n": "\n\tComments for Labiotech.eu\t",
+        "u": "https://www.labiotech.eu/comments/feed/",
+        "i": "The European Biotech News Website",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 214,
+        "d": 1757348199,
+        "r": 33830
+      }
+    ],
+    "defence-ua.com": [
+      {
+        "n": "Defense Express",
+        "u": "https://defence-ua.com/rss/feed.xml",
+        "i": "Людина, Техніка та Технології на варті країни.",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 148,
+        "d": 1757348224,
+        "r": 33849
+      }
+    ],
+    "slamonline.com": [
+      {
+        "n": "SLAM",
+        "u": "https://www.slamonline.com/feed/",
+        "i": "Respect the Game.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8957,
+        "d": 1757348259,
+        "r": 33855
+      },
+      {
+        "n": "\n\tComments for SLAM\t",
+        "u": "https://www.slamonline.com/comments/feed/",
+        "i": "Respect the Game.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 72,
+        "d": 1757348263,
+        "r": 33855
+      }
+    ],
+    "yourarticlelibrary.com": [
+      {
+        "n": "Your Article Library",
+        "u": "https://www.yourarticlelibrary.com/feed",
+        "i": "The Next Generation Library",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 134099,
+        "d": 1757348271,
+        "r": 33863
+      }
+    ],
+    "londonlovesbusiness.com": [
+      {
+        "n": "London Business News | Londonlovesbusiness.com",
+        "u": "https://londonlovesbusiness.com/feed/",
+        "i": "Business News",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2711,
+        "d": 1757348326,
+        "r": 33896
+      },
+      {
+        "n": "London Business News | Londonlovesbusiness.com",
+        "u": "https://londonlovesbusiness.com/feed/atom/",
+        "f": "atom",
+        "ns": [
+          "thr"
+        ],
+        "t": 2711,
+        "d": 1757348326,
+        "r": 33896
+      },
+      {
+        "n": "London Business News | Londonlovesbusiness.com",
+        "u": "https://londonlovesbusiness.com/feed/",
+        "i": "Business News",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2711,
+        "d": 1757348326,
+        "r": 33896
+      },
+      {
+        "n": "Stories Archive - London Business News | Londonlovesbusiness.com",
+        "u": "https://londonlovesbusiness.com/web-stories/feed/",
+        "i": "Business News",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757348327,
+        "r": 33896
+      }
+    ],
+    "luxatic.com": [
+      {
+        "n": "Luxatic",
+        "u": "https://luxatic.com/feed/",
+        "i": "Luxury Lifestyle at its Finest",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 21863,
+        "d": 1757348327,
+        "r": 33897
+      },
+      {
+        "n": "Luxatic",
+        "u": "https://luxatic.com/comments/feed/",
+        "i": "Luxury Lifestyle at its Finest",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 21863,
+        "d": 1757348328,
+        "r": 33897
+      }
+    ],
+    "thespectator.com": [
+      {
+        "n": "The Spectator World",
+        "u": "https://thespectator.com/feed/",
+        "i": "Politics, international news, life & arts from the oldest magazine in the English language.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 6155,
+        "d": 1757348333,
+        "r": 33901
+      },
+      {
+        "n": "\n\tComments for The Spectator World\t",
+        "u": "https://thespectator.com/comments/feed/",
+        "i": "Politics, international news, life & arts from the oldest magazine in the English language.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 473,
+        "d": 1757348333,
+        "r": 33901
+      }
+    ],
+    "volokh.com": [
+      {
+        "n": "The Volokh Conspiracy",
+        "u": "https://volokh.com/feed/",
+        "i": "Commentary on law, public policy, and more",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4576,
+        "d": 1757348418,
+        "r": 33906
+      },
+      {
+        "n": "\n\tComments for The Volokh Conspiracy\t",
+        "u": "https://volokh.com/comments/feed/",
+        "i": "Commentary on law, public policy, and more",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348419,
+        "r": 33906
+      }
+    ],
+    "weebls-stuff.com": [
+      {
+        "n": "Weebls Stuff",
+        "u": "https://weebls-stuff.com/feed/",
+        "i": "Animations and sillyness",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1767,
+        "d": 1757348423,
+        "r": 33911
+      },
+      {
+        "n": "\n\tComments for Weebls Stuff\t",
+        "u": "https://weebls-stuff.com/comments/feed/",
+        "i": "Animations and sillyness",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348423,
+        "r": 33911
+      }
+    ],
+    "k9ofmine.com": [
+      {
+        "n": "K9 of Mine",
+        "u": "https://www.k9ofmine.com/feed/",
+        "i": "Your Dog Care Resource For a Healthier, Happier Canine!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 586,
+        "d": 1757348459,
+        "r": 33935
+      },
+      {
+        "n": "\n\tComments for K9 of Mine\t",
+        "u": "https://www.k9ofmine.com/comments/feed/",
+        "i": "Your Dog Care Resource For a Healthier, Happier Canine!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 213,
+        "d": 1757348459,
+        "r": 33935
+      }
+    ],
+    "crypto30x.com": [
+      {
+        "n": "Crypto30x",
+        "u": "https://crypto30x.com/feed/",
+        "i": "Supercharge Your Crypto Portfolio",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 13270,
+        "d": 1757348464,
+        "r": 33940
+      },
+      {
+        "n": "\n\tComments for Crypto30x\t",
+        "u": "https://crypto30x.com/comments/feed/",
+        "i": "Supercharge Your Crypto Portfolio",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348465,
+        "r": 33940
+      }
+    ],
+    "designcouncil.org.uk": [
+      {
+        "n": "Design Council - Articles",
+        "u": "https://www.designcouncil.org.uk/our-resources/archive/articles/rss",
+        "i": "The latest Design Council Articles",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 0,
+        "d": 1757348468,
+        "r": 33942
+      },
+      {
+        "n": "Design Council - Reports & Resources",
+        "u": "https://www.designcouncil.org.uk/our-resources/archive/reports-resources/rss",
+        "i": "The latest Design Council Reports & Resources",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 0,
+        "d": 1757348468,
+        "r": 33942
+      },
+      {
+        "n": "Design Council - Our Events",
+        "u": "https://www.designcouncil.org.uk/our-events/rss",
+        "i": "The latest Design Council Our Events",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 0,
+        "d": 1757348468,
+        "r": 33942
+      },
+      {
+        "n": "Design Council - Join Us",
+        "u": "https://www.designcouncil.org.uk/who-we-are/join-us/rss",
+        "i": "The latest Design Council Join Us",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757348468,
+        "r": 33942
+      }
+    ],
+    "storeholidayhours.org": [
+      {
+        "n": "2025 Store & Mall Hours Today",
+        "u": "https://www.storeholidayhours.org/feed/",
+        "i": "Store Hours and Menus",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2634,
+        "d": 1757348479,
+        "r": 33947
+      },
+      {
+        "n": "\n\tComments for 2025 Store & Mall Hours Today\t",
+        "u": "https://www.storeholidayhours.org/comments/feed/",
+        "i": "Store Hours and Menus",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 357,
+        "d": 1757348479,
+        "r": 33947
+      },
+      {
+        "n": "\n\tComments on: 2025 Store Holiday & Mall Hours + Restaurant Menus with Prices\t",
+        "u": "https://www.storeholidayhours.org/store-holiday-hours-welcome/feed/",
+        "i": "Store Hours and Menus",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 282,
+        "d": 1757348480,
+        "r": 33947
+      }
+    ],
+    "soldiersystems.net": [
+      {
+        "n": "Soldier Systems Daily",
+        "u": "https://soldiersystems.net/feed/",
+        "i": "An Industry Daily and Tactical Gear News Blog",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 391,
+        "d": 1757348526,
+        "r": 33975
+      },
+      {
+        "n": "Soldier Systems Daily",
+        "u": "https://soldiersystems.net/feed/atom/",
+        "f": "atom",
+        "ns": [
+          "thr"
+        ],
+        "t": 391,
+        "d": 1757348526,
+        "r": 33975
+      }
+    ],
+    "radiofarda.com": [
+      {
+        "n": "Radio Free Europe / Radio Liberty",
+        "u": "https://radiofarda.com/api/",
+        "i": "Radio Free Europe / Radio Liberty is an international news organization serving Central and Eastern Europe, the Caucasus, Central Asia, Russia, the Middle East and Balkan countries",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 85,
+        "d": 1757348531,
+        "r": 33980
+      }
+    ],
+    "urlgeni.us": [
+      {
+        "n": "URLgenius Blog",
+        "u": "https://app.urlgeni.us/feed/",
+        "i": "App Deep Linking and QR Code Best Practices",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 6045,
+        "d": 1757348534,
+        "r": 33981
+      }
+    ],
+    "ducttapemarketing.com": [
+      {
+        "n": "Duct Tape Marketing",
+        "u": "https://ducttapemarketing.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "media",
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 37206,
+        "d": 1757348539,
+        "r": 33986
+      },
+      {
+        "n": "\n\tComments for Duct Tape Marketing\t",
+        "u": "https://ducttapemarketing.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "media",
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 228,
+        "d": 1757348542,
+        "r": 33986
+      }
+    ],
+    "isorepublic.com": [
+      {
+        "n": "ISO Republic",
+        "u": "https://isorepublic.com/feed/",
+        "i": "Best Free Royalty High Resolution Stock Photos & Videos",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 19853,
+        "d": 1757348552,
+        "r": 33990
+      },
+      {
+        "n": "ISO Republic",
+        "u": "https://isorepublic.com/feed/atom/",
+        "f": "atom",
+        "ns": [
+          "thr"
+        ],
+        "t": 342,
+        "d": 1757348555,
+        "r": 33990
+      },
+      {
+        "n": "ISO Republic",
+        "u": "https://isorepublic.com/feed/",
+        "i": "Best Free Royalty High Resolution Stock Photos & Videos",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 19853,
+        "d": 1757348555,
+        "r": 33990
+      },
+      {
+        "n": "\n\tComments for ISO Republic\t",
+        "u": "https://isorepublic.com/comments/feed/",
+        "i": "Best Free Royalty High Resolution Stock Photos & Videos",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348558,
+        "r": 33990
+      }
+    ],
+    "embedgooglemaps.com": [
+      {
+        "n": "Embed Google Maps",
+        "u": "https://embedgooglemaps.com/en/feed/",
+        "i": "Google Maps Website Plugin & iframe | Since 2007",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 10080,
+        "d": 1757348561,
+        "r": 33991
+      },
+      {
+        "n": "\n\tComments for Embed Google Maps\t",
+        "u": "https://embedgooglemaps.com/en/comments/feed/",
+        "i": "Google Maps Website Plugin & iframe | Since 2007",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348562,
+        "r": 33991
+      }
+    ],
+    "raindropsofsapphire.com": [
+      {
+        "n": "FORD LA FEMME",
+        "u": "https://fordlafemme.com/feed/",
+        "i": "A Luxury Fashion, Style & Beauty Blog",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 411,
+        "d": 1757346087,
+        "r": 32005
+      },
+      {
+        "n": "\n\tComments for FORD LA FEMME\t",
+        "u": "https://fordlafemme.com/comments/feed/",
+        "i": "A Luxury Fashion, Style & Beauty Blog",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 262,
+        "d": 1757346087,
+        "r": 32005
+      }
+    ],
+    "tripleseat.com": [
+      {
+        "n": "Tripleseat",
+        "u": "https://tripleseat.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 889,
+        "d": 1757346180,
+        "r": 32020
+      }
+    ],
+    "demotix.com": [
+      {
+        "n": "Demotix.com",
+        "u": "https://demotix.com/feed/",
+        "i": "Global Magazine 2024",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 635,
+        "d": 1757346196,
+        "r": 32027
+      }
+    ],
+    "infed.org": [
+      {
+        "n": "infed.org",
+        "u": "https://infed.org/dir/welcome/feed/",
+        "i": "exploring education, pedagogy and community action",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 805,
+        "d": 1757346197,
+        "r": 32028
+      },
+      {
+        "n": "\n\tComments for infed.org\t",
+        "u": "https://infed.org/dir/welcome/comments/feed/",
+        "i": "exploring education, pedagogy and community action",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346197,
+        "r": 32028
+      }
+    ],
+    "bizzbuzz.news": [
+      {
+        "n": "Latest Business News, Finance News, BSE/NSE News,  India Business News Live, Share Market & Economy News",
+        "u": "https://www.bizzbuzz.news/google_feeds.xml",
+        "i": "Business News India:  Get latest business news headlines, share market, IPO, economy. Discover Business News Headlines, Top Financial News",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "content",
+          "dc"
+        ],
+        "t": 3354,
+        "d": 1757346227,
+        "r": 32050
+      }
+    ],
+    "antiquetrader.com": [
+      {
+        "n": "Antique Trader",
+        "u": "https://www.antiquetrader.com/feed",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 5987,
+        "d": 1757346234,
+        "r": 32054
+      }
+    ],
+    "thelocal.no": [
+      {
+        "n": "The Local Norway",
+        "u": "https://feeds.thelocal.com/rss/builder/no",
+        "i": "Read the latest news and views from Norway in English",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 200,
+        "d": 1757346240,
+        "r": 32058
+      }
+    ],
+    "tdn.com": [
+      {
+        "n": "tdn.com - RSS Results of type article with keyword(s) of #topstory",
+        "u": "http://tdn.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%23topstory",
+        "i": "\n\t\ttdn.com - RSS Results\n\t\tonly for asset type(s) of article\n\t\twith keyword(s) of #topstory\n\t",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc"
+        ],
+        "t": 177,
+        "d": 1757346248,
+        "r": 32064
+      }
+    ],
+    "newslab.ru": [
+      {
+        "n": "Лаборатория новостей - Новости",
+        "u": "https://newslab.ru/news/all/rss",
+        "i": "Newslab.ru - новости Красноярска и Красноярского края: политика, экономика, культура, спорт, образование, медицина.",
+        "f": "rss2.0",
+        "ns": [
+          "a10"
+        ],
+        "t": 132,
+        "d": 1757346347,
+        "r": 32067
+      },
+      {
+        "n": "Лаборатория новостей - ",
+        "u": "https://newslab.ru/article/rss",
+        "i": "Newslab.ru - новости Красноярска и Красноярского края: политика, экономика, культура, спорт, образование, медицина.",
+        "f": "rss2.0",
+        "ns": [
+          "a10"
+        ],
+        "t": 416,
+        "d": 1757346441,
+        "r": 32067
+      }
+    ],
+    "luhg.shop": [
+      {
+        "n": "My Blog",
+        "u": "https://luhg.shop/feed/",
+        "i": "My WordPress Blog",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 262298,
+        "d": 1757346450,
+        "r": 32068
+      },
+      {
+        "n": "\n\tComments for My Blog\t",
+        "u": "https://luhg.shop/comments/feed/",
+        "i": "My WordPress Blog",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346450,
+        "r": 32068
+      }
+    ],
+    "crazyforcrust.com": [
+      {
+        "n": "Crazy for Crust",
+        "u": "https://www.crazyforcrust.com/feed/",
+        "i": "Recipes... With a Slice of Life",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 48747,
+        "d": 1757346462,
+        "r": 32086
+      },
+      {
+        "n": "\n\tComments for Crazy for Crust\t",
+        "u": "https://www.crazyforcrust.com/comments/feed/",
+        "i": "Recipes... With a Slice of Life",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 226,
+        "d": 1757346462,
+        "r": 32086
+      },
+      {
+        "n": "Stories Archive - Crazy for Crust",
+        "u": "https://www.crazyforcrust.com/web-stories/feed/",
+        "i": "Recipes... With a Slice of Life",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1539,
+        "d": 1757346462,
+        "r": 32086
+      }
+    ],
+    "elitetraveler.com": [
+      {
+        "n": "Elite Traveler",
+        "u": "https://elitetraveler.com/feed",
+        "i": "Luxury Lifestyle Magazine",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 5365,
+        "d": 1757346469,
+        "r": 32089
+      },
+      {
+        "n": "\n\tComments for Elite Traveler\t",
+        "u": "https://elitetraveler.com/comments/feed",
+        "i": "Luxury Lifestyle Magazine",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346469,
+        "r": 32089
+      }
+    ],
+    "cifor.org": [
+      {
+        "n": "CIFOR-ICRAF",
+        "u": "https://www.cifor-icraf.org/feed/",
+        "i": "Making landscapes more resilient for people and the planet",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 0,
+        "d": 1757346501,
+        "r": 32098
+      },
+      {
+        "n": "\n\tComments for CIFOR-ICRAF\t",
+        "u": "https://www.cifor-icraf.org/comments/feed/",
+        "i": "Making landscapes more resilient for people and the planet",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346502,
+        "r": 32098
+      }
+    ],
+    "elmira.es": [
+      {
+        "n": "El MIRA :: Últimas noticias",
+        "u": "https://www.elmira.es/rss/",
+        "i": "Diario de Noticias de Andalucía y Madrid, con última hora de Almería, Cádiz, Jerez, Córdoba, Granada, Huelva, Jaén, Málaga, Sevilla",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "geo",
+          "media"
+        ],
+        "t": 144,
+        "d": 1757346515,
+        "r": 32118
+      }
+    ],
+    "istio.io": [
+      {
+        "n": "Istio Blog",
+        "u": "https://istio.io/latest/blog/feed.xml",
+        "i": "Blog posts from the Istio service mesh.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 10481,
+        "d": 1757346552,
+        "r": 32136
+      },
+      {
+        "n": "Istio News",
+        "u": "https://istio.io/latest/news/feed.xml",
+        "i": "News feed for the Istio service mesh.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 16957,
+        "d": 1757346558,
+        "r": 32136
+      },
+      {
+        "n": "Istio Blog and News",
+        "u": "https://istio.io/latest/feed.xml",
+        "i": "Combined blog and news feed for the Istio service mesh.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 15211,
+        "d": 1757346567,
+        "r": 32136
+      }
+    ],
+    "haotees.com": [
+      {
+        "n": "Haotees – The most reputable clothing store",
+        "u": "https://haotees.com/feed/",
+        "i": "T-Shirt From Haotees | Catch the trend continuously",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 4429,
+        "d": 1757346678,
+        "r": 32198
+      },
+      {
+        "n": "\n\tComments for Haotees – The most reputable clothing store\t",
+        "u": "https://haotees.com/comments/feed/",
+        "i": "T-Shirt From Haotees | Catch the trend continuously",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 96,
+        "d": 1757346700,
+        "r": 32198
+      }
+    ],
+    "fitfoodiefinds.com": [
+      {
+        "n": "Fit Foodie Finds",
+        "u": "https://fitfoodiefinds.com/feed/",
+        "i": "Easy, healthy recipes for families",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1731,
+        "d": 1757346706,
+        "r": 32202
+      },
+      {
+        "n": "\n\tComments for Fit Foodie Finds\t",
+        "u": "https://fitfoodiefinds.com/comments/feed/",
+        "i": "Easy, healthy recipes for families",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 169,
+        "d": 1757346706,
+        "r": 32202
+      },
+      {
+        "n": "Stories Archive - Fit Foodie Finds",
+        "u": "https://fitfoodiefinds.com/web-stories/feed/",
+        "i": "Easy, healthy recipes for families",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2939,
+        "d": 1757346706,
+        "r": 32202
+      }
+    ],
+    "brownstone.org": [
+      {
+        "n": "Brownstone Institute",
+        "u": "https://brownstone.org/feed/",
+        "i": "Daily Economics, Policy, Public Health, Society",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 23389,
+        "d": 1757346712,
+        "r": 32206
+      }
+    ],
+    "iea.org.uk": [
+      {
+        "n": "Institute of Economic Affairs",
+        "u": "https://iea.org.uk/feed/",
+        "i": "Institute of Economic Affairs",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 12461,
+        "d": 1757346715,
+        "r": 32209
+      },
+      {
+        "n": "\n\tComments for Institute of Economic Affairs\t",
+        "u": "https://iea.org.uk/comments/feed/",
+        "i": "Institute of Economic Affairs",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 310,
+        "d": 1757346715,
+        "r": 32209
+      }
+    ],
+    "i4u.com": [
+      {
+        "n": "I4U.COM",
+        "u": "https://i4u.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": null,
+        "d": 1757346721,
+        "r": 32211
+      },
+      {
+        "n": "\n\tComments for I4U.COM\t",
+        "u": "https://i4u.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": null,
+        "d": 1757346722,
+        "r": 32211
+      }
+    ],
+    "24.kg": [
+      {
+        "n": "Ошские события",
+        "u": "https://24.kg/oshskie_sobytija/rss/",
+        "i": "Ошские события",
+        "f": "rss2.0",
+        "ns": [],
+        "t": null,
+        "d": 1757346785,
+        "r": 32248
+      },
+      {
+        "n": "Выборы",
+        "u": "https://24.kg/vybory/rss/",
+        "i": "Выборы",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 184,
+        "d": 1757346787,
+        "r": 32248
+      },
+      {
+        "n": "Политика",
+        "u": "https://24.kg/politika/rss/",
+        "i": "Политика",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 200,
+        "d": 1757346790,
+        "r": 32248
+      },
+      {
+        "n": "Парламент",
+        "u": "https://24.kg/parlament/rss/",
+        "i": "Парламент",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 200,
+        "d": 1757346792,
+        "r": 32248
+      },
+      {
+        "n": "Экономика",
+        "u": "https://24.kg/ekonomika/rss/",
+        "i": "Экономика",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 255,
+        "d": 1757346794,
+        "r": 32248
+      },
+      {
+        "n": "Общество",
+        "u": "https://24.kg/obschestvo/rss/",
+        "i": "Общество",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 177,
+        "d": 1757346796,
+        "r": 32248
+      },
+      {
+        "n": "Люди и судьбы",
+        "u": "https://24.kg/ljudi_i_sudby/rss/",
+        "i": "Люди и судьбы",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 362,
+        "d": 1757346799,
+        "r": 32248
+      },
+      {
+        "n": "Бишкек-24",
+        "u": "https://24.kg/bishkek_24/rss/",
+        "i": "Бишкек-24",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 164,
+        "d": 1757346801,
+        "r": 32248
+      },
+      {
+        "n": "Великая Победа",
+        "u": "https://24.kg/velikaja_pobeda/rss/",
+        "i": "Великая Победа",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 217,
+        "d": 1757346803,
+        "r": 32248
+      },
+      {
+        "n": "Репортажи",
+        "u": "https://24.kg/reportazhi/rss/",
+        "i": "Репортажи",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 212,
+        "d": 1757346806,
+        "r": 32248
+      },
+      {
+        "n": "Криминал",
+        "u": "https://24.kg/kriminal/rss/",
+        "i": "Криминал",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 159,
+        "d": 1757346809,
+        "r": 32248
+      },
+      {
+        "n": "Происшествия",
+        "u": "https://24.kg/proisshestvija/rss/",
+        "i": "Происшествия",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 195,
+        "d": 1757346811,
+        "r": 32248
+      },
+      {
+        "n": "Бизнес",
+        "u": "https://24.kg/biznes_info/rss/",
+        "i": "Бизнес",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 251,
+        "d": 1757346814,
+        "r": 32248
+      },
+      {
+        "n": "Спорт",
+        "u": "https://24.kg/sport/rss/",
+        "i": "Спорт",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 183,
+        "d": 1757346816,
+        "r": 32248
+      },
+      {
+        "n": "Кадры",
+        "u": "https://24.kg/kadry/rss/",
+        "i": "Кадры",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 176,
+        "d": 1757346818,
+        "r": 32248
+      },
+      {
+        "n": "Культура",
+        "u": "https://24.kg/kultura/rss/",
+        "i": "Культура",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 178,
+        "d": 1757346821,
+        "r": 32248
+      },
+      {
+        "n": "Про кино",
+        "u": "https://24.kg/pro_kino/rss/",
+        "i": "Про кино",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 247,
+        "d": 1757346823,
+        "r": 32248
+      },
+      {
+        "n": "Центральная Азия",
+        "u": "https://24.kg/tsentralnaja_azija/rss/",
+        "i": "Центральная Азия",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 187,
+        "d": 1757346826,
+        "r": 32248
+      },
+      {
+        "n": "СНГ",
+        "u": "https://24.kg/sng/rss/",
+        "i": "СНГ",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 209,
+        "d": 1757346828,
+        "r": 32248
+      },
+      {
+        "n": "Здоровье",
+        "u": "https://24.kg/zdorove/rss/",
+        "i": "Здоровье",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 177,
+        "d": 1757346830,
+        "r": 32248
+      },
+      {
+        "n": "В мире",
+        "u": "https://24.kg/v_mire/rss/",
+        "i": "В мире",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 184,
+        "d": 1757346832,
+        "r": 32248
+      },
+      {
+        "n": "Техноблог",
+        "u": "https://24.kg/tehnoblog/rss/",
+        "i": "Техноблог",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 169,
+        "d": 1757346834,
+        "r": 32248
+      },
+      {
+        "n": "Финансы",
+        "u": "https://24.kg/finansy/rss/",
+        "i": "Финансы",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 124,
+        "d": 1757346837,
+        "r": 32248
+      },
+      {
+        "n": "ЕАЭС",
+        "u": "https://24.kg/eaes/rss/",
+        "i": "ЕАЭС",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 219,
+        "d": 1757346839,
+        "r": 32248
+      },
+      {
+        "n": "Власть",
+        "u": "https://24.kg/vlast/rss/",
+        "i": "Власть",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 211,
+        "d": 1757346841,
+        "r": 32248
+      },
+      {
+        "n": "Агент 024",
+        "u": "https://24.kg/agent_024/rss/",
+        "i": "Агент 024",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 165,
+        "d": 1757346843,
+        "r": 32248
+      },
+      {
+        "n": "Спецпроекты",
+        "u": "https://24.kg/spetsproekty/rss/",
+        "i": "Спецпроекты",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 189,
+        "d": 1757346845,
+        "r": 32248
+      }
+    ],
+    "softaculous.com": [
+      {
+        "n": "Softaculous",
+        "u": "https://softaculous.com/feed/",
+        "i": "Apps and WordPress Manager",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 60,
+        "d": 1757346852,
+        "r": 32256
+      }
+    ],
+    "teenavi.com": [
+      {
+        "n": "TeeNavi",
+        "u": "https://teenavi.com/feed/",
+        "i": "Shop Men & Women T-Shirts - Posters, Merch, And More",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 30282,
+        "d": 1757346871,
+        "r": 32273
+      },
+      {
+        "n": "\n\tComments for TeeNavi\t",
+        "u": "https://teenavi.com/comments/feed/",
+        "i": "Shop Men & Women T-Shirts - Posters, Merch, And More",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 190,
+        "d": 1757346871,
+        "r": 32273
+      }
+    ],
+    "nfcc.org": [
+      {
+        "n": "NFCC – National Foundation for Credit Counseling",
+        "u": "https://www.nfcc.org/feed/",
+        "i": "Take the first step toward a future of financial clarity and relief",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 343,
+        "d": 1757346883,
+        "r": 32280
+      },
+      {
+        "n": "\n\tComments for NFCC – National Foundation for Credit Counseling\t",
+        "u": "https://www.nfcc.org/comments/feed/",
+        "i": "Take the first step toward a future of financial clarity and relief",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 246,
+        "d": 1757346884,
+        "r": 32280
+      }
+    ],
+    "a2zinc.net": [
+      {
+        "n": "A2Z Events",
+        "u": "https://mya2zevents.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 10342,
+        "d": 1757346904,
+        "r": 32289
+      },
+      {
+        "n": "\n\tComments for A2Z Events\t",
+        "u": "https://mya2zevents.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346905,
+        "r": 32289
+      }
+    ],
+    "powertoolsonline.uk": [
+      {
+        "n": "New Products",
+        "u": "https://www.powertoolsonline.uk/feed/products-new.rss",
+        "i": "Our latest products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 583,
+        "d": 1757346907,
+        "r": 32291
+      },
+      {
+        "n": "Old Products",
+        "u": "https://www.powertoolsonline.uk/feed/products-old.rss",
+        "i": "Our oldest products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 611,
+        "d": 1757346907,
+        "r": 32291
+      },
+      {
+        "n": "Recently Updated Products",
+        "u": "https://www.powertoolsonline.uk/feed/products-updated.rss",
+        "i": "Our recently updated products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 603,
+        "d": 1757346908,
+        "r": 32291
+      },
+      {
+        "n": "Random Products",
+        "u": "https://www.powertoolsonline.uk/feed/products-random.rss",
+        "i": "A random selection of products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 599,
+        "d": 1757346909,
+        "r": 32291
+      },
+      {
+        "n": "Popular Products",
+        "u": "https://www.powertoolsonline.uk/feed/products-popular.rss",
+        "i": "Our most popular products.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": 611,
+        "d": 1757346909,
+        "r": 32291
+      },
+      {
+        "n": "New Articles",
+        "u": "https://www.powertoolsonline.uk/feed/articles-new.rss",
+        "i": "Our latest articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757346910,
+        "r": 32291
+      },
+      {
+        "n": "Old Articles",
+        "u": "https://www.powertoolsonline.uk/feed/articles-old.rss",
+        "i": "Our oldest articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757346910,
+        "r": 32291
+      },
+      {
+        "n": "Recently Updated Articles",
+        "u": "https://www.powertoolsonline.uk/feed/articles-updated.rss",
+        "i": "Our recently updated articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757346910,
+        "r": 32291
+      },
+      {
+        "n": "Random Articles",
+        "u": "https://www.powertoolsonline.uk/feed/articles-random.rss",
+        "i": "A random selection of articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757346911,
+        "r": 32291
+      },
+      {
+        "n": "Popular Articles",
+        "u": "https://www.powertoolsonline.uk/feed/articles-popular.rss",
+        "i": "Our most popular articles.",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757346911,
+        "r": 32291
+      }
+    ],
+    "strapsco.com": [
+      {
+        "n": "StrapsCo",
+        "u": "https://strapsco.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 18341,
+        "d": 1757346953,
+        "r": 32311
+      },
+      {
+        "n": "\n\tComments for StrapsCo\t",
+        "u": "https://strapsco.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 192,
+        "d": 1757346954,
+        "r": 32311
+      }
+    ],
+    "themezaa.com": [
+      {
+        "n": "ThemeZaa",
+        "u": "https://www.themezaa.com/feed/",
+        "i": "Welcome To Themezaa",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 3006,
+        "d": 1757346960,
+        "r": 32315
+      }
+    ],
+    "12newsnow.com": [
+      {
+        "n": "12NewsNow",
+        "u": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEkv1hU_NpLPcw4HK5Y_iYw",
+        "f": "atom",
+        "ns": [
+          "yt",
+          "media"
+        ],
+        "t": 0,
+        "d": 1757346964,
+        "r": 32316
+      }
+    ],
+    "insiderlouisville.com": [
+      {
+        "n": "Online Casino",
+        "u": "https://insiderlouisville.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 45306,
+        "d": 1757346980,
+        "r": 32329
+      },
+      {
+        "n": "\n\tКомментарии на сайте Online Casino\t",
+        "u": "https://insiderlouisville.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757346980,
+        "r": 32329
+      }
+    ],
+    "froala.com": [
+      {
+        "n": "Froala: WYSIWYG HTML Editor",
+        "u": "https://froala.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 22769,
+        "d": 1757346983,
+        "r": 32331
+      },
+      {
+        "n": "\n\tComments for Froala: WYSIWYG HTML Editor\t",
+        "u": "https://froala.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 488,
+        "d": 1757346984,
+        "r": 32331
+      }
+    ],
+    "thebigmansworld.com": [
+      {
+        "n": "The Big Man's World ®",
+        "u": "https://thebigmansworld.com/feed/",
+        "i": "Easy And Healthy Recipes For Everyone",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1824,
+        "d": 1757347018,
+        "r": 32356
+      },
+      {
+        "n": "\n\tComments for The Big Man's World ®\t",
+        "u": "https://thebigmansworld.com/comments/feed/",
+        "i": "Easy And Healthy Recipes For Everyone",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 263,
+        "d": 1757347019,
+        "r": 32356
+      },
+      {
+        "n": "Stories Archive - The Big Man's World ®",
+        "u": "https://thebigmansworld.com/web-stories/feed/",
+        "i": "Easy And Healthy Recipes For Everyone",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1262,
+        "d": 1757347019,
+        "r": 32356
+      }
+    ],
+    "austinkleon.com": [
+      {
+        "n": "Austin Kleon",
+        "u": "https://austinkleon.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 3692,
+        "d": 1757347026,
+        "r": 32362
+      },
+      {
+        "n": "\n\tComments for Austin Kleon\t",
+        "u": "https://austinkleon.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 160,
+        "d": 1757347026,
+        "r": 32362
+      }
+    ],
+    "telltalegames.com": [
+      {
+        "n": "Telltale Games",
+        "u": "https://telltale.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 15671,
+        "d": 1757347030,
+        "r": 32364
+      },
+      {
+        "n": "\n\tComments for Telltale Games\t",
+        "u": "https://telltale.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347030,
+        "r": 32364
+      }
+    ],
+    "gizmodo.co.uk": [
+      {
+        "n": "Gizmodo",
+        "u": "https://gizmodo.com/feed",
+        "i": "The Future Is Here",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 844,
+        "d": 1757347036,
+        "r": 32370
+      }
+    ],
+    "ncqa.org": [
+      {
+        "n": "\n\tComments on: Health Care Accreditation, Health Plan Accreditation Organization – NCQA\t",
+        "u": "https://www.ncqa.org/sample-page-2/feed/",
+        "i": "Measuring quality. Improving health care.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347044,
+        "r": 32374
+      }
+    ],
+    "esquire.ru": [
+      {
+        "n": "«Правила жизни»",
+        "u": "https://www.pravilamag.ru/out/public-feed-all-news.xml",
+        "i": "Журнал для умных и разборчивых",
+        "f": "rss2.0",
+        "ns": [
+          "content"
+        ],
+        "t": 219,
+        "d": 1757347099,
+        "r": 32409
+      }
+    ],
+    "alexanderstreet.com": [
+      {
+        "u": "https://alexanderstreet.com/rss.xml",
+        "ns": [
+          "dc",
+          "atom",
+          "og",
+          "article",
+          "book",
+          "profile",
+          "video",
+          "product",
+          "content",
+          "foaf",
+          "rdfs",
+          "sioc",
+          "sioct",
+          "skos",
+          "xsd"
+        ],
+        "t": null,
+        "d": 1757347107,
+        "r": 32414
+      }
+    ],
+    "malemodelscene.net": [
+      {
+        "n": "Male Model Scene",
+        "u": "https://www.malemodelscene.net/feed/",
+        "i": "MMSCENE MAGAZINE",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 20527,
+        "d": 1757347122,
+        "r": 32432
+      },
+      {
+        "n": "\n\tComments for Male Model Scene\t",
+        "u": "https://www.malemodelscene.net/comments/feed/",
+        "i": "MMSCENE MAGAZINE",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 125,
+        "d": 1757347123,
+        "r": 32432
+      }
+    ],
+    "americanmigrainefoundation.org": [
+      {
+        "n": "American Migraine Foundation",
+        "u": "https://americanmigrainefoundation.org/feed/",
+        "i": "Your SUPER-powered WP Engine Site",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347127,
+        "r": 32435
+      }
+    ],
+    "agendadigitale.eu": [
+      {
+        "n": "Agenda Digitale",
+        "u": "https://www.agendadigitale.eu/feed/",
+        "i": "Il giornale sull'agenda digitale italiana",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 531,
+        "d": 1757347133,
+        "r": 32441
+      }
+    ],
+    "sharetribe.com": [
+      {
+        "n": "Sharetribe Developer Blog",
+        "u": "https://sharetribe.com/developer-blog/rss.xml",
+        "i": "Welcome to the Sharetribe Developer Blog: a practical resource crafted for our developer community with a focus on how to build a marketplace using the Sharetribe Developer Platform.",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom"
+        ],
+        "t": 392,
+        "d": 1757347193,
+        "r": 32472
+      },
+      {
+        "n": "Balanced by Sharetribe",
+        "u": "https://sharetribe.com/balanced/rss.xml",
+        "i": "Hi, we are Sharetribe. Our mission is to democratize the sharing economy by making platform technology accessible to everyone. We are also trying to find alternative ways of running a company. Join us on our journey to build a better, balanced working life.",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom"
+        ],
+        "t": 316,
+        "d": 1757347193,
+        "r": 32472
+      }
+    ],
+    "thenerdstash.com": [
+      {
+        "n": "The Nerd Stash",
+        "u": "https://thenerdstash.com/feed/",
+        "i": "Video Games, Reviews, News, Movies, TV, & More!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 6699,
+        "d": 1757347196,
+        "r": 32473
+      }
+    ],
+    "pikeplacemarket.org": [
+      {
+        "n": "Pike Place Market",
+        "u": "https://www.pikeplacemarket.org/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 258,
+        "d": 1757347202,
+        "r": 32476
+      },
+      {
+        "n": "\n\tComments for Pike Place Market\t",
+        "u": "https://www.pikeplacemarket.org/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347202,
+        "r": 32476
+      }
+    ],
+    "youversion.com": [
+      {
+        "n": "YouVersion",
+        "u": "https://www.youversion.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347206,
+        "r": 32478
+      },
+      {
+        "n": "YouVersion",
+        "u": "https://www.youversion.com/feed/rss/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347207,
+        "r": 32478
+      }
+    ],
+    "thepublicdiscourse.com": [
+      {
+        "n": "Public Discourse",
+        "u": "https://www.thepublicdiscourse.com/feed/",
+        "i": "The online journal of The Witherspoon Institute",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 19915,
+        "d": 1757347214,
+        "r": 32481
+      }
+    ],
+    "thenationalcouncil.org": [
+      {
+        "n": "National Council for Mental Wellbeing",
+        "u": "https://www.thenationalcouncil.org/feed/",
+        "i": "Healthy Minds. Strong Communities.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 5466,
+        "d": 1757347215,
+        "r": 32482
+      }
+    ],
+    "venezuelanalysis.com": [
+      {
+        "n": "Venezuelanalysis",
+        "u": "https://venezuelanalysis.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8624,
+        "d": 1757347220,
+        "r": 32487
+      },
+      {
+        "n": "\n\tComments for Venezuelanalysis\t",
+        "u": "https://venezuelanalysis.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 153,
+        "d": 1757347221,
+        "r": 32487
+      }
+    ],
+    "lighthc.london": [
+      {
+        "n": "Lighthouse Consultants",
+        "u": "https://lighthc.london/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8367,
+        "d": 1757347225,
+        "r": 32491
+      },
+      {
+        "n": "\n\tComments for Lighthouse Consultants\t",
+        "u": "https://lighthc.london/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 161,
+        "d": 1757347226,
+        "r": 32491
+      }
+    ],
+    "newbuildpropertyspain.com": [
+      {
+        "n": "New Build Property Murcia & Costa Blanca Spain",
+        "u": "https://newbuildpropertyspain.com/feed/",
+        "i": "New build apartments, townhouses & villas in Spain",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757347227,
+        "r": 32492
+      },
+      {
+        "n": "\n\tComments for New Build Property Murcia & Costa Blanca Spain\t",
+        "u": "https://newbuildpropertyspain.com/comments/feed/",
+        "i": "New build apartments, townhouses & villas in Spain",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347227,
+        "r": 32492
+      }
+    ],
+    "gamersnexus.net": [
+      {
+        "n": "GamersNexus",
+        "u": "https://gamersnexus.net/rss.xml?option=com_comment&task=comment.gotocomment&id=10012699",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "foaf",
+          "og",
+          "rdfs",
+          "schema",
+          "sioc",
+          "sioct",
+          "skos",
+          "xsd"
+        ],
+        "t": 38732,
+        "d": 1757347282,
+        "r": 32525
+      }
+    ],
+    "badlefthook.com": [
+      {
+        "n": "Bad Left Hook",
+        "u": "https://badlefthook.com/rss/index.xml",
+        "f": "atom",
+        "ns": [
+          "thr"
+        ],
+        "t": 325,
+        "d": 1757347284,
+        "r": 32527
+      }
+    ],
+    "optiontradingspeak.com": [
+      {
+        "n": "Option Trading",
+        "u": "https://optiontradingspeak.com/feed/",
+        "i": "Investment Ideas, Stratigies, Analysis, Commentaries",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "georss",
+          "geo"
+        ],
+        "t": 6591,
+        "d": 1757347292,
+        "r": 32528
+      },
+      {
+        "n": "\n\tComments for Option Trading\t",
+        "u": "https://optiontradingspeak.com/comments/feed/",
+        "i": "Investment Ideas, Stratigies, Analysis, Commentaries",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "georss",
+          "geo"
+        ],
+        "t": 476,
+        "d": 1757347293,
+        "r": 32528
+      },
+      {
+        "n": "\n\tComments on: PRELUDE\t",
+        "u": "https://optiontradingspeak.com/sample-page/feed/",
+        "i": "Investment Ideas, Stratigies, Analysis, Commentaries",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "georss",
+          "geo"
+        ],
+        "t": 212,
+        "d": 1757347294,
+        "r": 32528
+      },
+      {
+        "n": "Option Trading - ",
+        "u": "https://optiontradingspeak.com?wpsc_action=rss",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "g"
+        ],
+        "t": 64,
+        "d": 1757347294,
+        "r": 32528
+      }
+    ],
+    "sverigeexpresskort.com": [
+      {
+        "n": "Sverige Express Kort",
+        "u": "https://www.sverigeexpresskort.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 10380,
+        "d": 1757347309,
+        "r": 32535
+      },
+      {
+        "n": "\n\tComments for Sverige Express Kort\t",
+        "u": "https://www.sverigeexpresskort.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347310,
+        "r": 32535
+      }
+    ],
+    "luxury-digest-japan.com": [
+      {
+        "n": "luxury-digest-japan",
+        "u": "https://luxury-digest-japan.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 17422,
+        "d": 1757347313,
+        "r": 32536
+      },
+      {
+        "n": "\n\tluxury-digest-japan へのコメント\t",
+        "u": "https://luxury-digest-japan.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347313,
+        "r": 32536
+      }
+    ],
+    "okinawatimes.co.jp": [
+      {
+        "n": "沖縄タイムス＋プラス | 沖縄の最新ニュースサイト",
+        "u": "https://www.okinawatimes.co.jp/list/feed/rss",
+        "i": "沖縄タイムス社のニュースと電子新聞サイト。沖縄県の最新ニュースに加えて、おくやみ、人事、観光、グルメ、イベント、コラム、プレゼントなどの情報も。",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "sy",
+          "rdf"
+        ],
+        "t": 128,
+        "d": 1757347324,
+        "r": 32537
+      }
+    ],
+    "thetechedvocate.org": [
+      {
+        "n": "The Tech Edvocate",
+        "u": "https://www.thetechedvocate.org/feed/",
+        "i": "Authoritative EdTech News and Commentary",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2576,
+        "d": 1757347361,
+        "r": 32560
+      }
+    ],
+    "salvationarmy.org.uk": [
+      {
+        "n": "The Salvation Army",
+        "u": "https://www.salvationarmy.org.uk/rss",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "dc"
+        ],
+        "t": 114,
+        "d": 1757347378,
+        "r": 32568
+      }
+    ],
+    "swcp.com": [
+      {
+        "n": "Southwest Cyberport",
+        "u": "https://www.swcp.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 379,
+        "d": 1757347402,
+        "r": 32575
+      },
+      {
+        "n": "\n\tComments for Southwest Cyberport\t",
+        "u": "https://www.swcp.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 247,
+        "d": 1757347407,
+        "r": 32575
+      }
+    ],
+    "rollingstone.de": [
+      {
+        "n": "Rolling Stone",
+        "u": "https://www.rollingstone.de/feed/",
+        "i": "Das Musikmagazin: News, Live, Videos, Reviews",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 771,
+        "d": 1757347430,
+        "r": 32593
+      },
+      {
+        "n": "\n\tKommentare für Rolling Stone\t",
+        "u": "https://www.rollingstone.de/comments/feed/",
+        "i": "Das Musikmagazin: News, Live, Videos, Reviews",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 301,
+        "d": 1757347431,
+        "r": 32593
+      }
+    ],
+    "strongtowns.org": [
+      {
+        "u": "https://www.strongtowns.org/home?format=rss",
+        "ns": [
+          "content",
+          "wfw",
+          "itunes",
+          "dc",
+          "media"
+        ],
+        "t": null,
+        "d": 1757347443,
+        "r": 32599
+      }
+    ],
+    "voz.vn": [
+      {
+        "n": "VOZ",
+        "u": "https://voz.vn/f/-/index.rss",
+        "i": "Việt Nam đầu hàng công nghệ diễn đàn",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc",
+          "content",
+          "slash"
+        ],
+        "t": 1217,
+        "d": 1757347492,
+        "r": 32630
+      }
+    ],
+    "ookla.com": [
+      {
+        "n": "Ookla®",
+        "u": "https://ookla.com/articles/rss",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1562,
+        "d": 1757347503,
+        "r": 32638
+      }
+    ],
+    "aseaofblue.com": [
+      {
+        "n": "A Sea Of Blue",
+        "u": "https://aseaofblue.com/rss/index.xml",
+        "f": "atom",
+        "ns": [
+          "thr"
+        ],
+        "t": 338,
+        "d": 1757347504,
+        "r": 32639
+      }
+    ],
+    "educaciontrespuntocero.com": [
+      {
+        "n": "EDUCACIÓN 3.0",
+        "u": "https://www.educaciontrespuntocero.com/feed/",
+        "i": "Líder informativo en innovación educativa",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 10591,
+        "d": 1757347506,
+        "r": 32641
+      },
+      {
+        "n": "\n\tComentarios en EDUCACIÓN 3.0\t",
+        "u": "https://www.educaciontrespuntocero.com/comments/feed/",
+        "i": "Líder informativo en innovación educativa",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 388,
+        "d": 1757347507,
+        "r": 32641
+      }
+    ],
+    "resthomephuket.com": [
+      {
+        "n": "resthomephuket.com",
+        "u": "https://resthomephuket.com/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1390,
+        "d": 1757347514,
+        "r": 32648
+      },
+      {
+        "n": "\n\tComments for resthomephuket.com\t",
+        "u": "https://resthomephuket.com/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347515,
+        "r": 32648
+      }
+    ],
+    "pkware.com": [
+      {
+        "n": "PKWARE®",
+        "u": "https://www.pkware.com/feed",
+        "i": "Productivity Protected",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 22782,
+        "d": 1757347526,
+        "r": 32654
+      },
+      {
+        "n": "\n\tComments for PKWARE®\t",
+        "u": "https://www.pkware.com/comments/feed",
+        "i": "Productivity Protected",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347526,
+        "r": 32654
+      }
+    ],
+    "uaw.org": [
+      {
+        "n": "UAW | United Automobile, Aerospace and Agricultural Implement Workers of America",
+        "u": "https://uaw.org/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2594,
+        "d": 1757347551,
+        "r": 32678
+      },
+      {
+        "n": "UAW | United Automobile, Aerospace and Agricultural Implement Workers of America",
+        "u": "https://uaw.org/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2594,
+        "d": 1757347552,
+        "r": 32678
+      }
+    ],
+    "eo.nl": [
+      {
+        "n": "EO",
+        "u": "https://www.eo.nl/rss-articles-eo.xml",
+        "i": "Artikelen van EO",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom"
+        ],
+        "t": 306,
+        "d": 1757347555,
+        "r": 32680
+      },
+      {
+        "n": "EO Eva",
+        "u": "https://www.eo.nl/rss-articles-eva.xml",
+        "i": "Artikelen van EO Eva",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom"
+        ],
+        "t": 255,
+        "d": 1757347556,
+        "r": 32680
+      },
+      {
+        "n": "EO Visie",
+        "u": "https://www.eo.nl/rss-articles-visie.xml",
+        "i": "Artikelen van EO Visie",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom"
+        ],
+        "t": 265,
+        "d": 1757347558,
+        "r": 32680
+      },
+      {
+        "n": "EO Metterdaad",
+        "u": "https://www.eo.nl/rss-articles-mtd.xml",
+        "i": "Artikelen van EO Metterdaad",
+        "f": "rss2.0",
+        "ns": [
+          "dc",
+          "content",
+          "atom"
+        ],
+        "t": 265,
+        "d": 1757347559,
+        "r": 32680
+      }
+    ],
+    "leatherjacketblack.com": [
+      {
+        "n": "LJB",
+        "u": "https://www.leatherjacketblack.com/feed/",
+        "i": "LJB The High-Quality Brand",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 5229,
+        "d": 1757347561,
+        "r": 32681
+      },
+      {
+        "n": "\n\tComments for LJB\t",
+        "u": "https://www.leatherjacketblack.com/comments/feed/",
+        "i": "LJB The High-Quality Brand",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 114,
+        "d": 1757347562,
+        "r": 32681
+      }
+    ],
+    "archyde.com": [
+      {
+        "n": "Archyde",
+        "u": "https://www.archyde.com/feed/",
+        "i": "Stay updated with Archyde – your source for breaking news, global headlines, economy, entertainment, health, technology, and sports. Fresh stories daily.",
+        "f": "rss2.0",
+        "ns": [
+          "media",
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 584,
+        "d": 1757347583,
+        "r": 32691
+      },
+      {
+        "n": "Archyde",
+        "u": "https://www.archyde.com/feed/atom/",
+        "f": "atom",
+        "ns": [
+          "thr"
+        ],
+        "t": 584,
+        "d": 1757347589,
+        "r": 32691
+      },
+      {
+        "n": "Archyde",
+        "u": "https://www.archyde.com/feed/",
+        "i": "Stay updated with Archyde – your source for breaking news, global headlines, economy, entertainment, health, technology, and sports. Fresh stories daily.",
+        "f": "rss2.0",
+        "ns": [
+          "media",
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 584,
+        "d": 1757347591,
+        "r": 32691
+      },
+      {
+        "n": "\n\tComments for Archyde\t",
+        "u": "https://www.archyde.com/comments/feed/",
+        "i": "Stay updated with Archyde – your source for breaking news, global headlines, economy, entertainment, health, technology, and sports. Fresh stories daily.",
+        "f": "rss2.0",
+        "ns": [
+          "media",
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 177,
+        "d": 1757347592,
+        "r": 32691
+      }
+    ],
+    "sangoma.com": [
+      {
+        "n": "Sangoma Technologies",
+        "u": "https://sangoma.com/feed/",
+        "i": "Business Communications Platform | UCaaS",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 612,
+        "d": 1757347593,
+        "r": 32692
+      }
+    ],
+    "garagesale.es": [
+      {
+        "n": "GarageSale.es & GarageSale.pt",
+        "u": "https://www.garagesale.es/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 345,
+        "d": 1757347596,
+        "r": 32693
+      },
+      {
+        "n": "\n\tComments for GarageSale.es & GarageSale.pt\t",
+        "u": "https://www.garagesale.es/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347596,
+        "r": 32693
+      },
+      {
+        "n": "Ads – GarageSale.es & GarageSale.pt",
+        "u": "https://www.garagesale.es/feed/?post_type=ad_listing",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 486,
+        "d": 1757347596,
+        "r": 32693
+      }
+    ],
+    "inews.id": [
+      {
+        "n": "iNews.id | Inspiring & Informative",
+        "u": "https://www.inews.id/feed",
+        "i": "iNews.id - Informasi teraktual dan terlengkap Indonesia dan dunia seputar peristiwa, berita nasional, ekonomi, olahraga, daerah, lifestyle, travel, dan otomotif.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "media",
+          "atom"
+        ],
+        "t": 131,
+        "d": 1757347629,
+        "r": 32709
+      }
+    ],
+    "logotv.com": [
+      {
+        "n": "Logo",
+        "u": "https://www.youtube.com/feeds/videos.xml?channel_id=UCuiK2XdDcyAd7TS9ioMqx6A",
+        "f": "atom",
+        "ns": [
+          "yt",
+          "media"
+        ],
+        "t": 0,
+        "d": 1757347961,
+        "r": 32718
+      }
+    ],
+    "esc-plus.com": [
+      {
+        "n": "ESCplus",
+        "u": "https://www.esc-plus.com/feed/",
+        "i": "European music coverage! Daily news about the Eurovision Song Contest, interviews, former participants, photos, exclusive reports and new features!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 10507,
+        "d": 1757347973,
+        "r": 32725
+      },
+      {
+        "n": "\n\tComments for ESCplus\t",
+        "u": "https://www.esc-plus.com/comments/feed/",
+        "i": "European music coverage! Daily news about the Eurovision Song Contest, interviews, former participants, photos, exclusive reports and new features!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 312,
+        "d": 1757347974,
+        "r": 32725
+      },
+      {
+        "n": "\n\tComments on: \t",
+        "u": "https://www.esc-plus.com/home-page/feed/",
+        "i": "European music coverage! Daily news about the Eurovision Song Contest, interviews, former participants, photos, exclusive reports and new features!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347974,
+        "r": 32725
+      }
+    ],
+    "gbdeclaration.org": [
+      {
+        "n": "Great Barrington Declaration",
+        "u": "https://gbdeclaration.org/feed/",
+        "i": "An open letter and declaration from public health academics and professionals",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 6404,
+        "d": 1757347998,
+        "r": 32739
+      },
+      {
+        "n": "\n\tComments for Great Barrington Declaration\t",
+        "u": "https://gbdeclaration.org/comments/feed/",
+        "i": "An open letter and declaration from public health academics and professionals",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757347998,
+        "r": 32739
+      }
+    ],
+    "theplanetd.com": [
+      {
+        "n": "The Planet D: Adventure Travel Blog",
+        "u": "https://theplanetd.com/feed/",
+        "i": "The #1 Adventure Travel blog featuring travel advice, tips, and inspiration from around the world. Plan your next adventure today!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1682,
+        "d": 1757348000,
+        "r": 32740
+      },
+      {
+        "n": "Stories Archive - The Planet D: Adventure Travel Blog",
+        "u": "https://theplanetd.com/web-stories/feed/",
+        "i": "The #1 Adventure Travel blog featuring travel advice, tips, and inspiration from around the world. Plan your next adventure today!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 2106,
+        "d": 1757348000,
+        "r": 32740
+      }
+    ],
+    "rusoska.com": [
+      {
+        "n": "ХХХ порно видео новинки. Новое порно в хорошем качестве каждый день!",
+        "u": "https://rusoska.com/rss/",
+        "i": "Смотри ХХХ порно нокинки года в отличном качестве. Лучшие и самые новые ХХХ порно ролики онлайн от популярных студий абсолютно бесплатно!",
+        "f": "rss2.0",
+        "ns": [],
+        "t": 157,
+        "d": 1757348007,
+        "r": 32744
+      }
+    ],
+    "jcpa.org": [
+      {
+        "n": "Jerusalem Center for Security and Foreign Affairs",
+        "u": "https://jcpa.org/feed/",
+        "i": "Strategic Alliances for a Secure, Connected, and Prosperous Region",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 13864,
+        "d": 1757348015,
+        "r": 32749
+      },
+      {
+        "n": "\n\tComments for Jerusalem Center for Security and Foreign Affairs\t",
+        "u": "https://jcpa.org/comments/feed/",
+        "i": "Strategic Alliances for a Secure, Connected, and Prosperous Region",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348015,
+        "r": 32749
+      }
+    ],
+    "mealsonwheelsamerica.org": [
+      {
+        "n": "Meals on Wheels America",
+        "u": "https://www.mealsonwheelsamerica.org/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 297,
+        "d": 1757348061,
+        "r": 32772
+      },
+      {
+        "n": "\n\tComments for Meals on Wheels America\t",
+        "u": "https://www.mealsonwheelsamerica.org/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 231,
+        "d": 1757348062,
+        "r": 32772
+      }
+    ],
+    "univ-cotedazur.fr": [
+      {
+        "n": "Université Côte d'Azur",
+        "u": "https://univ-cotedazur.fr/adminsite/webservices/export_rss.jsp?NOMBRE=10&CODE_RUBRIQUE=ACCUEIL-FR&LANGUE=0",
+        "i": "Les 10 dernières actualités",
+        "f": "rss2.0",
+        "ns": [
+          "dc"
+        ],
+        "t": 331,
+        "d": 1757348074,
+        "r": 32780
+      }
+    ],
+    "sexdolltech.com": [
+      {
+        "n": "SexDollTech: The Revolutionary Realistic Adult Sex Doll Supplier",
+        "u": "https://www.sexdolltech.com/feed/",
+        "i": "Realistic Love Dolls on Sale Now",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8431,
+        "d": 1757348083,
+        "r": 32784
+      }
+    ],
+    "bootspy.com": [
+      {
+        "n": "\n\tComments on: Home\t",
+        "u": "https://bootspy.com/home/feed/",
+        "i": "Put your best boot forward",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348152,
+        "r": 32803
+      }
+    ],
+    "avn.com": [
+      {
+        "n": "AVN Industry News",
+        "u": "https://avn.com/feed/index.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 29,
+        "d": 1757348155,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Latest Articles",
+        "u": "https://avn.com/feed/articles.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 185,
+        "d": 1757348155,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Video",
+        "u": "https://avn.com/feed/articles/video.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 173,
+        "d": 1757348156,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Gay",
+        "u": "https://avn.com/feed/articles/gay.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 169,
+        "d": 1757348157,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Legal",
+        "u": "https://avn.com/feed/articles/legal.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 216,
+        "d": 1757348157,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Novelty",
+        "u": "https://avn.com/feed/articles/novelty.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 153,
+        "d": 1757348158,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Technology",
+        "u": "https://avn.com/feed/articles/technology.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 151,
+        "d": 1757348158,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Ts",
+        "u": "https://avn.com/feed/articles/ts.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 261,
+        "d": 1757348159,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Latest Press Releases",
+        "u": "https://avn.com/feed/press-releases.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 122,
+        "d": 1757348159,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Video",
+        "u": "https://avn.com/feed/press-releases/video.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 124,
+        "d": 1757348160,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Gay",
+        "u": "https://avn.com/feed/press-releases/gay.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 127,
+        "d": 1757348161,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Legal",
+        "u": "https://avn.com/feed/press-releases/legal.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 160,
+        "d": 1757348161,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Novelty",
+        "u": "https://avn.com/feed/press-releases/novelty.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 164,
+        "d": 1757348162,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Technology",
+        "u": "https://avn.com/feed/press-releases/technology.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 141,
+        "d": 1757348162,
+        "r": 32805
+      },
+      {
+        "n": "AVN Industry News - Ts",
+        "u": "https://avn.com/feed/press-releases/ts.rss",
+        "i": "View the latest news and breaking news for adult entertainment, porn stars, industry events, and pleasure products at AVN.com.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "atom"
+        ],
+        "t": 264,
+        "d": 1757348163,
+        "r": 32805
+      }
+    ],
+    "asiafoundation.org": [
+      {
+        "n": "The Asia Foundation",
+        "u": "https://asiafoundation.org/feed/",
+        "i": "Working for a peaceful, just, and thriving Asia and Pacific.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 508,
+        "d": 1757348166,
+        "r": 32807
+      },
+      {
+        "n": "\n\tComments for The Asia Foundation\t",
+        "u": "https://asiafoundation.org/comments/feed/",
+        "i": "Working for a peaceful, just, and thriving Asia and Pacific.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 185,
+        "d": 1757348168,
+        "r": 32807
+      }
+    ],
+    "createporn.app": [
+      {
+        "n": "Createporn AI",
+        "u": "https://createporn.app/feed/",
+        "i": "Free AI Porn Maker",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": null,
+        "d": 1757348169,
+        "r": 32809
+      },
+      {
+        "n": "\n\tComments for Createporn AI\t",
+        "u": "https://createporn.app/comments/feed/",
+        "i": "Free AI Porn Maker",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": null,
+        "d": 1757348169,
+        "r": 32809
+      }
+    ],
+    "sbc.net": [
+      {
+        "n": "SBC.net",
+        "u": "https://www.sbc.net/feed/",
+        "i": "Good News for the Whole World",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1861,
+        "d": 1757348171,
+        "r": 32810
+      }
+    ],
+    "newsadvance.com": [
+      {
+        "n": "newsadvance.com - RSS Results of type article with keyword(s) of #topstory",
+        "u": "http://newsadvance.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%23topstory",
+        "i": "\n\t\tnewsadvance.com - RSS Results\n\t\tonly for asset type(s) of article\n\t\twith keyword(s) of #topstory\n\t",
+        "f": "rss2.0",
+        "ns": [
+          "atom"
+        ],
+        "t": null,
+        "d": 1757348175,
+        "r": 32812
+      }
+    ],
+    "villages-news.com": [
+      {
+        "n": "Villages-News.com",
+        "u": "https://www.villages-news.com/feed/",
+        "i": "News, photos, events in The Villages, FL",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 2631,
+        "d": 1757348176,
+        "r": 32813
+      }
+    ],
+    "blognews.nl": [
+      {
+        "n": "blognews.nl",
+        "u": "https://blognews.nl/feed/",
+        "i": "Jouw bron voor het laatste nieuws en boeiende blogs in Nederland",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 9254,
+        "d": 1757348181,
+        "r": 32818
+      },
+      {
+        "n": "\n\tKommentarer til blognews.nl\t",
+        "u": "https://blognews.nl/comments/feed/",
+        "i": "Jouw bron voor het laatste nieuws en boeiende blogs in Nederland",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 85,
+        "d": 1757348182,
+        "r": 32818
+      },
+      {
+        "n": "\n\tKommentarer til: Home\t",
+        "u": "https://blognews.nl/home/feed/",
+        "i": "Jouw bron voor het laatste nieuws en boeiende blogs in Nederland",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": null,
+        "d": 1757348183,
+        "r": 32818
+      }
+    ],
+    "mystockupusa.com": [
+      {
+        "n": "MyStockUpUSA",
+        "u": "https://mystockupusa.com/feed/",
+        "i": "Shop Shooting, Hunting, & Outdoor Products - MYSTOCKUPUSA",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash",
+          "media"
+        ],
+        "t": 8997,
+        "d": 1757348191,
+        "r": 32819
+      },
+      {
+        "n": "\n\tComments for MyStockUpUSA\t",
+        "u": "https://mystockupusa.com/comments/feed/",
+        "i": "Shop Shooting, Hunting, & Outdoor Products - MYSTOCKUPUSA",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy",
+          "media"
+        ],
+        "t": 272,
+        "d": 1757348192,
+        "r": 32819
+      }
+    ],
+    "soccerunlimitedusa.com": [
+      {
+        "n": "Soccer Unlimited USA",
+        "u": "https://www.soccerunlimitedusa.com/feed/",
+        "i": "Your Total Soccer Store",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": null,
+        "d": 1757348228,
+        "r": 32830
+      },
+      {
+        "n": "\n\tComments for Soccer Unlimited USA\t",
+        "u": "https://www.soccerunlimitedusa.com/comments/feed/",
+        "i": "Your Total Soccer Store",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348228,
+        "r": 32830
+      },
+      {
+        "n": "\n\tComments on: Homepage – soccer\t",
+        "u": "https://www.soccerunlimitedusa.com/homepage-1/feed/",
+        "i": "Your Total Soccer Store",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348229,
+        "r": 32830
+      }
+    ],
+    "gameblog.fr": [
+      {
+        "n": "Gameblog",
+        "u": "https://www.gameblog.fr/rssmap/rss_all.xml",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "dc"
+        ],
+        "t": 168,
+        "d": 1757348239,
+        "r": 32839
+      }
+    ],
+    "philarchive.org": [
+      {
+        "n": "PhilPapers: Recent additions to PhilArchive",
+        "u": "https://philarchive.org/recent.html?format=rss",
+        "i": "",
+        "f": "rss1.0",
+        "ns": [
+          "rdf",
+          "admin",
+          "content",
+          "dc",
+          "syn",
+          "taxo"
+        ],
+        "t": 922,
+        "d": 1757348243,
+        "r": 32842
+      }
+    ],
+    "rajaraksupermarket.com": [
+      {
+        "n": "RAJA RAK SUPERMARKET | JUAL RAK TOKO MINIMARKET GONDOLA DISPLAY SWALAYAN MODERN",
+        "u": "https://rajaraksupermarket.com/feed/",
+        "i": "Jual Rak Supermarket, Rak Toko, Rak Minimarket, Rak Gondola, Rak Display Swalayan, Rak Besi Siku Lubang Serbaguna & Rak Gudang Light Medium Heavy Duty ke Seluruh Indonesia",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 714,
+        "d": 1757348253,
+        "r": 32848
+      }
+    ],
+    "barnfinds.com": [
+      {
+        "n": "Barn Finds",
+        "u": "https://barnfinds.com/feed/",
+        "i": "Unrestored Classic And Muscle Cars For Sale",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 965,
+        "d": 1757348274,
+        "r": 32865
+      },
+      {
+        "n": "\n\tComments for Barn Finds\t",
+        "u": "https://barnfinds.com/comments/feed/",
+        "i": "Unrestored Classic And Muscle Cars For Sale",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 879,
+        "d": 1757348278,
+        "r": 32865
+      }
+    ],
+    "diply.com": [
+      {
+        "n": "Diply",
+        "u": "https://diply.com/feed/",
+        "i": "Get Lost Somewhere Good...",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 8915,
+        "d": 1757348283,
+        "r": 32869
+      },
+      {
+        "n": "\n\tComments for Diply\t",
+        "u": "https://diply.com/comments/feed/",
+        "i": "Get Lost Somewhere Good...",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348283,
+        "r": 32869
+      }
+    ],
+    "wwf.ca": [
+      {
+        "n": "WWF.CA",
+        "u": "https://wwf.ca/feed/",
+        "i": "For a Living Planet",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 11496,
+        "d": 1757348286,
+        "r": 32873
+      },
+      {
+        "n": "\n\tComments for WWF.CA\t",
+        "u": "https://wwf.ca/comments/feed/",
+        "i": "For a Living Planet",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 370,
+        "d": 1757348287,
+        "r": 32873
+      }
+    ],
+    "engrish.com": [
+      {
+        "n": "Engrish.com",
+        "u": "https://engrish.com/feed/",
+        "i": "Documenting the Engrish phenomenon from East Asia and around the world!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 761,
+        "d": 1757348297,
+        "r": 32880
+      }
+    ],
+    "feelgoodfoodie.net": [
+      {
+        "n": "Feel Good Foodie",
+        "u": "https://feelgoodfoodie.net/feed/",
+        "i": "Eat good, feel good",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 1171,
+        "d": 1757348319,
+        "r": 32903
+      },
+      {
+        "n": "\n\tComments for Feel Good Foodie\t",
+        "u": "https://feelgoodfoodie.net/comments/feed/",
+        "i": "Eat good, feel good",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 1430,
+        "d": 1757348319,
+        "r": 32903
+      }
+    ],
+    "maximumfun.org": [
+      {
+        "n": "Maximum Fun",
+        "u": "https://maximumfun.org/feed/",
+        "i": "A worker-owned network of artist-owned shows supported - directly - by you!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 456,
+        "d": 1757348338,
+        "r": 32908
+      },
+      {
+        "n": "\n\tComments for Maximum Fun\t",
+        "u": "https://maximumfun.org/comments/feed/",
+        "i": "A worker-owned network of artist-owned shows supported - directly - by you!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348339,
+        "r": 32908
+      },
+      {
+        "n": "\n\tComments on: \t",
+        "u": "https://maximumfun.org/home/feed/",
+        "i": "A worker-owned network of artist-owned shows supported - directly - by you!",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348340,
+        "r": 32908
+      }
+    ],
+    "fullfocus.co": [
+      {
+        "n": "Full Focus",
+        "u": "https://fullfocus.co/feed/",
+        "i": "Win at Work and Succeed at Life",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 525,
+        "d": 1757348353,
+        "r": 32911
+      }
+    ],
+    "gds.it": [
+      {
+        "n": "Giornale di Sicilia",
+        "u": "https://gds.it/upload/assets/rss/producer-sicilia-homepage.xml",
+        "i": "Ultime notizie della Giornale di Sicilia",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "media",
+          "atom"
+        ],
+        "t": 2111,
+        "d": 1757348435,
+        "r": 32946
+      }
+    ],
+    "azmirror.com": [
+      {
+        "n": "Arizona Mirror",
+        "u": "https://azmirror.com/feed/",
+        "i": "Insightful. Investigative. Independent.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 10090,
+        "d": 1757348439,
+        "r": 32947
+      },
+      {
+        "n": "Arizona Mirror",
+        "u": "https://azmirror.com/comments/feed/",
+        "i": "Insightful. Investigative. Independent.",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 7150,
+        "d": 1757348440,
+        "r": 32947
+      }
+    ],
+    "dornob.com": [
+      {
+        "n": "Dornob - Feed",
+        "u": "https://dornob.com/feed/",
+        "i": "Architecture, Interior and Furniture Design",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 3830,
+        "d": 1757348442,
+        "r": 32948
+      },
+      {
+        "n": "DornobDornob",
+        "u": "https://feeds.feedburner.com/dornob",
+        "i": "Architecture, Interior and Furniture Design",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 6861,
+        "d": 1757348442,
+        "r": 32948
+      }
+    ],
+    "sleepeducation.org": [
+      {
+        "n": "Sleep Education",
+        "u": "https://sleepeducation.org/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4750,
+        "d": 1757348444,
+        "r": 32951
+      },
+      {
+        "n": "\n\tComments for Sleep Education\t",
+        "u": "https://sleepeducation.org/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348444,
+        "r": 32951
+      }
+    ],
+    "veranda.com": [
+      {
+        "n": "Latest Content - Veranda",
+        "u": "https://veranda.com/rss/default.xml",
+        "i": "RSS feed for Latest Content - Veranda",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "media"
+        ],
+        "t": 78,
+        "d": 1757348460,
+        "r": 32959
+      },
+      {
+        "n": "Latest Content - Veranda",
+        "u": "https://veranda.com/rss/all.xml",
+        "i": "RSS feed for Latest Content - Veranda",
+        "f": "rss2.0",
+        "ns": [
+          "atom",
+          "media"
+        ],
+        "t": 78,
+        "d": 1757348462,
+        "r": 32959
+      }
+    ],
+    "wdwinfo.com": [
+      {
+        "n": "The DIS",
+        "u": "https://www.wdwinfo.com/feed/",
+        "i": "Disney World Information",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 6101,
+        "d": 1757348466,
+        "r": 32961
+      },
+      {
+        "n": "\n\tComments for The DIS\t",
+        "u": "https://www.wdwinfo.com/comments/feed/",
+        "i": "Disney World Information",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348467,
+        "r": 32961
+      }
+    ],
+    "mynewsla.com": [
+      {
+        "n": "MyNewsLA.com",
+        "u": "https://mynewsla.com/feed/",
+        "i": "Breaking news for Los Angeles, Orange and Riverside counties",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 4913,
+        "d": 1757348472,
+        "r": 32965
+      },
+      {
+        "n": "\n\tComments for MyNewsLA.com\t",
+        "u": "https://mynewsla.com/comments/feed/",
+        "i": "Breaking news for Los Angeles, Orange and Riverside counties",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": 155,
+        "d": 1757348472,
+        "r": 32965
+      }
+    ],
+    "indebuurt.nl": [
+      {
+        "n": "indebuurt",
+        "u": "https://indebuurt.nl/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "wfw",
+          "dc",
+          "atom",
+          "sy",
+          "slash"
+        ],
+        "t": 152,
+        "d": 1757348514,
+        "r": 32989
+      },
+      {
+        "n": "\n\tReacties voor indebuurt\t",
+        "u": "https://indebuurt.nl/comments/feed/",
+        "i": "",
+        "f": "rss2.0",
+        "ns": [
+          "content",
+          "dc",
+          "atom",
+          "sy"
+        ],
+        "t": null,
+        "d": 1757348514,
+        "r": 32989
+      }
+    ],
+    "mikrocontroller.net": [
+      {
+        "n": "Mikrocontroller.net News",
+        "u": "https://mikrocontroller.net/newsfeed",
+        "f": "atom",
+        "ns": [],
+        "t": 0,
+        "d": 1757348527,
+        "r": 32999
+      },
+      {
+        "n": "Neue Beiträge in allen Foren",
+        "u": "https://mikrocontroller.net/feed/global",
+        "f": "atom",
+        "ns": [],
+        "t": 0,
+        "d": 1757348528,
+        "r": 32999
       }
     ]
   }
