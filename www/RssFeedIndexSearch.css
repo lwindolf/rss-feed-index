@@ -1,0 +1,27 @@
+.highlight {
+    background-color: yellow;
+}
+
+.feed-entry a.feed {
+    display:inline-block;
+}
+
+.feed-entry a.domain {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    width: 25%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+input#search {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
