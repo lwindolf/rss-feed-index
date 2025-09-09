@@ -6,6 +6,7 @@
 import { FeedUpdater } from './feedupdater.js';
 import { Feed } from './feed.js';
 import { linkAutoDiscover } from './parsers/autodiscover.js';
+import { pfetch } from './net.js';
 import robotsParser from '../node_modules/robots-parser/Robots.js';
 
 import process from 'process';
@@ -18,7 +19,7 @@ async function processDomain(url, rank = undefined) {
     try {
         // robots.txt check
         let allowed = false;
-        await fetch(`${url}/robots.txt`, {
+        await pfetch(`${url}/robots.txt`, {
             headers: {
                 'User-Agent': 'rss-feed-index-bot/0.9'
             }

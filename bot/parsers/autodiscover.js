@@ -11,6 +11,7 @@ import { RSSParser } from './rss.js';
 import { RDFParser } from './rdf.js';
 import { NamespaceParser } from './namespace.js';
 import { JSDOM } from 'jsdom';
+import { pfetch } from '../net.js';
 
 var jsdom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 var window = jsdom.window;
@@ -39,8 +40,15 @@ function parserAutoDiscover(str) {
 // for a given HTML document link return all feed links found
 async function linkAutoDiscover(url, baseURL = url) {
     let doc;
-    let str = await fetch(url).then(res => res.text());
-        
+    let str = await pfetch(url).then(res => res.text());
+
+    // Skip adult sites (https://developers.google.com/search/docs/specialty/explicit/guidelines)
+    if (str.includes("RTA-5042-1996-1400-1577-RTA") ||
+        str.match(/meta[^>]+content=["'][^"']*adult[^"']*["']/i)) {
+        console.info("Link discovery: skipping adult site");
+        return [];
+    }
+
     // Try to parse as HTML
     try {
         doc = new window.DOMParser().parseFromString(str, 'text/html');
