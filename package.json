@@ -5,7 +5,7 @@
         "type": "module",
         "scripts": {
                 "crawl": "node bot/crawler.js",
-                "build-www": "./build-index.sh"
+                "build-www": "node build-index.js"
         },
         "dependencies": {
                 "jsdom": "^22.1.0",
