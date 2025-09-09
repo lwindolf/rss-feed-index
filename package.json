@@ -9,6 +9,7 @@
         },
         "dependencies": {
                 "jsdom": "^22.1.0",
+                "node-fetch": "^3.3.2",
                 "robots-parser": "^3.0.1"
         }
 }

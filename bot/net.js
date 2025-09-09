@@ -1,16 +1,18 @@
 // vim: set ts=4 sw=4:
 
+import Config from '../config.js';
+import fetch from 'node-fetch';
+
 // Simple fetch wrapper with timeout handling
+//
+// Note: do not use DOMJS fetch as it does not support timeout handling
 
 async function pfetch(url, options = {}) {
-    const controller = new AbortController();
+    const controller = globalThis.AbortController;
     const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
 
-    options.headers = {
-        ...options.headers,
-        signal: controller.signal,
-        'User-Agent': 'Mozilla/5.0 (compatible; rss-feed-index-bot/0.9; +https://github.com/lwindolf/rss-feed-index)'
-    };
+    options.signal = controller.signal;
+    options.headers['User-Agent'] = Config.userAgent;
 
     try {
         return await fetch(url, options);
