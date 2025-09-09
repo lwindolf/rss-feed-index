@@ -1,6 +1,6 @@
 // vim: set ts=4 sw=4:
 
-import Config from './config.js';
+import { Config } from './config.js';
 import fetch from 'node-fetch';
 
 // Simple fetch wrapper with timeout handling
@@ -12,7 +12,10 @@ async function pfetch(url, options = {}) {
     const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
 
     options.signal = controller.signal;
-    options.headers['User-Agent'] = Config.userAgent;
+    options.headers = {
+        ...options.headers,
+        'User-Agent': Config.userAgent
+    };
 
     try {
         return await fetch(url, options);
