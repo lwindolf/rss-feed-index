@@ -36,6 +36,9 @@ input#search {
     background-color: yellow;
 }
 
+.feed-entry a.feed {
+    display:inline-block;
+}
 .feed-entry a.domain {
     font-weight: bold;
     color: #333;

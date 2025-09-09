@@ -17,6 +17,7 @@ const indexData = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'));
 // - Filter out Wordpress wfw comment feeds
 // - Strip https:// protocol from URLs
 // - Only first 3 feeds per domain
+let feedCount = 0;
 let urlTitle = {};
 Object.entries(indexData.domains).forEach(([domain, feeds]) => {
         urlTitle[domain] = {};
@@ -32,6 +33,7 @@ Object.entries(indexData.domains).forEach(([domain, feeds]) => {
                         url = url.slice(domain.length);
 
                 urlTitle[domain][url] = name;
+                feedCount++;
         });
 });
 
@@ -41,7 +43,6 @@ fs.writeFileSync(urlTitlePath, JSON.stringify(urlTitle));
 
 // Calculate domain and feed counts
 const domainCount = Object.keys(indexData.domains).length;
-const feedCount = Object.keys(urlTitle).length;
 
 // Update meta.json
 const meta = {
