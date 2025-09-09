@@ -1,6 +1,6 @@
 // vim: set ts=4 sw=4:
 
-import Config from '../config.js';
+import Config from 'config.js';
 import fetch from 'node-fetch';
 
 // Simple fetch wrapper with timeout handling
