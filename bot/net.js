@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 // Note: do not use DOMJS fetch as it does not support timeout handling
 
 async function pfetch(url, options = {}) {
-    const controller = globalThis.AbortController;
+    const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
 
     options.signal = controller.signal;
