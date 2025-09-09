@@ -11,6 +11,19 @@ function loadMeta() {
         });
 }
 
+function addLink(div, url, name) {
+        // Index does not contain default prefix "https://" to safe space
+        if (!url.includes('://'))
+                url = 'https://' + url;
+
+        div.className = 'feed-entry';      
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.textContent = name;
+        div.appendChild(link);
+}
+
 function loadRandom() {
         fetch('data/url-title.json')
         .then(response => response.json())
@@ -28,12 +41,7 @@ function loadRandom() {
                 container.innerHTML = '<h2>100 Random Feeds</h2>';
                 list.forEach(k => {
                         const div = document.createElement('div');
-                        div.className = 'feed-entry';
-                        const link = document.createElement('a');
-                        link.href = k.url;
-                        link.target = '_blank';
-                        link.textContent = k.name;
-                        div.appendChild(link);
+                        addLink(div, k.url, k.name);
                         container.appendChild(div);
                 });
         });
@@ -63,12 +71,7 @@ function performSearch(event) {
                 list = list.slice(0, 100);
                 list.forEach(k => {
                         const div = document.createElement('div');
-                        div.className = 'feed-entry';
-                        const link = document.createElement('a');
-                        link.href = k.url;
-                        link.target = '_blank';
-                        link.textContent = k.name;
-                        div.appendChild(link);
+                        addLink(div, k.url, k.name);
                         container.appendChild(div);
                 });
 
