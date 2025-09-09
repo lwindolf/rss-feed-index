@@ -11,77 +11,89 @@ function loadMeta() {
         });
 }
 
-function addLink(div, url, name) {
-        // Index does not contain default prefix "https://" to safe space
+function addLink(parent, domain, url, name) {
+        // Index does not contain default prefix "https://" and identical domains to safe space
+        if (url[0] === '/')
+                url = domain + url;
         if (!url.includes('://'))
                 url = 'https://' + url;
 
-        div.className = 'feed-entry';      
+        parent.className = 'feed-entry';
+
+        const d = document.createElement('a');
+        d.className = 'domain';
+        d.href = 'https://' + domain;
+        d.target = '_blank';
+        d.textContent = domain;
+        parent.appendChild(d);
+
         const link = document.createElement('a');
+        link.className = 'feed';
         link.href = url;
         link.target = '_blank';
-        link.textContent = name;
-        div.appendChild(link);
+        link.textContent = name? name : '[no title]';
+        parent.appendChild(link);
 }
 
 function loadRandom() {
         fetch('data/url-title.json')
         .then(response => response.json())
         .then(data => {
-                let list = Object.keys(data).map(k => {
-                        return {
-                                url: k,
-                                name: data[k]
-                        };
-                });
+                let list = Object.keys(data);
                 const offset = Math.floor(Math.random() * (list.length - 100));
                 list = list.slice(offset, offset + 100);
 
                 const container = document.getElementById('search-results');
                 container.innerHTML = '<h2>100 Random Feeds</h2>';
-                list.forEach(k => {
-                        const div = document.createElement('div');
-                        addLink(div, k.url, k.name);
-                        container.appendChild(div);
+                list.forEach(domain => {
+                        Object.entries(data[domain]).forEach(([url, name]) => {
+                                const div = document.createElement('div');
+                                addLink(div, domain, url, name);
+                                container.appendChild(div);
+                        });                        
                 });
         });
 }
 
+let flatIndex;
 function performSearch(event) {
         const query = event.target.value.toLowerCase();
-        if (query.length < 3) {
-                loadRandom();
-                return;
-        }
         console.log(`Searching for ${query}`);
         fetch('data/url-title.json')
         .then(response => response.json())
         .then(data => {
-                let list = Object.keys(data).map(k => {
-                        return {
-                                url: k,
-                                name: data[k]
-                        };
-                });
-                list = list.filter(e => e.url.toLowerCase().includes(query) || (e.name && e.name.toLowerCase().includes(query)));
+                if(!flatIndex) {
+                        // flatten the data structure to a list of {domain, url, name}
+                        flatIndex = Object.keys(data).map(domain => {
+                                return Object.entries(data[domain]).map(([url, name]) => {
+                                        return { domain, url, name };
+                                });
+                        }).flat();
+                }
+                const list = flatIndex.filter(e =>
+                        e.url.toLowerCase().includes(query) || 
+                        e.name.toLowerCase().includes(query) ||
+                        e.domain.toLowerCase().includes(query)
+                );
 
                 const container = document.getElementById('search-results');
                 container.innerHTML = `<h2>Search Results (${list.length})</h2>`;
 
-                list = list.slice(0, 100);
-                list.forEach(k => {
+                list.slice(0, 100).forEach(k => {
                         const div = document.createElement('div');
-                        addLink(div, k.url, k.name);
+                        addLink(div, k.domain, k.url, k.name);
                         container.appendChild(div);
                 });
 
-                // Highlight search term in results
-                const results = document.querySelectorAll('.feed-entry a');
-                results.forEach(link => {
-                        const regex = new RegExp(`(${query})`, 'gi');
-                        const newContent = link.textContent.replace(regex, '<span class="highlight">$1</span>');
-                        link.innerHTML = newContent;
-                });
+                if(query.length > 2) {
+                        // Highlight search term in results
+                        const results = document.querySelectorAll('.feed-entry a');
+                        results.forEach(link => {
+                                const regex = new RegExp(`(${query})`, 'gi');
+                                const newContent = link.textContent.replace(regex, '<span class="highlight">$1</span>');
+                                link.innerHTML = newContent;
+                        });
+                }
 
                 if(list.length === 0)
                         container.innerHTML += '<p>No results found. Try a different search term.</p>';

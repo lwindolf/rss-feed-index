@@ -18,26 +18,26 @@ const indexData = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'));
 // - Strip https:// protocol from URLs
 // - Only first 3 feeds per domain
 let urlTitle = {};
-Object.values(indexData.domains).forEach(domain => {
-        domain.forEach((feed, i) => {
+Object.entries(indexData.domains).forEach(([domain, feeds]) => {
+        urlTitle[domain] = {};
+        feeds.forEach((feed, i) => {
                 if (i > 2)
                         return;
+                if (feed.u.includes('/comments/feed'))
+                        return;
+
                 const name = (feed.n || '').trim();
-                const url = feed.u.startsWith('https://') ? feed.u.slice(8) : feed.u; // Strip https://
-                urlTitle[url] = name;
+                let url = feed.u.startsWith('https://') ? feed.u.slice(8) : feed.u; // Strip https://
+                if (url.startsWith(domain))
+                        url = url.slice(domain.length);
+
+                urlTitle[domain][url] = name;
         });
 });
 
-urlTitle = Object.entries(urlTitle).reduce((acc, [u, n]) => {
-        if (!u.includes('/comments/feed')) {
-                acc[u] = n;
-        }
-        return acc;
-}, {});
-
 // Write the url-title.json file
 const urlTitlePath = path.join(outputDir, 'url-title.json');
-fs.writeFileSync(urlTitlePath, JSON.stringify(urlTitle, null, 2));
+fs.writeFileSync(urlTitlePath, JSON.stringify(urlTitle));
 
 // Calculate domain and feed counts
 const domainCount = Object.keys(indexData.domains).length;

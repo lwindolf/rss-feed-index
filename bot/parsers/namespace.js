@@ -9,6 +9,12 @@ var jsdom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 var window = jsdom.window;
 
 export class NamespaceParser {
+    /**
+     * Returns the root node of a given document
+     * 
+     * @param {*} doc    the DOM document
+     * @returns         the root node
+     */
     static getRootNode(doc) {
         let root = doc.firstChild;
         while (root.nodeType != 1) {
@@ -17,7 +23,12 @@ export class NamespaceParser {
         return root;
     }
 
-    // returns list of all namespaces defined in root node
+    /**
+     * Returns list of all namespaces defined in root node
+     * 
+     * @param {*} root    the DOM root
+     * @returns           list of namespace strings
+     */
     static getNamespaces(root) {
         const nsList = [];
         if (!root.attributes) {
