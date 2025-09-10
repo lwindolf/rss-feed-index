@@ -58,7 +58,7 @@ class RSSParser {
             feed.description = XPath.lookup(root, '/Channel/description');
             feed.homepage    = XPath.lookup(root, '/Channel/link');
 
-            XPath.foreach(root, '/Channel/items/item', this.parseItem, { root, feed });
+            //XPath.foreach(root, '/Channel/items/item', this.parseItem, { root, feed });
         }
 
         // RSS 2.0
@@ -69,7 +69,7 @@ class RSSParser {
             feed.description = XPath.lookup(root, '/rss/channel/description');
             feed.homepage    = XPath.lookup(root, '/rss/channel/link');
 
-            XPath.foreach(root, '/rss/channel/item', this.parseItem, { root, feed });
+            //XPath.foreach(root, '/rss/channel/item', this.parseItem, { root, feed });
         }
 
         return feed;

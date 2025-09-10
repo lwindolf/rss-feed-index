@@ -72,7 +72,7 @@ class AtomParser {
                                       XPath.lookup(root, "/ns:feed/ns:link/@href")
                 });
 
-                XPath.foreach(root, '/ns:feed/ns:entry', this.parseEntry, { root, feed });
+                //XPath.foreach(root, '/ns:feed/ns:entry', this.parseEntry, { root, feed });
 
                 return feed;
         }
