@@ -81,6 +81,11 @@ async function processDomain(url, rank = undefined) {
     return feeds;
 }
 
+function saveIndex(indexFile, i, result) {
+    result.meta.offset = i;
+    fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
+}
+
 async function run(indexFile = "index.json", offset = 0, count = 1000000) {
     const start = offset;
     let result = {
@@ -129,12 +134,9 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
             result.domains[domains[i]] = feeds;
 
         // save updated index
-        if (i % 50 == 0) {
-            result.meta.offset = i;
-            fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
-        }
+        if (i % 50 == 0 || i == domains.length - 1)
+            saveIndex(indexFile, i, result);
     }
-
     console.log("Crawling completed.");
 }
 
