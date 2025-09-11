@@ -12,14 +12,6 @@ export class FeedUpdater {
     static async fetch(url, corsProxyAllowed = false) {
         console.info(`-> Fetching ${url}`);
         var feed = await pfetch(url, {}, corsProxyAllowed)
-            .then((response) => {
-                if (response.status == 200) {
-                    return response.text();
-                } else {
-                    console.error(`-> HTTP ${response.status}`);
-                    return null;
-                }
-            })
             .then(async (str) => {
                 if (str) {
                     let parser = parserAutoDiscover(str, url);

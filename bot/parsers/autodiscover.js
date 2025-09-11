@@ -40,7 +40,7 @@ function parserAutoDiscover(str) {
 // for a given HTML document link return all feed links found
 async function linkAutoDiscover(url, baseURL = url) {
     let doc;
-    let str = await pfetch(url).then(res => res.text());
+    const str = await pfetch(url);
 
     // Skip adult sites (https://developers.google.com/search/docs/specialty/explicit/guidelines)
     if (str.includes("RTA-5042-1996-1400-1577-RTA") ||
@@ -80,20 +80,22 @@ async function linkAutoDiscover(url, baseURL = url) {
         const relPattern = /rel=["']alternate["']/;
         const typePattern = /type=["']([^"']+)["']/;
 
+        let max = 100; // avoid excessive links
         let match;
-        while ((match = linkPattern.exec(str)) !== null) {
-                const relMatch = relPattern.exec(match[0]);
-                const hrefMatch = hrefPattern.exec(match[0]);
-                const typeMatch = typePattern.exec(match[0]);
-                const type = typeMatch ? typeMatch[1] : null;
-                const url = hrefMatch ? hrefMatch[1] : null;
+        while (max && (match = linkPattern.exec(str)) !== null) {
+            const relMatch = relPattern.exec(match[0]);
+            const hrefMatch = hrefPattern.exec(match[0]);
+            const typeMatch = typePattern.exec(match[0]);
+            const type = typeMatch ? typeMatch[1] : null;
+            const url = hrefMatch ? hrefMatch[1] : null;
 
-                if (url && type && relMatch)
-                        if ((type === 'application/atom+xml') ||
-                            (type === 'application/rss+xml') ||
-                            (type === 'application/rdf+xml') ||
-                            (type === 'text/xml'))
-                                results.push(url);
+            if (url && type && relMatch)
+                    if ((type === 'application/atom+xml') ||
+                        (type === 'application/rss+xml') ||
+                        (type === 'application/rdf+xml') ||
+                        (type === 'text/xml'))
+                            results.push(url);
+            max--;
         }
     }
 

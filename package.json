@@ -5,11 +5,11 @@
         "type": "module",
         "scripts": {
                 "crawl": "node bot/crawler.js",
-                "build-www": "node bot/build-index.js"
+                "build-www": "node bot/build-index.js",
+                "start": "npx serve www"
         },
         "dependencies": {
                 "jsdom": "^22.1.0",
-                "node-fetch": "^3.3.2",
                 "robots-parser": "^3.0.1"
         }
 }

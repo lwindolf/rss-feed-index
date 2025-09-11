@@ -3,6 +3,7 @@
 // Note: if you are reading this source code this is just a hacky crawler script
 // Do not expect beautiful code here!
 
+import { Config } from './config.js';
 import { FeedUpdater } from './feedupdater.js';
 import { Feed } from './feed.js';
 import { linkAutoDiscover } from './parsers/autodiscover.js';
@@ -12,31 +13,25 @@ import robotsParser from '../node_modules/robots-parser/Robots.js';
 import process from 'process';
 import fs from 'fs';
 
+process.on('uncaughtException', function (err) {
+  console.log('Uncaught exception: ' + err);
+  process.exit(1);
+});
+
 async function processDomain(url, rank = undefined) {
     var links = [];
     var feeds = [];
 
     try {
         // robots.txt check
-        let allowed = false;
-        await pfetch(`${url}/robots.txt`, {
+        const str = await pfetch(`${url}/robots.txt`, {
             headers: {
-                'User-Agent': 'rss-feed-index-bot/0.9'
-            }
-        }).then(response => {
-            if (response.status == 200) {
-                return response.text();
-            } else {
-                return null;
-            }
-        }).then(str => {
-            if (str) {
-                const robots = new robotsParser(`${url}/robots.txt`, str);
-                allowed = robots.isAllowed(url, 'rss-feed-index-bot/0.9');
+                'User-Agent': Config.botName
             }
         });
-
-        if (allowed === false) {
+        
+        const robots = new robotsParser(`${url}/robots.txt`, str);
+        if (false === robots.isAllowed(url, Config.botName)) {
             console.log(`-> Skipping disallowed by robots.txt`);
             return [];
         }
