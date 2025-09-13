@@ -76,8 +76,7 @@ async function processDomain(url, rank = undefined) {
     return feeds;
 }
 
-function saveIndex(indexFile, i, result) {
-    result.meta.offset = i;
+function saveIndex(indexFile, result) {
     fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
 }
 
@@ -88,8 +87,11 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
             generated: Math.floor(new Date().getTime() / 1000),
             // saving the loop offset ensures the crawler can be restarted
             offset,
-            count
+            start,
+            count,
+            complete: false
         },
+        processing: {},
         domains: {}
     };
 
@@ -123,16 +125,36 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
             }
         }
 
+        result.meta.offset = i;
+
+        // Retry recovery mechanism
+        const maxRedirects = 3;
+        if (!result.processing[domains[i]])
+            result.processing[domains[i]] = { try: 1 };
+        else
+            result.processing[domains[i]].try = (result.processing[domains[i]].try || 0) + 1;
+
+        saveIndex(indexFile, result);
+
+        if (result.processing[domains[i]].try > maxRedirects) {
+            delete result.processing[domains[i]];
+            console.log(`Skipping ${domains[i]} - exceeded max retries (${maxRedirects})`);
+            continue;
+        }
+
         console.log(`Processing #${i}: ${domains[i]} ...`);
         const feeds = await processDomain(`https://${domains[i]}`, i);
         if (feeds.length > 0)
             result.domains[domains[i]] = feeds;
 
         // save updated index
-        if (i % 50 == 0 || i == domains.length - 1)
-            saveIndex(indexFile, i, result);
+        delete result.processing[domains[i]];
+        saveIndex(indexFile, result);
     }
+
     console.log("Crawling completed.");
+    result.meta.complete = true;
+    saveIndex(indexFile, result);
 }
 
 const args = process.argv.slice(2);
@@ -160,6 +182,11 @@ if (args.length > 1) {
         }
         const sourceData = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
         const targetData = JSON.parse(fs.readFileSync(targetFile, 'utf8'));
+
+        if (!sourceData.meta.complete) {
+            console.error(`Source file ${sourceFile} is not marked as complete.`);
+            process.exit(1);
+        }
         
         // Merge domains
         for (const [domain, feeds] of Object.entries(sourceData.domains)) {
