@@ -51,8 +51,8 @@ All of the text fields are to be considered UTF-8 plain text and might need esca
 - robots.txt is respected
 - feed discovery only on domain root no traversal
 - 1 update/check request per feed per month max
-- no retries
-- no parallel crawling
+- almost no retries
+- no parallel crawling on a domain
 
 Effectivley most sites without a feed should be hit by 2 requests only.
 All sites having feeds should see 2+nr of feeds (specified by `<link rel="alternate" ...>`) requests.
