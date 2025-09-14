@@ -12,17 +12,47 @@ import robotsParser from '../node_modules/robots-parser/Robots.js';
 
 import process from 'process';
 import fs from 'fs';
+import dns from 'dns';
 
 process.on('uncaughtException', function (err) {
   console.log('Uncaught exception: ' + err);
   process.exit(1);
 });
 
-async function processDomain(url, rank = undefined) {
+// Use Cloudflare family+adult filter resolver, so do not 
+// find adult or malicious site feeds
+const resolver = new dns.Resolver();
+resolver.setServers(['1.1.1.3']);
+
+const checkDomain = (domain) => {
+    return new Promise((resolve) => {
+        resolver.resolve(domain, (err, records) => {
+            if (err) {
+                resolve(false); // Domain is not resolvable
+            } else {
+                if (records && records.length == 1 && records[0] === '0.0.0.0') {
+                    resolve(false); // Blocked by Cloudflare family filter
+                } else {
+                    resolve(true); // Domain is resolvable
+                }
+            }
+        });
+    });
+};
+
+async function processDomain(domain, rank = undefined) {
+    const url = `https://${domain}`;
     var links = [];
     var feeds = [];
 
     try {
+        // DNS check
+        const isResolvable = await checkDomain(domain);
+        if (!isResolvable) {
+            console.log(`-> Skipping ${domain} - not resolvable`);
+            return [];
+        }
+
         // robots.txt check
         const str = await pfetch(`${url}/robots.txt`, {
             headers: {
@@ -143,7 +173,7 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
         }
 
         console.log(`Processing #${i}: ${domains[i]} ...`);
-        const feeds = await processDomain(`https://${domains[i]}`, i);
+        const feeds = await processDomain(domains[i], i);
         if (feeds.length > 0)
             result.domains[domains[i]] = feeds;
 
