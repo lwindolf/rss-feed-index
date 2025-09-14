@@ -13,7 +13,7 @@ export class RssFeedIndexSearch extends HTMLElement{
                 this.attachShadow({ mode: 'open' });
                 this.shadowRoot.innerHTML = `
                         <input type="text" id="search" placeholder="Search for a domain / feed name...">
-                        <div id="search-results">Embed failed</div>
+                        <div id="search-results">Loading ...</div>
                 `;
 
                 this.#basePath = this.getAttribute('base') || '/';
