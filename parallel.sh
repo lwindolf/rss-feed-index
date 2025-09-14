@@ -3,7 +3,7 @@
 set -euo pipefail
 
 parallel=${1-10}
-batch=1000
+batch=100
 pids=()
 offset=$(jq .meta.offset index.json)
 
@@ -42,6 +42,11 @@ while true; do
 		printf "\nAll jobs completed.\n"
 		break
 	fi
+done
+
+echo "Waiting for all background processes to finish..."
+for pid in "${pids[@]}"; do
+	wait "$pid"
 done
 
 for i in $(seq 1 $parallel); do
