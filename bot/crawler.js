@@ -92,8 +92,7 @@ async function processDomain(domain, rank = undefined) {
                     f: f.type,
                     ns: f.ns,
                     t: Math.floor(avgItemChars),
-                    d: Math.floor(new Date().getTime() / 1000),
-                    r: rank,  // rank from majestic list
+                    d: Math.floor(new Date().getTime() / 1000)
                 });
                 console.info(`-> Found feed: ${f.source}`);
             } else {

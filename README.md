@@ -13,15 +13,14 @@ is [CC BY Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/
 The catalog JSON stored as `index.json` has the following format
 
     {
-        "example.com" : {
+        "example.com" : [{
             "n" : "Example.com feed",
             "u" : "https://example.com/feed.xml",
             "t" : 134,
             "f" : "rss",
             "ns" : [ "syn", "wfw", "dc" ],
-            "r" : 123456,
             "d" : 1757110273
-        }
+        }]
     }
 
 The meaning of the fields being
@@ -35,7 +34,6 @@ The meaning of the fields being
 | t     | Average score of characters in item description        |
 | f     | Feed type "rss", "atom", "json"                        |
 | ns    | Namespaces / Features discovered                       |
-| r     | Majestic million rank (optional)                       |
 | d     | Last update timestamp of the feed                      |
 
 All of the text fields are to be considered UTF-8 plain text and might need escaping.

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 parallel=${1-10}
-batch=1000
+batch=${2-1000}
 pids=()
 offset=$(jq .meta.offset index.json)
 
