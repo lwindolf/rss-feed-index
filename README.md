@@ -46,13 +46,17 @@ All of the text fields are to be considered UTF-8 plain text and might need esca
     npm i
     npm run crawl
 
+For parallel execution there is a `parallel.sh` script.
+
 ## Crawler Ethics
 
 - robots.txt is respected
 - feed discovery only on domain root no traversal
-- 1 update/check request per feed per month max
-- almost no retries
-- no parallel crawling on a domain
+- minimal traffic
+  - 1 update/check request per feed per month max
+  - almost no retries
+  - no parallel crawling on a domain
+- filtering of domains using Cloudflares family filter (1.1.1.3 resolver) to avoid malware and adult content
 
 Effectivley most sites without a feed should be hit by 2 requests only.
 All sites having feeds should see 2+nr of feeds (specified by `<link rel="alternate" ...>`) requests.
