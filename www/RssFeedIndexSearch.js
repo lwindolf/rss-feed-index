@@ -1,6 +1,7 @@
 export class RssFeedIndexSearch extends HTMLElement{
         // state
         #flatIndex;
+        #data;
 
         // shadow DOM
         #basePath;
@@ -12,7 +13,7 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 this.attachShadow({ mode: 'open' });
                 this.shadowRoot.innerHTML = `
-                        <input type="text" id="search" placeholder="Search for a domain / feed name...">
+                        <input type="text" id="search" placeholder="Search for a domain / feed name..." disabled />
                         <div id="search-results">Loading ...</div>
                 `;
 
@@ -25,11 +26,50 @@ export class RssFeedIndexSearch extends HTMLElement{
                         this.shadowRoot.appendChild(link);
                 }
 
-                this.#loadRandom();
                 this.#results = this.shadowRoot.getElementById('search-results');
                 this.#searchInput = this.shadowRoot.getElementById('search');
                 this.#searchInput.addEventListener('input', this.#performSearch.bind(this));
+                
+                this.#loadIndex();
+        }
+
+        async #loadIndex() {
+                const response = await fetch(this.#basePath + 'url-title.json');
+                console.log(response.headers.get('Content-Length'));
+                const length = parseInt(response.headers.get('Content-Length'), 10);
+                const reader = response.body.getReader();
+
+                let receivedLength = 0; // received that many bytes at the moment
+                let chunks = []; // array of received binary chunks (comprises the body)
+                while(true) {
+                        const {done, value} = await reader.read();
+                        if (done)
+                                break;
+
+                        chunks.push(value);
+                        receivedLength += value.length;
+
+                        if(length) {
+                                const percent = (receivedLength / length * 100).toFixed(2);
+                                this.#results.innerHTML = `Loading ... ${percent}%`;
+                        } else {
+                                this.#results.innerHTML = `Loading ... ${ (receivedLength / 1024 / 1024).toFixed(2) } MB`;
+                        }
+                }
+                
+                // concatenate chunks into single Uint8Array
+                let chunksAll = new Uint8Array(receivedLength);
+                let position = 0;
+                for(let chunk of chunks) {
+                        chunksAll.set(chunk, position);
+                        position += chunk.length;
+                }
+                
+                // decode into a string
+                this.#data = JSON.parse(new TextDecoder("utf-8").decode(chunksAll));
+                this.#searchInput.disabled = false;
                 this.#searchInput.focus();
+                this.#loadRandom();
         }
 
         #addLink(parent, domain, url, name) {
@@ -57,67 +97,61 @@ export class RssFeedIndexSearch extends HTMLElement{
         }
 
         #loadRandom() {
-                fetch(this.#basePath + 'url-title.json')
-                .then(response => response.json())
-                .then(data => {
-                        let list = Object.keys(data);
-                        const offset = Math.floor(Math.random() * (list.length - 100));
-                        list = list.slice(offset, offset + 100);
+                let list = Object.keys(this.#data);
+                const offset = Math.floor(Math.random() * (list.length - 100));
+                list = list.slice(offset, offset + 100);
 
-                        this.#results.innerHTML = '<h2>100 Random Feeds</h2>';
-                        list.forEach(domain => {
-                                Object.entries(data[domain]).forEach(([url, name]) => {
-                                        const div = document.createElement('div');
-                                        this.#addLink(div, domain, url, name);
-                                        this.#results.appendChild(div);
-                                });                        
-                        });
+                this.#results.innerHTML = '<h2>100 Random Feeds</h2>';
+                list.forEach(domain => {
+                        Object.entries(this.#data[domain]).forEach(([url, name]) => {
+                                const div = document.createElement('div');
+                                this.#addLink(div, domain, url, name);
+                                this.#results.appendChild(div);
+                        });                        
                 });
         }
 
         #performSearch(event) {
                 const query = event.target.value.toLowerCase();
                 console.log(`Searching for ${query}`);
-                fetch(this.#basePath + 'url-title.json')
-                .then(response => response.json())
-                .then(data => {
-                        if(!this.#flatIndex) {
-                                // flatten the data structure to a list of {domain, url, name}
-                                this.#flatIndex = Object.keys(data).map(domain => {
-                                        return Object.entries(data[domain]).map(([url, name]) => {
-                                                return { domain, url, name };
-                                        });
-                                }).flat();
-                        }
-                        const list = this.#flatIndex.filter(e =>
-                                e.url.toLowerCase().includes(query) || 
-                                e.name.toLowerCase().includes(query) ||
-                                e.domain.toLowerCase().includes(query)
-                        );
 
-                        this.#results.innerHTML = `<h2>Search Results (${list.length})</h2>`;
-
-                        list.slice(0, 100).forEach(k => {
-                                const div = document.createElement('div');
-                                this.#addLink(div, k.domain, k.url, k.name);
-                                this.#results.appendChild(div);
-                        });
-
-                        if(query.length > 2) {
-                                // Highlight search term in results
-                                const results = this.#results.querySelectorAll('.feed-entry a');
-                                results.forEach(link => {
-                                        const regex = new RegExp(`(${query})`, 'gi');
-                                        const newContent = link.textContent.replace(regex, '<span class="highlight">$1</span>');
-                                        link.innerHTML = newContent;
+                if(!this.#flatIndex) {
+                        // flatten the data structure to a list of {domain, url, name}
+                        this.#flatIndex = Object.keys(this.#data).map(domain => {
+                                return Object.entries(this.#data[domain]).map(([url, name]) => {
+                                        return { domain, url, name };
                                 });
-                        }
+                        }).flat();
+                }
+                const list = this.#flatIndex.filter(e =>
+                        e.url.toLowerCase().includes(query) || 
+                        e.name.toLowerCase().includes(query) ||
+                        e.domain.toLowerCase().includes(query)
+                );
 
-                        if(list.length === 0)
-                                this.#results.innerHTML += '<p>No results found. Try a different search term.</p>';
-                        if(list.length == 100)
-                                this.#results.innerHTML += '<p>Showing first 100 results only. Please refine your search.</p>';
+                this.#results.innerHTML = `<h2>Search Results (${list.length})</h2>`;
+
+                list.slice(0, 100).forEach(k => {
+                        const div = document.createElement('div');
+                        this.#addLink(div, k.domain, k.url, k.name);
+                        this.#results.appendChild(div);
                 });
+
+                if(query.length > 2) {
+                        // Highlight search term in results
+                        const results = this.#results.querySelectorAll('.feed-entry a');
+                        results.forEach(link => {
+                                const regex = new RegExp(`(${query})`, 'gi');
+                                const newContent = link.textContent.replace(regex, '<span class="highlight">$1</span>');
+                                link.innerHTML = newContent;
+                        });
+                }
+
+                if(list.length === 0)
+                        this.#results.innerHTML += '<p>No results found. Try a different search term.</p>';
+                if(list.length == 100)
+                        this.#results.innerHTML += '<p>Showing first 100 results only. Please refine your search.</p>';
+
         }
 };
 
