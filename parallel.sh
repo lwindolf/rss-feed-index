@@ -50,7 +50,7 @@ for pid in "${pids[@]}"; do
 done
 
 for i in $(seq 1 $parallel); do
-	node bot/crawler.js --merge index${i}.json index.json && rm index${i}.json
+	node bot/crawler.js --merge index${i}.json index.json && rm index${i}.json && rm $i.log
 done
 
 echo "Done."
