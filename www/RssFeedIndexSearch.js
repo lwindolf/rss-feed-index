@@ -36,7 +36,6 @@ export class RssFeedIndexSearch extends HTMLElement{
         async #loadIndex() {
                 const response = await fetch(this.#basePath + 'url-title.json');
                 console.log(response.headers.get('Content-Length'));
-                const length = parseInt(response.headers.get('Content-Length'), 10);
                 const reader = response.body.getReader();
 
                 let receivedLength = 0; // received that many bytes at the moment
@@ -48,13 +47,7 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                         chunks.push(value);
                         receivedLength += value.length;
-
-                        if(length) {
-                                const percent = (receivedLength / length * 100).toFixed(2);
-                                this.#results.innerHTML = `Loading ... ${percent}%`;
-                        } else {
-                                this.#results.innerHTML = `Loading ... ${ (receivedLength / 1024 / 1024).toFixed(2) } MB`;
-                        }
+                        this.#results.innerHTML = `Loading ... ${ (receivedLength / 1024 / 1024).toFixed(2) } MB`;
                 }
                 
                 // concatenate chunks into single Uint8Array
