@@ -1,0 +1,1 @@
+The datasets scripts are supposed to provide one domain name per line on STDOUT

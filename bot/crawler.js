@@ -133,11 +133,7 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
         result = JSON.parse(data);
     }
 
-    // load majestic top 1 million sites
-    const majesticFile = "majestic_million.csv";
-    const majesticData = fs.readFileSync(majesticFile, 'utf8');
-    const lines = majesticData.split('\n');
-    const domains = lines.slice(1).map(line => line.split(',')[2]).filter(Boolean);
+    const domains = fs.readFileSync('domains.txt', 'utf8').split('\n');
 
     // loop over all domains
     for (let i = result.meta.offset; i < domains.length; i++) {

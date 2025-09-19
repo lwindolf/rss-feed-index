@@ -39,8 +39,8 @@ The meaning of the fields being
 All of the text fields are to be considered UTF-8 plain text and might need escaping.
 
 ## Crawler Usage
-
-    wget https://downloads.majestic.com/majestic_million.csv
+    
+    datasets/majestic.sh >domains.txt
     npm i
     npm run crawl
 

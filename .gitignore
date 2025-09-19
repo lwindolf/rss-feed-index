@@ -1,4 +1,4 @@
 node_modules/
 www/data/
-majestic_million.csv
+domains.txt
 *.log
