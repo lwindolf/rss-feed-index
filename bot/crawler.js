@@ -182,6 +182,7 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
 
     console.log("Crawling completed.");
     result.meta.complete = true;
+    result.meta.offset = 0;
     saveIndex(indexFile, result);
 }
 
