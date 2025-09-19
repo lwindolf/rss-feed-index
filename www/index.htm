@@ -27,8 +27,7 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('stats').innerHTML = `
-                <div class='stat'>Crawler Run: ${new Date(1000*data.generated).toLocaleDateString()}</div>
-                <div class='stat'>Progress: ${Number((data.offset*100/1000000).toFixed(2))}%</div>
+                <div class='stat'>Last Crawl: ${new Date(1000*data.generated).toLocaleDateString()}</div>
                 <div class='stat'>Domains: ${data.domains}</div>
                 <div class='stat'>Feeds: ${data.feeds}</div>
             `;
