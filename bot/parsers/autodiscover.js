@@ -9,6 +9,7 @@ import { XPath } from './xpath.js';
 import { AtomParser } from './atom.js';
 import { RSSParser } from './rss.js';
 import { RDFParser } from './rdf.js';
+import { JSONFeedParser } from './jsonfeed.js';
 import { NamespaceParser } from './namespace.js';
 import { JSDOM } from 'jsdom';
 import { pfetch } from '../net.js';
@@ -18,6 +19,16 @@ var window = jsdom.window;
 
 // Return a parser class matching the given document string or undefined
 function parserAutoDiscover(str) {
+    if (0 == str.indexOf('{')) {
+        try {
+            const obj = JSON.parse(str);
+            if (obj.version && obj.version.startsWith("https://jsonfeed.org/version/"))
+                return JSONFeedParser;
+        } catch(e) {
+            // ignore
+        }
+    }
+
     let parsers = [AtomParser, RSSParser, RDFParser];
     const parser = new window.DOMParser();
     const doc = parser.parseFromString(str, 'application/xml');
@@ -69,6 +80,7 @@ async function linkAutoDiscover(url, baseURL = url) {
         if ((type === 'application/atom+xml') ||
             (type === 'application/rss+xml') ||
             (type === 'application/rdf+xml') ||
+            (type === 'application/json') ||
             (type === 'text/xml'))
             results.push(n.getAttribute('href'));
     });
@@ -93,6 +105,7 @@ async function linkAutoDiscover(url, baseURL = url) {
                     if ((type === 'application/atom+xml') ||
                         (type === 'application/rss+xml') ||
                         (type === 'application/rdf+xml') ||
+                        (type === 'application/json') ||
                         (type === 'text/xml'))
                             results.push(url);
             max--;
