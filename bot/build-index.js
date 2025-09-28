@@ -1,8 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
-import { url } from 'inspector';
-import { count } from 'console';
 
 // Ensure the output directory exists
 const outputDir = path.join('www', 'data');
