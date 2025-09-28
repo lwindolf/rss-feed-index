@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { url } from 'inspector';
+import { count } from 'console';
 
 // Ensure the output directory exists
 const outputDir = path.join('www', 'data');
@@ -18,10 +19,24 @@ const indexData = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'));
 // - Strip https:// protocol from URLs
 // - Only first 3 feeds per domain
 let feedCount = 0;
+let countByFeedType = {};
+let countByNS = {};
+let countByTLD = {};
+let countByProtocol = { http: 0, https: 0, gopher: 0 };
 let urlTitle = {};
 Object.entries(indexData.domains).forEach(([domain, feeds]) => {
         urlTitle[domain] = {};
         feeds.forEach((feed, i) => {
+                // Statistic counting
+                const tld = domain.split('.').slice(-1)[0];
+                const protocol = feed.u.split(':')[0];
+                countByProtocol[protocol] = (countByProtocol[protocol] || 0) + 1;
+                countByTLD[tld] = (countByTLD[tld] || 0) + 1;
+                countByFeedType[feed.f] = (countByFeedType[feed.f] || 0) + 1;
+                (feed.ns || []).forEach(ns => {
+                        countByNS[ns] = (countByNS[ns] || 0) + 1;
+                });
+
                 if (i > 2)
                         return;
                 if (feed.u.includes('/comments/feed'))
@@ -49,6 +64,11 @@ const meta = {
         ...indexData.meta,
         domains: domainCount,
         feeds: feedCount,
+        byFeedType: countByFeedType,
+        byNS: countByNS,
+        byTLD: countByTLD,
+        byProtocol: countByProtocol,
+        lastUpdated: Math.floor(Date.now() / 1000)
 };
 const metaPath = path.join(outputDir, 'meta.json');
 fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
