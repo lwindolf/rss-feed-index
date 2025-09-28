@@ -30,8 +30,15 @@ async function pfetch(url, options = {}, redirectCount = 0) {
                 if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
                     if (redirectCount < Config.maxRedirects) {
                         // Follow redirect
-                        console.log(`-> Redirecting to ${res.headers.location}`);
-                        pfetch(res.headers.location, options, redirectCount + 1)
+                        let netLocation = res.headers.location;
+                        if (!netLocation.startsWith('http')) {
+                            // Handle relative redirects
+                            const baseUrl = new URL(url);
+                            netLocation = new URL(netLocation, baseUrl).href;
+                        }
+
+                        console.log(`-> Redirecting to ${netLocation}`);
+                        pfetch(netLocation, options, redirectCount + 1)
                             .then(resolve)
                             .catch(reject);
                     } else {

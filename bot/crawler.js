@@ -79,22 +79,15 @@ async function processDomain(domain, rank = undefined) {
         
         try {
             const f = await FeedUpdater.fetch(l);
-            if (Feed.ERROR_NONE == f.error) {
-                let avgItemChars = 0;
-                f.items.forEach(item => {
-                    // simple char counting (not HTML-stripped)
-                    if (item.description)
-                        avgItemChars += item.description.length;
-                });
-                avgItemChars /= f.items.length;
-
+            if (Feed.ERROR_NONE == f.error && f.itemCount > 0) {
                 feeds.push({
                     n: f.title,
                     u: f.source,
                     i: f.description,
                     f: f.type,
                     ns: f.ns,
-                    t: Math.floor(avgItemChars),
+                    t: Math.floor(f.itemContentSize / f.itemCount),
+                    c: f.mostRecentItemTime,
                     d: Math.floor(new Date().getTime() / 1000)
                 });
                 console.info(`-> Found feed: ${f.source}`);
@@ -112,7 +105,7 @@ function saveIndex(indexFile, result) {
     fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
 }
 
-async function run(indexFile = "index.json", offset = 0, count = 1000000) {
+async function run(indexFile = "index.json", offset = 0, count = 1000000, domains) {
     const start = offset;
     let result = {
         meta: {
@@ -133,8 +126,6 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
         result = JSON.parse(data);
     }
 
-    const domains = fs.readFileSync('domains.txt', 'utf8').split('\n');
-
     // loop over all domains
     for (let i = result.meta.offset; i < domains.length; i++) {
         // stop after meta.count domains
@@ -147,7 +138,9 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000) {
         if (result.domains[domains[i]] &&
             result.domains[domains[i]].length > 0) {
             const diffDays = Math.floor((Math.floor(new Date().getTime() / 1000) - result.domains[domains[i]][0].d) / (60 * 60 * 24));
-            if (diffDays < 30) { // update only if older than 30 days
+            if (diffDays < 30 
+                && result.domains[domains[i]][0].t
+            ) { // update only if older than 30 days
                 console.log(`Skipping ${domains[i]} - recently updated (${diffDays} days ago)`);
                 continue;
             }
@@ -239,12 +232,12 @@ if (args.length > 1) {
         fs.writeFileSync(targetFile, JSON.stringify(targetData, null, 2));
         console.log(`Merged ${sourceFile} into ${targetFile}.`);
     } else if (args[0] === '--parallel') {
+        const domains = fs.readFileSync('domains.txt', 'utf8').split('\n');
         if (args.length < 4) {
             console.error("Usage: node crawler.js --parallel <worker nr> <offset> <count>");
             process.exit(1);
-        } else {
-            run(`index${args[1]}.json`, parseInt(args[2]), parseInt(args[3]));
         }
+        run(`index${args[1]}.json`, parseInt(args[2]), parseInt(args[3]), domains);
     } else {
         console.error("Unknown command. Usage:");
         console.error("  node crawler.js");
@@ -254,5 +247,6 @@ if (args.length > 1) {
         process.exit(1);
     }
 } else {
-    run();
+    const domains = fs.readFileSync('domains.txt', 'utf8').split('\n');
+    run('index.json', 0, domains.length, domains);
 }

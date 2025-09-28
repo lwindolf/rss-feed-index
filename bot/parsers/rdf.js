@@ -17,10 +17,11 @@ class RDFParser {
 	];
 
 	static parseItem(node, ctxt) {
+		if (ctxt.feed.itemCount >= 15)
+			return;
+
 		let item = new Item({
-			title       : XPath.lookup(node, 'ns:title'),
-			description : XPath.lookup(node, 'ns:description'),
-			source      : XPath.lookup(node, 'ns:link'),
+			description : XPath.lookup(node, 'ns:description')
 		});
 
 		NamespaceParser.parseItem(ctxt.root, node, item);
@@ -40,11 +41,10 @@ class RDFParser {
 		if (doc.firstChild.nodeName === 'rdf:RDF') {
 			feed.type 	     = 'rss1.0';
 			feed.ns          = NamespaceParser.getNamespaces(root);
-			feed.title       = XPath.lookup(root, '/rdf:RDF/ns:channel/ns:title');
+			feed.title       = XPath.lookup(root, '/rdf:RDF/ns:channel/ns:title')
 			feed.description = XPath.lookup(root, '/rdf:RDF/ns:channel/ns:description');
-			feed.homepage    = XPath.lookup(root, '/rdf:RDF/ns:channel/ns:link');
 
-			//XPath.foreach(root, '/rdf:RDF/ns:item', this.parseItem, { root, feed });
+			XPath.foreach(root, '/rdf:RDF/ns:item', this.parseItem, { root, feed });
 		}
 
 		return feed;

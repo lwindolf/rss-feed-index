@@ -58,9 +58,6 @@ export class NamespaceParser {
 
         // Dublin Core support
         if (nsList.includes('dc')) {
-            if (!item.description)
-                item.description = XPath.lookup(node, 'dc:description');
-            // FIXME: missing dc:content handling (e.g. https://www.tomshardware.com/feeds.xml)
             if (!item.time)
                 item.time = DateParser.parse(XPath.lookup(node, 'dc:date'));
         }
@@ -70,11 +67,8 @@ export class NamespaceParser {
             const n = XPath.lookupNode(node, 'content:encoded');
             if (n) {
                 try {
-                    // Always override description
-                    const parser = new window.DOMParser();
-                    const doc = parser.parseFromString(`<a>${n.innerHTML}</a>`, 'text/xml');
-                    // FIXME: limit extract to body only
-                    item.description = doc.documentElement.textContent;
+                    // no parsing as we just want to know the length
+                    item.description = n.innerHTML;
                 } catch (e) {
                     console.log(`Failed to parse <content:encoded> (${e})!`);
                 }
@@ -83,34 +77,7 @@ export class NamespaceParser {
 
         // Media support
         if (nsList.includes('media')) {
-            /*
-                Maximual definition could look like this:
-            
-                <media:content 
-                        url="http://www.foo.com/movie.mov" 
-                        fileSize="12216320" 
-                        type="video/quicktime"
-                        medium="video"
-                        isDefault="true" 
-                        expression="full" 
-                        bitrate="128" 
-                        framerate="25"
-                        samplingrate="44.1"
-                        channels="2"
-                        duration="185" 
-                        height="200"
-                        width="300" 
-                        lang="en" />
-                    
-                (example quoted from specification)
-            */
-            XPath.foreach(node, '//media:content', (n) => {
-                item.addMedia(
-                    XPath.lookup(n, '@url'),
-                    XPath.lookup(n, '@type') || XPath.lookup(n, '@medium'),
-                    XPath.lookup(n, '@duration')
-                );
-            });
+            node.media = true;
 
             return nsList;
         }

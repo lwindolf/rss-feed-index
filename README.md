@@ -34,7 +34,8 @@ The meaning of the fields being
 | t     | Average score of characters in item description        |
 | f     | Feed type "rss", "atom", "json"                        |
 | ns    | Namespaces / Features discovered                       |
-| d     | Last update timestamp of the feed                      |
+| r     | Timestamp of most recent item in the feed              |
+| d     | Timestamp of last crawl of the feed                    |
 
 All of the text fields are to be considered UTF-8 plain text and might need escaping.
 

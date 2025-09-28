@@ -14,68 +14,44 @@ var jsdom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 var window = jsdom.window;
 
 class AtomParser {
-        static id = 'atom';
-        static autoDiscover = [
-                '/ns:feed/ns:entry'
-        ];
+    static id = 'atom';
+    static autoDiscover = [
+        '/ns:feed/ns:entry'
+    ];
 
-        static parseEntryLink(node, ctxt) {
-                let href = XPath.lookup(node, '@href');
-                let type = XPath.lookup(node, '@type');
-                let rel  = XPath.lookup(node, '@rel');
+    static parseEntry(node, ctxt) {
+        if (ctxt.feed.itemCount >= 15)
+            return;
 
-                if(href) {
-                        // Always prefer those types of links
-                        if((ctxt.sourceType !== 'alternate_or_text/html') &&
-                            ((rel && rel === 'alternate') ||
-                             (type && type === 'text/html'))) {
-                                ctxt.sourceType = 'alternate_or_text/html';
-                                ctxt.source = href;
-                                return
-                        }
+        let item = new Item({
+            description: XPath.lookup(node, 'ns:summary'),
+            time: DateParser.parse(XPath.lookup(node, 'ns:updated'))
+        });
 
-                        // But also allow for a plain link
-                        if(!ctxt.source)
-                                ctxt.source = href;
-                }
-        }
+        if (XPath.lookup(node, 'ns:content'))
+            item.description = XPath.lookup(node, 'ns:content');
 
-        static parseEntry(node, ctxt) {
-                let item = new Item({
-                        title       : XPath.lookup(node, 'ns:title'),
-                        description : XPath.lookup(node, 'ns:summary'),
-                        // FIXME support atom:content
-                        sourceId    : XPath.lookup(node, 'ns:id'),
-                        time        : DateParser.parse(XPath.lookup(node, 'ns:updated'))
-                });
+        NamespaceParser.parseItem(ctxt.root, node, item);
 
-                NamespaceParser.parseItem(ctxt.root, node, item);
+        ctxt.feed.addItem(item);
+    }
 
-                XPath.foreach(node, 'ns:link', AtomParser.parseEntryLink, item);
+    static parse(str) {
+        const parser = new window.DOMParser();
+        const doc = parser.parseFromString(str, 'application/xml');
+        const root = NamespaceParser.getRootNode(doc);
 
-                ctxt.feed.addItem(item);
-        }
+        let feed = new Feed({
+            type: 'atom',
+            ns: NamespaceParser.getNamespaces(root),
+            title: XPath.lookup(root, '/ns:feed/ns:title'),
+            description : XPath.lookup(root, '/ns:feed/ns:summary')
+        });
 
-        static parse(str) {              
-                const parser = new window.DOMParser();
-                const doc = parser.parseFromString(str, 'application/xml');
-                const root = NamespaceParser.getRootNode(doc);
+        XPath.foreach(root, '/ns:feed/ns:entry', this.parseEntry, { root, feed });
 
-                let feed = new Feed({
-                        type        : 'atom',
-                        ns          : NamespaceParser.getNamespaces(root),
-                        error       : XPath.lookup(root, '/parsererror'),
-                        title       : XPath.lookup(root, '/ns:feed/ns:title'),
-                        icon        : XPath.lookup(root, '/ns:feed/ns:icon'),
-                        description : XPath.lookup(root, '/ns:feed/ns:summary'),
-                        homepage    : XPath.lookup(root, "/ns:feed/ns:link[@rel='alternate']/@href") ||
-                                      XPath.lookup(root, "/ns:feed/ns:link/@href")
-                });
-
-                //XPath.foreach(root, '/ns:feed/ns:entry', this.parseEntry, { root, feed });
-
-                return feed;
-        }
+        return feed;
+    }
 }
 
 export { AtomParser };

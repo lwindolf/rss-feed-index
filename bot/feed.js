@@ -1,28 +1,13 @@
 // vim: set ts=4 sw=4:
 
-// DAO for feeds
-//
-// emits
-// - nodeUpdated(node)
-// - itemsAdded(node)
-
-import { FeedUpdater } from './feedupdater.js';
-
 export class Feed {
-    // state
-    id;
-    error;
-    orig_source;
-    last_updated;
-    etag;
-    items = [];
-
-    // feed content
     title;
     source;
     description;
-    icon;
-    metadata = {};
+    media = false;          // true if media content is present
+    itemCount = 0;          // number of all items parsed
+    itemContentSize = 0;    // sum of all items content in bytes
+    mostRecentItemTime = 0; // timestamp of the most recent item
 
     // error code constants
     static ERROR_NONE = 0;
@@ -33,12 +18,13 @@ export class Feed {
 
     constructor(defaults = {}) {
         Object.keys(defaults).forEach((k) => { this[k] = defaults[k] });
-
-        // Ensure we do not loose the original source URL on bogus HTTP redirects
-        this.orig_source = this.source;
     }
 
     addItem(item) {
-        this.items.push(item);
+        this.itemCount++;
+        if (item.description)
+            this.itemContentSize += item.description.length;
+        if (item.time > this.mostRecentItemTime)
+            this.mostRecentItemTime = item.time;
     }
 }

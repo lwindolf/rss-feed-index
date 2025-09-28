@@ -20,21 +20,16 @@ class RSSParser {
     ];
 
     static parseItem(node, ctxt) {
+        if (ctxt.feed.itemCount >= 15)
+            return;
+
         let item = new Item({
-            title       : XPath.lookup(node, 'title'),
             description : XPath.lookup(node, 'description'),
-            source      : XPath.lookup(node, 'link'),
-            // RSS 2.0 only
-            sourceId    : XPath.lookup(node, 'guid'),
             time        : DateParser.parse(XPath.lookup(node, 'pubDate'))
         });
 
-        XPath.foreach(node, 'enclosure', (n) => 
-            item.addMedia(
-                XPath.lookup(n, '@url'),
-                XPath.lookup(n, '@type')
-            )
-        );
+        if (XPath.lookup(node, 'enclosure'))
+            ctxt.feed.media = true;
 
         NamespaceParser.parseItem(ctxt.root, node, item);
         
@@ -48,7 +43,6 @@ class RSSParser {
         let feed = new Feed({
             feed: 'rss',
             ns: NamespaceParser.getNamespaces(root),
-            error: XPath.lookup(root, '/parsererror'),
         });
 
         // RSS 1.1
@@ -56,20 +50,17 @@ class RSSParser {
             feed.type        = 'rss1.1';
             feed.title       = XPath.lookup(root, '/Channel/title');
             feed.description = XPath.lookup(root, '/Channel/description');
-            feed.homepage    = XPath.lookup(root, '/Channel/link');
 
-            //XPath.foreach(root, '/Channel/items/item', this.parseItem, { root, feed });
+            XPath.foreach(root, '/Channel/items/item', this.parseItem, { root, feed });
         }
 
         // RSS 2.0
         if (doc.firstChild.nodeName === 'rss') {
             feed.type        = 'rss2.0';
-            feed.lang        = XPath.lookup(root, '/rss/channel/language');
             feed.title       = XPath.lookup(root, '/rss/channel/title');
             feed.description = XPath.lookup(root, '/rss/channel/description');
-            feed.homepage    = XPath.lookup(root, '/rss/channel/link');
 
-            //XPath.foreach(root, '/rss/channel/item', this.parseItem, { root, feed });
+            XPath.foreach(root, '/rss/channel/item', this.parseItem, { root, feed });
         }
 
         return feed;
