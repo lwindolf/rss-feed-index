@@ -15,11 +15,13 @@ The catalog JSON stored as `index.json` has the following format
     {
         "example.com" : [{
             "n" : "Example.com feed",
+            "i" : "Description of example.com feed",
             "u" : "https://example.com/feed.xml",
             "t" : 134,
             "f" : "rss",
             "ns" : [ "syn", "wfw", "dc" ],
-            "d" : 1757110273
+            "d" : 1757110273,
+            "c" : 1757082347
         }]
     }
 
