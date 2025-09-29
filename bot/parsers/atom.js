@@ -43,7 +43,7 @@ class AtomParser {
 
         let feed = new Feed({
             type: 'atom',
-            ns: NamespaceParser.getNamespaces(root),
+            ns: NamespaceParser.getNamespaces(root, str),
             title: XPath.lookup(root, '/ns:feed/ns:title'),
             description : XPath.lookup(root, '/ns:feed/ns:summary')
         });

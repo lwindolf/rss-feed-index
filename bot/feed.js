@@ -4,7 +4,8 @@ export class Feed {
     title;
     source;
     description;
-    media = false;          // true if media content is present
+    audio = false;          // true if audio content is present
+    video = false;          // true if video content is present
     itemCount = 0;          // number of all items parsed
     itemContentSize = 0;    // sum of all items content in bytes
     mostRecentItemTime = 0; // timestamp of the most recent item
@@ -26,5 +27,9 @@ export class Feed {
             this.itemContentSize += item.description.length;
         if (item.time > this.mostRecentItemTime)
             this.mostRecentItemTime = item.time;
+        if (item.audio)
+            this.audio = true;
+        if (item.video)
+            this.video = true;
     }
 }

@@ -28,8 +28,16 @@ class RSSParser {
             time        : DateParser.parse(XPath.lookup(node, 'pubDate'))
         });
 
-        if (XPath.lookup(node, 'enclosure'))
-            ctxt.feed.media = true;
+        XPath.foreach(node, 'enclosure', (n) => {
+            const type = XPath.lookup(n, '@type');
+            if(!type)
+                return;
+
+            if(type.startsWith('audio/'))
+                item.audio = true;
+            else if(type.startsWith('video/'))
+                item.video = true;
+        });
 
         NamespaceParser.parseItem(ctxt.root, node, item);
         
@@ -42,7 +50,7 @@ class RSSParser {
         const root = NamespaceParser.getRootNode(doc);
         let feed = new Feed({
             feed: 'rss',
-            ns: NamespaceParser.getNamespaces(root),
+            ns: NamespaceParser.getNamespaces(root, str),
         });
 
         // RSS 1.1

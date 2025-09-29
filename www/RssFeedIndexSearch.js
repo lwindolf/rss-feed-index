@@ -65,12 +65,12 @@ export class RssFeedIndexSearch extends HTMLElement{
                 this.#loadRandom();
         }
 
-        #addLink(parent, domain, url, name) {
+        #addLink(parent, domain, value) {
                 // Index does not contain default prefix "https://" and identical domains to safe space
-                if (url[0] === '/')
-                        url = domain + url;
-                if (!url.includes('://'))
-                        url = 'https://' + url;
+                if (value.u[0] === '/')
+                        value.u = domain + value.u;
+                if (!value.u.includes('://'))
+                        value.u = 'https://' + value.u;
 
                 parent.className = 'feed-entry';
 
@@ -81,12 +81,42 @@ export class RssFeedIndexSearch extends HTMLElement{
                 d.textContent = domain;
                 parent.appendChild(d);
 
+                const iconLink = document.createElement('a');
+                iconLink.className = 'icon';
+                iconLink.href = 'feed:' + value.u;
+                iconLink.target = '_blank';
+                parent.appendChild(iconLink);
+
+                const icon = document.createElement('img');
+                icon.className = 'icon';
+                icon.src = '/feed.svg';
+                icon.onerror = () => { icon.style.display = 'none'; };
+                iconLink.appendChild(icon);
+
                 const link = document.createElement('a');
                 link.className = 'feed';
-                link.href = url;
+                link.href = value.u;
                 link.target = '_blank';
-                link.textContent = name? name : '[no title]';
+                link.textContent = value.n ? value.n : '[no title]';
                 parent.appendChild(link);
+
+
+                if(value.t) {
+                        const label = document.createElement('span');
+                        label.className = 'label';
+                        label.textContent = 'long text';
+                        parent.appendChild(label);
+                }
+
+                if(value.m) {
+                        const label = document.createElement('span');
+                        label.className = 'label';
+                        if(value.m == 1)
+                                label.innerHTML = '&#127911;';
+                        else if(value.m == 2)
+                                label.innerHTML = '&#127916;';
+                        parent.appendChild(label);
+                }
         }
 
         #loadRandom() {
@@ -96,9 +126,9 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 this.#results.innerHTML = '<h2>100 Random Feeds</h2>';
                 list.forEach(domain => {
-                        Object.entries(this.#data[domain]).forEach(([url, name]) => {
+                        this.#data[domain].forEach(v => {
                                 const div = document.createElement('div');
-                                this.#addLink(div, domain, url, name);
+                                this.#addLink(div, domain, v);
                                 this.#results.appendChild(div);
                         });                        
                 });
@@ -111,28 +141,29 @@ export class RssFeedIndexSearch extends HTMLElement{
                 if(!this.#flatIndex) {
                         // flatten the data structure to a list of {domain, url, name}
                         this.#flatIndex = Object.keys(this.#data).map(domain => {
-                                return Object.entries(this.#data[domain]).map(([url, name]) => {
-                                        return { domain, url, name };
+                                return Object.entries(this.#data[domain]).map(([i, v]) => {
+                                        return { domain, v };
                                 });
                         }).flat();
                 }
                 const list = this.#flatIndex.filter(e =>
-                        e.url.toLowerCase().includes(query) || 
-                        e.name.toLowerCase().includes(query) ||
+                        e.v.u.toLowerCase().includes(query) ||
+                        e.v.n.toLowerCase().includes(query) ||
                         e.domain.toLowerCase().includes(query)
                 );
 
                 this.#results.innerHTML = `<h2>Search Results (${list.length})</h2>`;
 
                 list.slice(0, 100).forEach(k => {
+                        console.log(k);
                         const div = document.createElement('div');
-                        this.#addLink(div, k.domain, k.url, k.name);
+                        this.#addLink(div, k.domain, k.v);
                         this.#results.appendChild(div);
                 });
 
                 if(query.length > 2) {
                         // Highlight search term in results
-                        const results = this.#results.querySelectorAll('.feed-entry a');
+                        const results = this.#results.querySelectorAll('.feed-entry a.domain, .feed-entry a.feed');
                         results.forEach(link => {
                                 const regex = new RegExp(`(${query})`, 'gi');
                                 const newContent = link.textContent.replace(regex, '<span class="highlight">$1</span>');

@@ -80,16 +80,25 @@ async function processDomain(domain, rank = undefined) {
         try {
             const f = await FeedUpdater.fetch(l);
             if (Feed.ERROR_NONE == f.error && f.itemCount > 0) {
-                feeds.push({
+                let result = {
                     n: f.title,
                     u: f.source,
-                    i: f.description,
                     f: f.type,
                     ns: f.ns,
                     t: Math.floor(f.itemContentSize / f.itemCount),
                     c: f.mostRecentItemTime,
                     d: Math.floor(new Date().getTime() / 1000)
-                });
+                };
+
+                // Add optional stuff
+                if (f.description)
+                    result.i = f.description;
+                if (f.audio)
+                    result.m = 1;
+                if (f.video)
+                    result.m = 2;
+
+                feeds.push(result);
                 console.info(`-> Found feed: ${f.source}`);
             } else {
                 console.warn(`-> Failed to fetch feed ${l}: error ${f.error}`);

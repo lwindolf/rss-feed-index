@@ -4,17 +4,32 @@
 
 .feed-entry a.feed {
     display:inline-block;
+    text-decoration: none;
+    color: #333;
 }
 
 .feed-entry a.domain {
     font-weight: bold;
-    color: #333;
-    text-decoration: none;
     width: 25%;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.feed-entry img.icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: middle;
+    margin-right: 0.3rem;
+}
+
+.feed-entry .label {
+    float: right;
+    font-size: 0.8em;
+    background-color: #ddd;
+    padding: 0.1rem;
+    margin-left: 0.5em;
 }
 
 input#search {

@@ -22,8 +22,13 @@ let countByTLD = {};
 let countByProtocol = { http: 0, https: 0, gopher: 0 };
 let urlTitle = {};
 Object.entries(indexData.domains).forEach(([domain, feeds]) => {
-        urlTitle[domain] = {};
         feeds.forEach((feed, i) => {
+                // Skip outdated feeds
+                if (feed.c && (Date.now()/1000 - feed.c) > 365*24*3600)
+                        return;
+
+                if (!urlTitle[domain])
+                        urlTitle[domain] = [];
                 // Statistic counting
                 const tld = domain.split('.').slice(-1)[0];
                 const protocol = feed.u.split(':')[0];
@@ -44,7 +49,12 @@ Object.entries(indexData.domains).forEach(([domain, feeds]) => {
                 if (url.startsWith(domain))
                         url = url.slice(domain.length);
 
-                urlTitle[domain][url] = name;
+                urlTitle[domain].push({
+                        u: url,
+                        n: name,
+                        m: feed.m?feed.m:undefined,                     // media present
+                        t: (feed.t > 15*500)?true:undefined             // flag for long-text
+                });
                 feedCount++;
         });
 });

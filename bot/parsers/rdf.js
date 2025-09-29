@@ -40,7 +40,7 @@ class RDFParser {
 		// RSS 1.0
 		if (doc.firstChild.nodeName === 'rdf:RDF') {
 			feed.type 	     = 'rss1.0';
-			feed.ns          = NamespaceParser.getNamespaces(root);
+			feed.ns          = NamespaceParser.getNamespaces(root, str);
 			feed.title       = XPath.lookup(root, '/rdf:RDF/ns:channel/ns:title')
 			feed.description = XPath.lookup(root, '/rdf:RDF/ns:channel/ns:description');
 
