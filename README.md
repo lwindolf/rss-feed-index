@@ -49,6 +49,8 @@ All of the text fields are to be considered UTF-8 plain text and might need esca
 
 For parallel execution there is a `parallel.sh` script.
 
+After a completed crawl the `.meta.offset` field in `index.json` needs to be reset to 0.
+
 ## Crawler Ethics
 
 - robots.txt is respected

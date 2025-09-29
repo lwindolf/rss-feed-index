@@ -20,6 +20,13 @@
         <main>               
             <x-rss-feed-index-search style="RssFeedIndexSearch.css" base="data/"></x-rss-feed-index-search>
         </main>
+        <hr/>
+        <footer>
+            <h2>Statistics</h2>
+
+            <div id="moreStats"></div>
+
+        </footer>
         <script type="module">
             import { RssFeedIndexSearch } from './RssFeedIndexSearch.js';
 
@@ -27,10 +34,89 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('stats').innerHTML = `
-                <div class='stat'>Last Crawl: ${new Date(1000*data.generated).toLocaleDateString()}</div>
-                <div class='stat'>Domains: ${data.domains}</div>
-                <div class='stat'>Feeds: ${data.feeds}</div>
-            `;
+                    <div class='stat'>Last Crawl: ${new Date(1000*data.generated).toLocaleDateString()}</div>
+                    <div class='stat'>Domains: ${data.domains}</div>
+                    <div class='stat'>Feeds: ${data.feeds}</div>
+                `;
+
+                document.getElementById('moreStats').innerHTML = `
+                    <h3>Feed Formats</h3>
+
+                    <table class="moreStats">
+                        <thead>
+                            <tr>
+                                <th>Feed Format</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.entries(data.byFeedType).sort((a,b) => b[1] - a[1]).map(([format, count]) => `
+                                <tr>
+                                    <td>${format}</td>
+                                    <td>${count}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                    <h3>XML Namespaces Used</h3>
+
+                    <table class="moreStats">
+                        <thead>
+                            <tr>
+                                <th>Namespace</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.entries(data.byNS).sort((a,b) => b[1] - a[1]).filter(([ns, count]) => count > 100).map(([ns, count]) => `
+                                <tr>
+                                    <td>${ns}</td>
+                                    <td>${count}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                    <h3>Top Level Domains</h3>
+
+                    <table class="moreStats">
+                        <thead>
+                            <tr>
+                                <th>Top Level Domain</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.entries(data.byTLD).sort((a,b) => b[1] - a[1]).filter(([tld, count]) => count > 100).map(([tld, count]) => `
+                                <tr>
+                                    <td>${tld}</td>
+                                    <td>${count}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                    <h3>Protocols Used</h3>
+
+                    <table class="moreStats">
+                        <thead>
+                            <tr>
+                                <th>Protocol</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.entries(data.byProtocol).sort((a,b) => b[1] - a[1]).filter(([protocol, count]) => count > 100).map(([protocol, count]) => `
+                                <tr>
+                                    <td>${protocol}</td>
+                                    <td>${count}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+
+                `;
             });
         </script>
     </div>
