@@ -211,17 +211,7 @@ if (args.length > 1) {
         
         // Merge domains
         for (const [domain, feeds] of Object.entries(sourceData.domains)) {
-            if (!targetData.domains[domain]) {
-                targetData.domains[domain] = feeds;
-            } else {
-                // Merge feeds, avoiding duplicates
-                const existingUrls = new Set(targetData.domains[domain].map(f => f.u));
-                feeds.forEach(feed => {
-                    if (!existingUrls.has(feed.u)) {
-                        targetData.domains[domain].push(feed);
-                    }
-                });
-            }
+            targetData.domains[domain] = feeds;
         }
 
         targetData.meta.generated = Math.max(sourceData.meta.generated, targetData.meta.generated)
