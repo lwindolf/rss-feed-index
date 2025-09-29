@@ -25,10 +25,11 @@
 }
 
 .feed-entry .label {
+    display: block;
     float: right;
     font-size: 0.8em;
     background-color: #ddd;
-    padding: 0.1rem;
+    padding: 0.2rem;
     margin-left: 0.5em;
     border-radius: 0.2rem;
 }

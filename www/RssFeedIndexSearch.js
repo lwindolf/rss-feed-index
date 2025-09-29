@@ -89,7 +89,7 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 const icon = document.createElement('img');
                 icon.className = 'icon';
-                icon.src = '/feed.svg';
+                icon.src = 'feed.svg';
                 icon.onerror = () => { icon.style.display = 'none'; };
                 iconLink.appendChild(icon);
 
