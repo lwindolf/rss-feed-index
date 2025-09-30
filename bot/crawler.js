@@ -19,8 +19,8 @@ process.on('uncaughtException', function (err) {
   process.exit(1);
 });
 
-// Use Cloudflare family+adult filter resolver, so do not 
-// find adult or malicious site feeds
+// Use Cloudflare family+adult filter resolver, so we do not 
+// index adult or malicious site feeds
 const resolver = new dns.Resolver();
 resolver.setServers(['1.1.1.3']);
 
@@ -96,7 +96,7 @@ async function processDomain(domain, rank = undefined) {
                 if (f.audio)
                     result.m = 1;
                 if (f.video)
-                    result.m = 2;
+                    result.m = result.m?result.m + 2 : 2;
 
                 feeds.push(result);
                 console.info(`-> Found feed: ${f.source}`);

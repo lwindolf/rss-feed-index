@@ -116,6 +116,24 @@
                         </tbody>
                     </table>
 
+                    <h3>Media Included in Feeds</h3>
+
+                    <table class="moreStats">
+                        <thead>
+                            <tr>
+                                <th>Media Type</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.entries(data.byMedia).sort((a,b) => b[1] - a[1]).filter(([media, count]) => count > 100).map(([media, count]) => `
+                                <tr>
+                                    <td>${media}</td>
+                                    <td>${count}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+
                 `;
             });
         </script>

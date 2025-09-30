@@ -35,7 +35,7 @@ The meaning of the fields being
 | u     | URL to feed                                            |
 | t     | Average score of characters in item description        |
 | f     | Feed type "rss", "atom", "json"                        |
-| m     | At least one item has an enclosure (1=audio, 2=video)  |
+| m     | Feed has enclosures (1=audio, 2=video, 3=both)         |
 | ns    | Namespaces / Features discovered                       |
 | r     | Timestamp of most recent item in the feed              |
 | d     | Timestamp of last crawl of the feed                    |

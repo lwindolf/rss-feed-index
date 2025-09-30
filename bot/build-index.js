@@ -20,6 +20,7 @@ let countByFeedType = {};
 let countByNS = {};
 let countByTLD = {};
 let countByProtocol = { http: 0, https: 0, gopher: 0 };
+let countByMedia = { audio: 0, video: 0 };
 let urlTitle = {};
 Object.entries(indexData.domains).forEach(([domain, feeds]) => {
         feeds.forEach((feed, i) => {
@@ -35,6 +36,8 @@ Object.entries(indexData.domains).forEach(([domain, feeds]) => {
                 countByProtocol[protocol] = (countByProtocol[protocol] || 0) + 1;
                 countByTLD[tld] = (countByTLD[tld] || 0) + 1;
                 countByFeedType[feed.f] = (countByFeedType[feed.f] || 0) + 1;
+                countByMedia.audio += (feed.m && feed.m & 1) ? 1 : 0;
+                countByMedia.video += (feed.m && feed.m & 2) ? 1 : 0;
                 (feed.ns || []).forEach(ns => {
                         countByNS[ns] = (countByNS[ns] || 0) + 1;
                 });
@@ -75,6 +78,7 @@ const meta = {
         byNS: countByNS,
         byTLD: countByTLD,
         byProtocol: countByProtocol,
+        byMedia: countByMedia,
         lastUpdated: Math.floor(Date.now() / 1000)
 };
 const metaPath = path.join(outputDir, 'meta.json');
