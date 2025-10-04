@@ -162,8 +162,6 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000, domain
                 console.log(`Skipping ${domains[i]} - recently updated (${diffDays} days ago)`);
                 continue;
             }
-        } else {
-            console.log(`Not yet indexed: ${domains[i]}`);
         }
 
         result.meta.offset = i;
