@@ -116,6 +116,7 @@ function saveIndex(indexFile, result) {
 
 async function run(indexFile = "index.json", offset = 0, count = 1000000, domains) {
     const start = offset;
+    let oldResult;
     let result = {
         meta: {
             generated: Math.floor(new Date().getTime() / 1000),
@@ -135,6 +136,14 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000, domain
         result = JSON.parse(data);
     }
 
+    // additionally load main index (if this is a parallel run)
+    if (indexFile !== "index.json" && fs.existsSync("index.json")) {
+        const data = fs.readFileSync("index.json", 'utf8');
+        oldResult = JSON.parse(data);
+    } else {
+        oldResult = result;
+    }
+
     // loop over all domains
     for (let i = result.meta.offset; i < domains.length; i++) {
         // stop after meta.count domains
@@ -144,15 +153,17 @@ async function run(indexFile = "index.json", offset = 0, count = 1000000, domain
         }
 
         // skip if already in index and recently updated
-        if (result.domains[domains[i]] &&
-            result.domains[domains[i]].length > 0) {
-            const diffDays = Math.floor((Math.floor(new Date().getTime() / 1000) - result.domains[domains[i]][0].d) / (60 * 60 * 24));
-            if (diffDays < 30 
-                && result.domains[domains[i]][0].t
+        if (oldResult.domains[domains[i]] &&
+            oldResult.domains[domains[i]].length > 0) {
+            const diffDays = Math.floor((Math.floor(new Date().getTime() / 1000) - oldResult.domains[domains[i]][0].d) / (60 * 60 * 24));
+            if (diffDays < 30
+                && oldResult.domains[domains[i]][0].t
             ) { // update only if older than 30 days
                 console.log(`Skipping ${domains[i]} - recently updated (${diffDays} days ago)`);
                 continue;
             }
+        } else {
+            console.log(`Not yet indexed: ${domains[i]}`);
         }
 
         result.meta.offset = i;
