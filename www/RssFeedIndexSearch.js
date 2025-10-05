@@ -108,13 +108,17 @@ export class RssFeedIndexSearch extends HTMLElement{
                         parent.appendChild(label);
                 }
 
-                if(value.m) {
+                if(value.m & 1) {
                         const label = document.createElement('span');
                         label.className = 'label';
-                        if(value.m == 1)
-                                label.innerHTML = '&#127911;';
-                        else if(value.m == 2)
-                                label.innerHTML = '&#127916;';
+                        label.innerHTML = '&#127911;'; // 🎧
+                        parent.appendChild(label);
+                }
+
+                if(value.m & 2) {
+                        const label = document.createElement('span');
+                        label.className = 'label';
+                        label.innerHTML = '&#127916;'; // 🎬
                         parent.appendChild(label);
                 }
         }
