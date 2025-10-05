@@ -9,7 +9,7 @@ offset=$(jq .meta.offset index.json)
 
 for i in $(seq 1 $parallel); do
 	echo "Starting job $i ..."
-	node bot/crawler.js --parallel $i $((offset + i*batch)) $batch >$i.log 2>&1 &
+	node bot/crawler.js --parallel $i $((offset + (i-1)*batch)) $batch >$i.log 2>&1 &
 	pids[${i}]=$!
 done
 
