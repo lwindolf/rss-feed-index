@@ -76,8 +76,9 @@ async function processDomain(domain, rank = undefined) {
     }
 
     for (let l of links) {
-        if (l.includes('/comments/feed'))
-            continue; // skip wordpress comment feeds
+        if (l.includes('/comments/feed') ||
+	    l.includes('/wp-json/wp/v2/pages'))
+            continue; // skip wordpress comment feeds and JSON
         
         try {
             const f = await FeedUpdater.fetch(l);
