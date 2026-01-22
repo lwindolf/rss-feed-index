@@ -4,9 +4,6 @@
 
 import { DateParser } from './date.js';
 import { XPath } from './xpath.js';
-import { JSDOM } from 'jsdom';
-var jsdom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-var window = jsdom.window;
 
 export class NamespaceParser {
     /**

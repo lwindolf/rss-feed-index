@@ -11,11 +11,7 @@ import { RSSParser } from './rss.js';
 import { RDFParser } from './rdf.js';
 import { JSONFeedParser } from './jsonfeed.js';
 import { NamespaceParser } from './namespace.js';
-import { JSDOM } from 'jsdom';
 import { pfetch } from '../net.js';
-
-var jsdom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-var window = jsdom.window;
 
 // Return a parser class matching the given document string or undefined
 function parserAutoDiscover(str) {

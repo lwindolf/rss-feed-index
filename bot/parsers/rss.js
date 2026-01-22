@@ -8,9 +8,6 @@ import { NamespaceParser } from './namespace.js'
 import { XPath } from './xpath.js';
 import { Feed } from '../feed.js';
 import { Item } from '../item.js';
-import { JSDOM } from 'jsdom';
-var jsdom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-var window = jsdom.window;
 
 class RSSParser {
     static id = 'rss';

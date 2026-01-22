@@ -3,6 +3,7 @@
 // Note: if you are reading this source code this is just a hacky crawler script
 // Do not expect beautiful code here!
 
+import './init.js';
 import { Config } from './config.js';
 import { FeedUpdater } from './feedupdater.js';
 import { Feed } from './feed.js';

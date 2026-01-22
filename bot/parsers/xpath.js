@@ -1,11 +1,5 @@
 // vim: set ts=4 sw=4:
 
-import { JSDOM } from 'jsdom';
-
-var jsdom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-var window = jsdom.window;
-var document = jsdom.window.document;
-
 // XPath convenience helpers
 
 class XPath {
