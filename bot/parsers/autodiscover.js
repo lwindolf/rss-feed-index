@@ -11,7 +11,6 @@ import { RSSParser } from './rss.js';
 import { RDFParser } from './rdf.js';
 import { JSONFeedParser } from './jsonfeed.js';
 import { NamespaceParser } from './namespace.js';
-import { pfetch } from '../net.js';
 
 // Return a parser class matching the given document string or undefined
 function parserAutoDiscover(str) {
@@ -47,7 +46,7 @@ function parserAutoDiscover(str) {
 // for a given HTML document link return all feed links found
 async function linkAutoDiscover(url, baseURL = url) {
     let doc;
-    const str = await pfetch(url);
+    const str = await fetch(url);
 
     // Skip adult sites (https://developers.google.com/search/docs/specialty/explicit/guidelines)
     if (str.includes("RTA-5042-1996-1400-1577-RTA") ||
@@ -58,7 +57,7 @@ async function linkAutoDiscover(url, baseURL = url) {
 
     // Try to parse as HTML
     try {
-        doc = new window.DOMParser().parseFromString(str, 'text/html');
+        doc = new DOMParser().parseFromString(str, 'text/html');
     } catch(e) {
         console.info("Link discovery: could not parse HTML!", e);
     }

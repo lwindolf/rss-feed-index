@@ -1,12 +1,24 @@
 // vim: set ts=4 sw=4:
 
+// Simple fetch override to allow for automatic timeouts and retry handling
+
 import { Config } from './config.js';
 import { request as httpsRequest } from 'https';
 import { request as httpRequest } from 'http';
 
-// Simple fetch wrapper with timeout handling using Node.js native requests
+/* allows to use the exported fetch as default fetch */
+const originalFetch = globalThis.fetch.bind(globalThis);
 
-async function pfetch(url, options = {}, redirectCount = 0) {
+// Simple fetch wrapper with timeout handling using Node.js native requests
+//
+// Handles extra option redirectCount and cancels after Config.maxRedirects is
+// reached and adds an abort controller with 30s timeout
+globalThis.fetch = async function(url, options = {}) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
+
+    options.signal = controller.signal;
+
     const { method = 'GET', headers = {}, body } = options;
 
     return new Promise((resolve, reject) => {
@@ -27,8 +39,9 @@ async function pfetch(url, options = {}, redirectCount = 0) {
             });
 
             res.on('end', () => {
+                clearTimeout(timeoutId);
                 if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-                    if (redirectCount < Config.maxRedirects) {
+                    if ((options.redirectCount || 0) < Config.maxRedirects) {
                         // Follow redirect
                         let netLocation = res.headers.location;
                         if (!netLocation.startsWith('http')) {
@@ -38,7 +51,8 @@ async function pfetch(url, options = {}, redirectCount = 0) {
                         }
 
                         console.log(`-> Redirecting to ${netLocation}`);
-                        pfetch(netLocation, options, redirectCount + 1)
+                        options.redirectCount = (options.redirectCount || 0) + 1;
+                        fetch(netLocation, options)
                             .then(resolve)
                             .catch(reject);
                     } else {
@@ -55,6 +69,7 @@ async function pfetch(url, options = {}, redirectCount = 0) {
 
         req.on('error', (error) => {
             console.error("Request error:", error);
+            clearTimeout(timeoutId);
             reject(error);
         });
 
@@ -70,5 +85,3 @@ async function pfetch(url, options = {}, redirectCount = 0) {
         req.end();
     });
 }
-
-export { pfetch };

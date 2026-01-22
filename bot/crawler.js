@@ -4,11 +4,11 @@
 // Do not expect beautiful code here!
 
 import './init.js';
+import './net.js';
 import { Config } from './config.js';
 import { FeedUpdater } from './feedupdater.js';
 import { Feed } from './feed.js';
 import { linkAutoDiscover } from './parsers/autodiscover.js';
-import { pfetch } from './net.js';
 import robotsParser from '../node_modules/robots-parser/Robots.js';
 
 import process from 'process';
@@ -55,12 +55,12 @@ async function processDomain(domain, rank = undefined) {
         }
 
         // robots.txt check
-        const str = await pfetch(`${url}/robots.txt`, {
+        const str = await fetch(`${url}/robots.txt`, {
             headers: {
                 'User-Agent': Config.botName
             }
         });
-        
+
         const robots = new robotsParser(`${url}/robots.txt`, str);
         if (false === robots.isAllowed(url, Config.botName)) {
             console.log(`-> Skipping disallowed by robots.txt`);
@@ -72,6 +72,7 @@ async function processDomain(domain, rank = undefined) {
         console.log(`-> Discovered ${links.length} feed(s):`, links);
     } catch (e) {
         console.error(`-> Error during link discovery for ${url}: ${e.message}`);
+        console.error(e.stack);
     }
 
     for (let l of links) {
