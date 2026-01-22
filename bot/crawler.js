@@ -69,7 +69,7 @@ async function processDomain(domain, rank = undefined) {
 
         // Feed auto-discovery
         links = await linkAutoDiscover(url);
-        console.log(`-> Discovered ${links.length} feed(s):`, links);
+        console.log(`-> Discovered ${links.length} feed link(s):`, links);
     } catch (e) {
         console.error(`-> Error during link discovery for ${url}: ${e.message}`);
         console.error(e.stack);
