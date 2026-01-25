@@ -6,9 +6,10 @@
 import './init.js';
 import './net.js';
 import { Config } from './config.js';
-import { FeedUpdater } from './feedupdater.js';
 import { Feed } from './feed.js';
-import { linkAutoDiscover } from './parsers/autodiscover.js';
+import { FeedParser } from '../lzone-feed-parser/src/parser.js';
+import { FeedUpdater } from './feedupdater.js';
+import { linkAutoDiscover } from '../lzone-feed-parser/src/autodiscover.js';
 import robotsParser from '../node_modules/robots-parser/Robots.js';
 
 import process from 'process';
@@ -24,6 +25,8 @@ process.on('uncaughtException', function (err) {
 // index adult or malicious site feeds
 const resolver = new dns.Resolver();
 resolver.setServers(['1.1.1.3']);
+
+FeedParser.maxItems = 100;
 
 const checkDomain = (domain) => {
     return new Promise((resolve) => {
@@ -68,7 +71,12 @@ async function processDomain(domain, rank = undefined) {
         }
 
         // Feed auto-discovery
-        links = await linkAutoDiscover(url);
+        const html = await fetch(url, {
+            headers: {
+                'User-Agent': Config.botName
+            }
+        });
+        links = await linkAutoDiscover(html, url);
         console.log(`-> Discovered ${links.length} feed link(s):`, links);
     } catch (e) {
         console.error(`-> Error during link discovery for ${url}: ${e.message}`);
@@ -82,7 +90,28 @@ async function processDomain(domain, rank = undefined) {
         
         try {
             const f = await FeedUpdater.fetch(l);
-            if (Feed.ERROR_NONE == f.error && f.itemCount > 0) {
+            if (Feed.ERROR_NONE == f.error && f.newItems && f.newItems.length > 0) {
+                f.itemCount = 0;
+                f.itemContentSize = 0;
+                f.mostRecentItemTime = 0;
+                f.audio = false;
+                f.video = false;
+                f.newItems?.forEach(item => {
+                    f.itemCount++;
+                    if (item.description)
+                        f.itemContentSize += item.description.length;
+                    if (item.time > f.mostRecentItemTime)
+                        f.mostRecentItemTime = item.time;
+
+                    item.media?.forEach(m => {
+                        const type = m.mime || '';
+                        if(type.startsWith('audio/'))
+                            f.audio = true;
+                        else if(type.startsWith('video/'))
+                            f.video = true;
+                    });
+                });
+
                 let result = {
                     n: f.title,
                     u: f.source,
@@ -107,7 +136,7 @@ async function processDomain(domain, rank = undefined) {
                 console.warn(`-> Failed to fetch feed ${l}: error ${f.error}`);
             }
         } catch (e) {
-            console.error(`-> Failed to fetch feed ${l}: error ${e.message}`);
+            console.error(`-> Failed to fetch feed ${l}: exception ${e.message}`);
         }
     }
     return feeds;

@@ -2,18 +2,18 @@
 
 // Download, parse and merge feeds
 
-import { parserAutoDiscover } from './parsers/autodiscover.js';
+import { parserAutoDiscover } from '../lzone-feed-parser/src/autodiscover.js';
 import { Feed } from './feed.js';
 
 export class FeedUpdater {
     // returns a feed properties or at least error code (e.g. "{ error: Feed.ERROR_XML }")
     // result should be merged into the feed being updated
-    static async fetch(url, corsProxyAllowed = false) {
+    static async fetch(url, fetchOptions = {}) {
         console.info(`-> Fetching ${url}`);
-        var feed = await fetch(url, { corsProxyAllowed })
+        var feed = await fetch(url, fetchOptions)
             .then(async (str) => {
                 if (str) {
-                    let parser = parserAutoDiscover(str, url);
+                    let parser = parserAutoDiscover(str);
                     if(!parser)
                         return new Feed({ error: Feed.ERROR_DISCOVER });
 

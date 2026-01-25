@@ -43,9 +43,17 @@ The meaning of the fields being
 All of the text fields are to be considered UTF-8 plain text and might need escaping.
 
 ## Crawler Usage
+
+First set up the repo
+
+    git submodule init
+    git submodule update
+
+    npm i
+
+and then run
     
     datasets/majestic.sh >domains.txt
-    npm i
     npm run crawl
 
 For parallel execution there is a `parallel.sh` script.
