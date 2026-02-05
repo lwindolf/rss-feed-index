@@ -98,7 +98,7 @@ fs.writeFileSync(blogrollPath, JSON.stringify(blogrollData, null, 2));
 const now = Math.floor(Date.now()/1000);
 const bucketIndex = {};
 const urlCount = Object.keys(indexData.urls).length;
-const bucketSize = Math.floor(urlCount / (100 * 100));
+const bucketSize = Math.floor(urlCount / (2500));
 let i = 0;
 Object.entries(indexData.urls).forEach(([url, feeds]) => {
         i++;

@@ -19,15 +19,19 @@
         </header>
         <main>
                 <h2>Buckets</h2>
+
+                <p id="freshness-stats"></p>
+
                 <div id="buckets"></div>
         </main>
         <script type="module">
             import { RssFeedIndexSearch } from './RssFeedIndexSearch.js';
 
-            fetch('data/bucket-index.json')
+            fetch('data/bucket-index.json?ts=' + Date.now())
             .then(response => response.json())
             .then(data => {
                 const now = Date.now() / 1000; // current time in seconds
+                let fresh = 0;
                 document.getElementById('buckets').innerHTML = `
                 ${Object.keys(data.buckets).map(b => {
                         const lastUpdate = Math.floor((now - data.buckets[b].avg) / (60 * 60 * 24)); // in days
@@ -36,6 +40,7 @@
                         let hue;
                         if (lastUpdate < 30) {
                                 hue = 120; // green
+                                fresh++;
                         } else if (lastUpdate > 3*30) { // older than 3 months
                                 hue = 0; // red
                         } else {
@@ -43,9 +48,9 @@
                         }
                         
                         return `<div class="bucket" title="${b}: ${lastUpdate} days old" style="background-color: hsl(${hue}, 70%, 50%);"> </div>`;
-                    }).join('')}
-`;
+                }).join('')}`;
 
+                document.getElementById('freshness-stats').innerText = `${Math.floor(1000 - (fresh * 1000 / Object.keys(data.buckets).length))/10}% of the buckets are stale`;
             });
         </script>
     </div>

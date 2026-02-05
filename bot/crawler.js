@@ -203,6 +203,8 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
             break;
         }
 
+        result.meta.offset = i;
+
         // skip if already in index and recently updated
         if (oldResult.urls[url] &&
             oldResult.urls[url].length > 0) {
@@ -214,8 +216,6 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
                 continue;
             }
         }
-
-        result.meta.offset = i;
 
         // Retry recovery mechanism
         const maxRedirects = 3;
