@@ -6,6 +6,6 @@ while read -r blogroll; do
     ( curl -sL "$blogroll" || true ) |\
     ( grep "outline.*htmlUrl" || true ) |\
     sed 's/^.*htmlUrl=.\([^"'"'"']*\).*$/\1/'
-done < <(jq -r '.blogrolls[]' "$(dirname "$0")/../index.json")
+done < <(jq -r '.blogrolls | keys | .[]' "$(dirname "$0")/../index.json")
 
 echo "Done." >&2

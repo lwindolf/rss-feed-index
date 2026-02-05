@@ -70,7 +70,7 @@ async function processUrl(url) {
 
         const robots = new robotsParser(`${origin}/robots.txt`, str);
         if (false === robots.isAllowed(url, Config.botName)) {
-            console.log(`-> Skipping disallowed by robots.txt`);
+            console.log(`-> Skipping, because disallowed by robots.txt`);
             return { feeds: [], blogroll: null };
         }
 
@@ -85,6 +85,8 @@ async function processUrl(url) {
 
         // Blogroll auto-discovery
         blogroll = await opmlAutoDiscover(html, url);
+        if(blogroll)
+            console.log(`-> Discovered blogroll: ${blogroll}`);
     } catch (e) {
         console.error(`-> Error during link discovery for ${url}: ${e.message}`);
         console.error(e.stack);
@@ -140,7 +142,7 @@ async function processUrl(url) {
                 feeds.push(result);
                 console.info(`-> Found feed: ${f.source}`);
             } else {
-                console.warn(`-> Failed to fetch feed ${l}: error ${f.error}`, f);
+                console.warn(`-> Failed to fetch feed ${l}: error ${f.error}`);
             }
         } catch (e) {
             console.error(`-> Failed to fetch feed ${l}: exception ${e.message}`);
@@ -235,9 +237,9 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         if (feeds.length > 0)
             result.urls[url] = feeds;
         if (blogroll)
-            result.blogrolls[url] = blogroll;
+            result.blogrolls[blogroll] = url;
         else
-            delete result.blogrolls[url];
+            delete result.blogrolls[blogroll];
 
         // save updated index
         delete result.processing[url];
