@@ -70,8 +70,8 @@ After a completed crawl the `.meta.offset` field in `index.json` needs to be res
   - no parallel crawling on a domain
 - filtering of domains using Cloudflares family filter (1.1.1.3 resolver) to avoid malware and adult content
 
-Effectivley most sites without a feed should be hit by 2 requests only.
-All sites having feeds should see 2+nr of feeds (specified by `<link rel="alternate" ...>`) requests.
+Effectivly most sites without a feed should be hit by 2 requests only.
+All sites having feeds should see 2+nr of feed links (as specified by `<link rel="alternate" ...>` and `<link rel="blogroll" ...>`) requests and redirects.
 
 Crawler user agent is
 

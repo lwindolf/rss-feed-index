@@ -90,3 +90,41 @@ const blogrollData = {
         lastUpdated: Math.floor(Date.now() / 1000)
 };
 fs.writeFileSync(blogrollPath, JSON.stringify(blogrollData, null, 2));
+
+// Create a bucket index of max 100x100 buckets representing
+// properties of feeds in this bucket:
+// - average update age
+// - average index add age
+const now = Math.floor(Date.now()/1000);
+const bucketIndex = {};
+const urlCount = Object.keys(indexData.urls).length;
+const bucketSize = Math.floor(urlCount / (100 * 100));
+let i = 0;
+Object.entries(indexData.urls).forEach(([url, feeds]) => {
+        i++;
+        const bucketKey = `${Math.floor(i / bucketSize) * bucketSize}-${Math.floor(i / bucketSize) * bucketSize + bucketSize}`;
+        if (!bucketIndex[bucketKey]) {
+                bucketIndex[bucketKey] = {
+                        sumTimestamps: 0,        // sum of seconds since feeds last updated
+                        count: 0
+                };
+        }
+        
+        for (const feed of feeds) {
+                if(feed.d && feed.d > 0) {
+                        bucketIndex[bucketKey].sumTimestamps += feed.d;
+                        bucketIndex[bucketKey].count++;
+                }
+        }
+});
+
+// Calculate average age in days        
+for(const b of Object.values(bucketIndex)) {
+        b.avg = Math.floor(b.sumTimestamps / b.count);
+        delete b.sumTimestamps;
+        delete b.count;
+};
+
+// Write the bucket index to a file
+const bucketIndexPath = path.join(outputDir, 'bucket-index.json');
+fs.writeFileSync(bucketIndexPath, JSON.stringify({ lastUpdated: now, buckets: bucketIndex }, null, 2));

@@ -43,3 +43,16 @@ table.moreStats th {
     vertical-align: middle;
     margin-right: 0.5em;
 }
+
+#buckets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    clear: both;
+}
+.bucket {
+    background: #f4f4f4;
+    width: 0.6rem;
+    height: 0.6rem;
+    flex: 0 0 0.6rem;
+}
