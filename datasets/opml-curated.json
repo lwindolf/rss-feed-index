@@ -1,31 +1,40 @@
 {
     "blogrolls": {
         "https://raw.githubusercontent.com/cudeso/OPML-Security-Feeds/refs/heads/master/fever-security.opml": {
-            "t": "cudeso security feeds"
+            "t": "cudeso security feeds",
+            "u": "https://github.com/cudeso/OPML-Security-Feeds"
         },
         "https://lqdev.me/collections/blogroll/index.opml": {
-            "t": "lqdev.me feed starter pack"
+            "t": "lqdev.me feed starter pack",
+            "u": "https://lqdev.me"
         },
         "https://lqdev.me/collections/podroll/index.opml": {
-            "t": "lqdev.me podcast starter pack"
+            "t": "lqdev.me podcast starter pack",
+            "u": "https://lqdev.me"
         },
         "https://lqdev.me/collections/youtube/index.opml": {
-            "t": "lqdev.me youtube starter pack"
+            "t": "lqdev.me youtube starter pack",
+            "u": "https://lqdev.me"
         },
         "http://scripting.com/publicfolder/feedland/subscriptionLists/starterfeeds.opml": {
-            "t": "scripting.com starter feeds"
+            "t": "scripting.com starter feeds",
+            "u": "http://scripting.com"
         },
         "https://cdn.lazaruscorporation.co.uk/blogs/2/442/british-weird-rss-starter-pack.xml": {
-            "t": "British Weird RSS Starter Pack"
+            "t": "British Weird RSS Starter Pack",
+            "u": "https://cdn.lazaruscorporation.co.uk"
         },
         "https://lukaswerner.com/static/starter-pack.opml": {
-            "t": "Lukas Werner Starter Pack"
+            "t": "Lukas Werner Starter Pack",
+            "u": "https://lukaswerner.com"
         },
         "https://feedland.social/opml?screenname=davewiner&catname=blogroll": {
-            "t": "Dave Winer Blogroll"
+            "t": "Dave Winer Blogroll",
+            "u": "https://feedland.social"
         },
         "https://lists.opml.org/hackerNewsStars.xml": {
-            "t": "Dave Winer Hacker News Stars"
+            "t": "Dave Winer Hacker News Stars",
+            "u": "https://lists.opml.org"
         },
         "https://raw.githubusercontent.com/corenominal/podcasts-opml/refs/heads/main/gnome-podcasts-exported-shows.opml": {
             "t": "Gnome Podcasts"
@@ -40,6 +49,62 @@
         },
         "https://raw.githubusercontent.com/lwindolf/blogs/refs/heads/main/Blogs/Liferea/assets/german-tv.opml": {
             "t": "RSS Feeds für deutschsprachiges TV"
+        },
+        "https://jeffmackinnon.com/docs/blogs.opml": {
+            "t": "Jeff Mackinnon's Blogroll",
+            "u": "https://jeffmackinnon.com"
+        },
+        "https://mts.io/public/files/summalist-newsletters.opml": {
+            "t": "Matias Singers Newsletters",
+            "u": "https://mts.io"
+        },
+        "https://iosdevdirectory.com/opml/en/development.opml": {
+            "t": "iOS Dev Directory - Development Blogs",
+            "u": "https://iosdevdirectory.com"
+        },
+        "https://iosdevdirectory.com/opml/en/design.opml": {
+            "t": "iOS Dev Directory - Design Blogs",
+            "u": "https://iosdevdirectory.com"
+        },
+        "https://iosdevdirectory.com/opml/en/marketing.opml": {
+            "t": "iOS Dev Directory - Marketing Blogs",
+            "u": "https://iosdevdirectory.com"
+        },
+        "https://iosdevdirectory.com/opml/en/companies.opml": {
+            "t": "iOS Dev Directory - Companies Blogs",
+            "u": "https://iosdevdirectory.com"
+        },
+        "https://iosdevdirectory.com/opml/en/podcasts.opml": {
+            "t": "iOS Dev Directory - Development & Design Podcasts",
+            "u": "https://iosdevdirectory.com"
+        },
+        "https://iosdevdirectory.com/opml/en/youtube.opml": {
+            "t": "iOS Dev Directory - YouTube Channels",
+            "u": "https://iosdevdirectory.com"
+        },
+        "https://vaughntan.org/Files/feeds.opml": {
+            "t": "Vaughn Tan's Feeds",
+            "u": "https://vaughntan.org"
+        },
+        "https://ooh.directory/feeds/cats/d62bv6/opml/humanities.xml": {
+            "t": "OOH Directory - Humanities Feeds",
+            "u": "https://ooh.directory"
+        },
+        "https://ooh.directory/feeds/cats/q7397w/opml/science.xml": {
+            "t": "OOH Directory - Science Feeds",
+            "u": "https://ooh.directory"
+        },
+        "https://ooh.directory/feeds/cats/g8owv6/opml/education.xml": {
+            "t": "OOH Directory - Education Feeds",
+            "u": "https://ooh.directory"
+        },
+        "https://ooh.directory/feeds/cats/d724v8/opml/recreation.xml": {
+            "t": "OOH Directory - Recreation Feeds",
+            "u": "https://ooh.directory"
+        },
+        "https://ooh.directory/feeds/cats/n7yp7q/opml/personal.xml": {
+            "t": "OOH Directory - Personal Feeds",
+            "u": "https://ooh.directory"
         }
     }
 }
