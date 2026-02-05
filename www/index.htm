@@ -13,7 +13,7 @@
             <h1>RSS Feed Index</h1>
                 <p>
                     This website provides a searchable index of all RSS/Atom feeds from the <a href="https://majestic.com/reports/majestic-million">top 1 million</a> websites for RSS/Atom feeds.
-                    Find the code and data at <a href="https://github.com/lwindolf/rss-feed-index">GitHub</a>.
+                    Find the code and data at <a href="https://github.com/lwindolf/rss-feed-index">GitHub</a>. There is also a list of discovered <a href="blogroll.htm">blogrolls</a> available!
                 </p>
                 <div id="stats"></div>
         </header>
@@ -35,7 +35,7 @@
             .then(data => {
                 document.getElementById('stats').innerHTML = `
                     <div class='stat'>Last Crawl: ${new Date(1000*data.generated).toLocaleDateString()}</div>
-                    <div class='stat'>Domains: ${data.domains}</div>
+                    <div class='stat'>Blogs: ${data.urls}</div>
                     <div class='stat'>Feeds: ${data.feeds}</div>
                 `;
 

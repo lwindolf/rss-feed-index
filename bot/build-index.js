@@ -14,7 +14,7 @@ const indexData = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'));
 // Extract all domains url/name tuples
 // - Filter out Wordpress wfw comment feeds
 // - Strip https:// protocol from URLs
-// - Only first 3 feeds per domain
+// - Only first 3 feeds per url
 let feedCount = 0;
 let countByFeedType = {};
 let countByNS = {};
@@ -22,16 +22,17 @@ let countByTLD = {};
 let countByProtocol = { http: 0, https: 0, gopher: 0 };
 let countByMedia = { audio: 0, video: 0 };
 let urlTitle = {};
-Object.entries(indexData.domains).forEach(([domain, feeds]) => {
+Object.entries(indexData.urls).forEach(([url, feeds]) => {
         feeds.forEach((feed, i) => {
                 // Skip outdated feeds
                 if (feed.c && (Date.now()/1000 - feed.c) > 365*24*3600)
                         return;
 
-                if (!urlTitle[domain])
-                        urlTitle[domain] = [];
+                if (!urlTitle[url])
+                        urlTitle[url] = [];
+
                 // Statistic counting
-                const tld = domain.split('.').slice(-1)[0];
+                const tld = (new URL(url.includes('://') ? url : `https://${url}`)).hostname.split('.').slice(-1)[0];
                 const protocol = feed.u.split(':')[0];
                 countByProtocol[protocol] = (countByProtocol[protocol] || 0) + 1;
                 countByTLD[tld] = (countByTLD[tld] || 0) + 1;
@@ -48,12 +49,12 @@ Object.entries(indexData.domains).forEach(([domain, feeds]) => {
                         return;
 
                 const name = (feed.n || '').trim();
-                let url = feed.u.startsWith('https://') ? feed.u.slice(8) : feed.u; // Strip https://
-                if (url.startsWith(domain))
-                        url = url.slice(domain.length);
+                let feedUrl = feed.u.startsWith('https://') ? feed.u.slice(8) : feed.u; // Strip https://
+                if (feedUrl.startsWith(url))
+                        feedUrl = feedUrl.slice(url.length);
 
-                urlTitle[domain].push({
-                        u: url,
+                urlTitle[url].push({
+                        u: feedUrl,
                         n: name,
                         m: feed.m?feed.m:undefined,                     // media present
                         t: (feed.t > 15*500)?true:undefined             // flag for long-text
@@ -66,13 +67,10 @@ Object.entries(indexData.domains).forEach(([domain, feeds]) => {
 const urlTitlePath = path.join(outputDir, 'url-title.json');
 fs.writeFileSync(urlTitlePath, JSON.stringify(urlTitle));
 
-// Calculate domain and feed counts
-const domainCount = Object.keys(indexData.domains).length;
-
 // Update meta.json
 const meta = {
         ...indexData.meta,
-        domains: domainCount,
+        urls: Object.keys(indexData.urls).length,
         feeds: feedCount,
         byFeedType: countByFeedType,
         byNS: countByNS,
@@ -83,3 +81,12 @@ const meta = {
 };
 const metaPath = path.join(outputDir, 'meta.json');
 fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+
+// Update blogroll index
+const blogrollPath = path.join(outputDir, 'blogroll.json');
+const blogrollData = {
+        blogrolls: indexData.blogrolls,
+        count: Object.keys(indexData.blogrolls).length,
+        lastUpdated: Math.floor(Date.now() / 1000)
+};
+fs.writeFileSync(blogrollPath, JSON.stringify(blogrollData, null, 2));
