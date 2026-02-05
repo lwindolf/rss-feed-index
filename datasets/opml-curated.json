@@ -33,6 +33,13 @@
         "http://www.openedition.org/opml.php?&pubtype=carnet": {
             "t": "Blogs on hypotheses.org",
             "u": "https://de.hypotheses.org"
+        },
+        "https://nc.gnulinux.ch/public.php/dav/files/NDz69fFWNbLWDoj": {
+            "t": "gnulinux.ch Linux-Podcasts",
+            "u": "https://gnulinux.ch"
+        },
+        "https://raw.githubusercontent.com/lwindolf/blogs/refs/heads/main/Blogs/Liferea/assets/german-tv.opml": {
+            "t": "RSS Feeds für deutschsprachiges TV"
         }
     }
 }
