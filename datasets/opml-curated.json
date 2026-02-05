@@ -1,0 +1,38 @@
+{
+    "blogrolls": {
+        "https://raw.githubusercontent.com/cudeso/OPML-Security-Feeds/refs/heads/master/fever-security.opml": {
+            "t": "cudeso security feeds"
+        },
+        "https://lqdev.me/collections/blogroll/index.opml": {
+            "t": "lqdev.me feed starter pack"
+        },
+        "https://lqdev.me/collections/podroll/index.opml": {
+            "t": "lqdev.me podcast starter pack"
+        },
+        "https://lqdev.me/collections/youtube/index.opml": {
+            "t": "lqdev.me youtube starter pack"
+        },
+        "http://scripting.com/publicfolder/feedland/subscriptionLists/starterfeeds.opml": {
+            "t": "scripting.com starter feeds"
+        },
+        "https://cdn.lazaruscorporation.co.uk/blogs/2/442/british-weird-rss-starter-pack.xml": {
+            "t": "British Weird RSS Starter Pack"
+        },
+        "https://lukaswerner.com/static/starter-pack.opml": {
+            "t": "Lukas Werner Starter Pack"
+        },
+        "https://feedland.social/opml?screenname=davewiner&catname=blogroll": {
+            "t": "Dave Winer Blogroll"
+        },
+        "https://lists.opml.org/hackerNewsStars.xml": {
+            "t": "Dave Winer Hacker News Stars"
+        },
+        "https://raw.githubusercontent.com/corenominal/podcasts-opml/refs/heads/main/gnome-podcasts-exported-shows.opml": {
+            "t": "Gnome Podcasts"
+        },
+        "http://www.openedition.org/opml.php?&pubtype=carnet": {
+            "t": "Blogs on hypotheses.org",
+            "u": "https://de.hypotheses.org"
+        }
+    }
+}
