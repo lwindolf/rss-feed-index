@@ -4,13 +4,14 @@
         "description": "Crawler + website for the feeds of the top 1 million websites",
         "type": "module",
         "scripts": {
-                "crawl"     : "node bot/crawler.js",
-                "build-www" : "node bot/build-index.js",
-                "start"     : "npx serve www",
-                "test"      : "bash test.sh"
+                "crawl": "node bot/crawler.js",
+                "build-www": "node bot/build-index.js",
+                "start": "npx serve www",
+                "test": "bash test.sh"
         },
         "dependencies": {
                 "jsdom": "^22.1.0",
-                "robots-parser": "^3.0.1"
+                "robots-parser": "^3.0.1",
+                "yaml": "^2.8.2"
         }
 }

@@ -6,7 +6,9 @@ while read -r blogroll; do
     ( curl -sL "$blogroll" || true ) |\
     ( grep "outline.*htmlUrl" || true ) |\
     sed 's/^.*htmlUrl=.\([^"'"'"']*\).*$/\1/'
-done < <(jq -r '.blogrolls | keys | .[]' "$(dirname "$0")/../index.json") |\
+done < <(
+    $(dirname "$0")/opml-all.js | jq -r ".blogrolls | keys | .[]"
+) |\
 sort -u
 
 echo "Done." >&2

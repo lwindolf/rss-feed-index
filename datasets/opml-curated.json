@@ -39,10 +39,6 @@
         "https://raw.githubusercontent.com/corenominal/podcasts-opml/refs/heads/main/gnome-podcasts-exported-shows.opml": {
             "t": "Gnome Podcasts"
         },
-        "http://www.openedition.org/opml.php?&pubtype=carnet": {
-            "t": "Blogs on hypotheses.org",
-            "u": "https://de.hypotheses.org"
-        },
         "https://nc.gnulinux.ch/public.php/dav/files/NDz69fFWNbLWDoj": {
             "t": "gnulinux.ch Linux-Podcasts",
             "u": "https://gnulinux.ch"

@@ -15,6 +15,7 @@ import robotsParser from '../node_modules/robots-parser/Robots.js';
 import process from 'process';
 import fs from 'fs';
 import dns from 'dns';
+import { execSync } from 'child_process';
 
 process.on('uncaughtException', function (err) {
   console.log('Uncaught exception: ' + err);
@@ -62,16 +63,26 @@ async function processUrl(url) {
         }
 
         // robots.txt check
-        const str = await fetch(`${origin}/robots.txt`, {
-            headers: {
-                'User-Agent': Config.botName
-            }
-        });
+        try {
+            const str = await fetch(`${origin}/robots.txt`, {
+                headers: {
+                    'User-Agent': Config.botName
+                }
+            });
 
-        const robots = new robotsParser(`${origin}/robots.txt`, str);
-        if (false === robots.isAllowed(url, Config.botName)) {
-            console.log(`-> Skipping, because disallowed by robots.txt`);
-            return { feeds: [], blogroll: null };
+            const robots = new robotsParser(`${origin}/robots.txt`, str);
+            if (false === robots.isAllowed(url, Config.botName)) {
+                console.log(`-> Skipping, because disallowed by robots.txt`);
+                return { feeds: [], blogroll: null };
+            }
+        } catch (e) {
+            // To be safe we only allow for HTTP 404 here, otherwise we skip this URL
+            if (e.message.includes('HTTP Error: 404')) {
+                console.log(`-> HTTP 404 on robots.txt, so proceeding...`);
+            } else {
+                console.error(`-> Error fetching robots.txt for ${origin}: ${e.message}, skipping site`);
+                return { feeds: [], blogroll: null };
+            }
         }
 
         // Feed auto-discovery
@@ -82,6 +93,10 @@ async function processUrl(url) {
         });
         links = await linkAutoDiscover(html, url);
         console.log(`-> Discovered ${links.length} feed link(s):`, links);
+        if (links.length > 3) {
+            links = links.slice(0, 3);
+            console.log(`-> Using only the first 3 links`);
+        }
 
         // Blogroll auto-discovery
         blogroll = await opmlAutoDiscover(html, url);
@@ -94,6 +109,7 @@ async function processUrl(url) {
 
     for (let l of links) {
         if (l.includes('/comments/feed') ||
+            l.includes('www.youtube.com') ||
 	        l.includes('/wp-json/wp/v2/pages'))
             continue; // skip wordpress comment feeds and JSON
         
@@ -286,7 +302,7 @@ if (args.length > 1) {
         for (const [domain, feeds] of Object.entries(sourceData.domains)) {
             targetData.domains[domain] = feeds;
         }
-
+        targetData.blogrolls = { ...targetData.blogrolls, ...sourceData.blogrolls };
         targetData.meta.generated = Math.max(sourceData.meta.generated, targetData.meta.generated)
         targetData.meta.offset = Math.max(sourceData.meta.offset, targetData.meta.offset);
 
@@ -305,6 +321,11 @@ if (args.length > 1) {
             process.exit(1);
         }
         run(`index.json`, fs.readFileSync(args[1], 'utf8').split('\n'), 0, 100000, true /* restart */);
+    } else if (args[0] === '--updateBlogrolls') {
+        const sourceData = JSON.parse(fs.readFileSync(args[1], 'utf8'));
+        const blogrolls = JSON.parse(execSync('datasets/opml-all.js', { encoding: 'utf-8' }));
+        sourceData.blogrolls = blogrolls;
+        fs.writeFileSync(args[1], JSON.stringify(sourceData, null, 2));
     } else {
         console.error(`Unknown command. Usage:
 
@@ -322,6 +343,9 @@ if (args.length > 1) {
 
     # Merging two JSON files
     node crawler.js --merge <source JSON> <target JSON>
+
+    # Update blogrolls
+    node crawler.js --updateBlogrolls <index JSON>
     `);
         process.exit(1);
     }

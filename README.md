@@ -53,7 +53,7 @@ First set up the repo
 
 and then run
     
-    datasets/majestic.sh >domains.txt
+    datasets/urls_majestic.sh >domains.txt
     npm run crawl
 
 For parallel execution there is a `parallel.sh` script.
