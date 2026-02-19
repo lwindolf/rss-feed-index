@@ -253,7 +253,7 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         if (feeds.length > 0)
             result.urls[url] = feeds;
         if (blogroll)
-            result.blogrolls[blogroll] = url;
+            result.blogrolls[blogroll] = { u: url };
         else
             delete result.blogrolls[blogroll];
 
