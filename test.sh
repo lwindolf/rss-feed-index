@@ -10,7 +10,7 @@ fail() {
 
 echo "TC1: autodiscover feed"
 output=$( node bot/crawler.js --test https://lzone.de )
-echo "$output" | grep -q "u: 'https://lzone.de//feed/devops.xml'" || fail
+echo "$output" | grep -q "u: 'https://lzone.de/feed/devops.xml'" || fail
 
 echo "TC2: feed type atom"
 # Reuse TC1 crawl result
@@ -31,3 +31,7 @@ echo "$output" | grep -q "u: 'https://cookiedatabase.org/comments/feed/'" && fai
 echo "TC6: <link rel=\"blogroll\"> discovery"
 output=$( node bot/crawler.js --test https://roytang.net )
 echo "$output" | grep -q "blogroll: 'https://roytang.net" || fail
+
+echo "TC7: micro.blog OPML discovery"
+output=$( node bot/crawler.js --test https://john.philpin.com/ )
+echo "$output" | grep -q "blogroll: 'https://john.philpin.com/.well-known/recommendations.opml'" || fail
