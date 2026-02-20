@@ -12,9 +12,10 @@
         <header>
             <h1>Blogroll Index</h1>
                 <p>
-                    This page lists known OPML blogrolls found by the RSS feed index crawler.
+                    This page lists known OPML blogrolls found by the RSS feed index crawler. Blogrolls are discovered both 
+                    by <tt>&lt;link rel="blogroll"&gt;</tt> tags in blog main pages and from RSS feeds using the <a href="https://source.scripting.com/">source</a> namespace.
+                    There is also a <a href="https://github.com/lwindolf/rss-feed-index/blob/main/datasets/opml-curated.json">static list</a> you can extend to include other OPML locations.
                 </p>
-                <div id="stats"></div>
         </header>
         <main id="blogrolls">
         </main>
@@ -24,11 +25,6 @@
             fetch('data/blogroll.json')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('stats').innerHTML = `
-                    <div class='stat'>Last Crawl: ${new Date(1000*data.lastUpdated).toLocaleDateString()}</div>
-                    <div class='stat'>Blogrolls: ${data.count}</div>
-                `;
-
                 document.getElementById('blogrolls').innerHTML = `
                     <h2>List</h2>
 

@@ -73,6 +73,7 @@ const meta = {
     ...indexData.meta,
     urls: Object.keys(indexData.urls).length,
     feeds: feedCount,
+    blogrolls: Object.keys(indexData.blogrolls).length,
     byFeedType: countByFeedType,
     byNS: countByNS,
     byTLD: countByTLD,

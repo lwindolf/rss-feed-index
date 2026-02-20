@@ -12,8 +12,10 @@
         <header>
             <h1>RSS Feed Index</h1>
                 <p>
-                    This website provides a searchable index of all RSS/Atom feeds from the <a href="https://majestic.com/reports/majestic-million">top 1 million</a> websites for RSS/Atom feeds.
-                    Find the code and data at <a href="https://github.com/lwindolf/rss-feed-index">GitHub</a>. There is also a list of discovered <a href="blogroll.htm">blogrolls</a> available!
+                    This website provides access to a searchable index of RSS/Atom feeds and its raw data.
+                    You can find the code and data at <a href="https://github.com/lwindolf/rss-feed-index">GitHub</a>.
+                    For end users there is a more convenient <a href="https://lwindolf.github.io/rss-finder">web app</a> 
+                    that even allows previewing feeds and blogrolls.
                 </p>
                 <div id="stats"></div>
         </header>
@@ -34,9 +36,10 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('stats').innerHTML = `
-                    <div class='stat'>Last Crawl: ${new Date(1000*data.generated).toLocaleDateString()}</div>
+                    <div class='stat'><a href="update.htm">Last Crawl</a>: ${new Date(1000*data.generated).toLocaleDateString()}</div>
                     <div class='stat'>Blogs: ${data.urls}</div>
-                    <div class='stat'>Feeds: ${data.feeds}</div>
+                    <div class='stat'><a href="index.htm">Feeds</a>: ${data.feeds}</div>
+                    <div class='stat'><a href="blogroll.htm">Blogrolls</a>: ${data.blogrolls}</div>
                 `;
 
                 document.getElementById('moreStats').innerHTML = `
