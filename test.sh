@@ -9,7 +9,7 @@ fail() {
 }
 
 echo "TC1: autodiscover feed"
-output=$( node bot/crawler.js --test lzone.de )
+output=$( node bot/crawler.js --test https://lzone.de )
 echo "$output" | grep -q "u: 'https://lzone.de//feed/devops.xml'" || fail
 
 echo "TC2: feed type atom"
@@ -21,9 +21,13 @@ echo "TC3: feed title"
 echo "$output" | grep -q "n: 'DevOps Blog Feed'" || fail
 
 echo "TC4: Cloudflare adult filter"
-output=$( node bot/crawler.js --test pornhub.com )
+output=$( node bot/crawler.js --test https://pornhub.com )
 echo "$output" | grep -q "Skipping pornhub.com - not resolvable" || fail
 
 echo "TC5: Comment feeds are ignored"
-output=$( node bot/crawler.js --test cookiedatabase.org )
+output=$( node bot/crawler.js --test https://cookiedatabase.org )
 echo "$output" | grep -q "u: 'https://cookiedatabase.org/comments/feed/'" && fail || true
+
+echo "TC6: <link rel=\"blogroll\"> discovery"
+output=$( node bot/crawler.js --test https://roytang.net )
+echo "$output" | grep -q "blogroll: 'https://roytang.net" || fail
