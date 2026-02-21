@@ -101,6 +101,94 @@
         "https://ooh.directory/feeds/cats/n7yp7q/opml/personal.xml": {
             "t": "OOH Directory - Personal Feeds",
             "u": "https://ooh.directory"
+        },
+        "https://paulirish.github.io/frontend-feeds/frontend-feeds.opml": {
+            "t": "Paul Irish's Frontend Dev Feeds",
+            "u": "https://paulirish.github.io/frontend-feeds/"
+        },
+        "https://raw.githubusercontent.com/sturobson/myRSS/refs/heads/master/subscriptions.xml": {
+            "t": "Stuart Robson's RSS Feeds",
+            "u": "https://sturobson.github.io/myRSS/"
+        },
+        "https://raw.githubusercontent.com/phretor/infosec-opml/refs/heads/main/feeds.xml": {
+            "t": "Phretor's InfoSec Feeds",
+            "u": "https://phretor.github.io/infosec-opml/"
+        },
+        "https://raw.githubusercontent.com/jaredscottwilson/OSINT/refs/heads/master/OSINT%20Feedly%20OPML": {
+            "t": "Jared Scott Wilson's OSINT Feedly OPML",
+            "u": "https://jaredscottwilson.github.io/OSINT/"
+        },
+        "https://blogscroll.com/index.opml": {
+            "t": "BlogScroll - Personal Blog & Site Directory",
+            "u": "https://blogscroll.com"
+        },
+        "https://shey.net/index.opml": {
+            "u": "https://shey.net"
+        },
+        "https://calebhailey.com/following.opml": {
+            "t": "Caleb Hailey's Following OPML",
+            "u": "https://calebhailey.com"
+        },
+        "https://hacdias.com/blogroll/feeds.opml": {
+            "u": "https://hacdias.com"
+        },
+        "https://blog.zgp.org/blogroll.opml": {
+            "u": "https://blog.zgp.org"
+        },
+        "https://zylstra.org/opml/tonzylstrainclude.opml": {
+            "u": "https://zylstra.org"
+        },
+        "https://blog.bofh.it/blogroll.opml": {
+            "u": "https://blog.bofh.it"
+        },
+        "https://voidstar.com/downloads/gideon_ai.opml": {
+            "t": "Gideon Rosenblatt, Writer at the Vital Edge: Artificial Intelligence collection",
+            "u": "https://voidstar.com"
+        },
+        "https://mix.malibulist.com/comicmix.opml": {
+            "t": "ComicMix OPML",
+            "u": "https://mix.malibulist.com"
+        },
+        "https://ethanmarcotte.com/feeds/blogroll.opml": {
+            "u": "https://ethanmarcotte.com"
+        },
+        "https://raw.githubusercontent.com/EngineeringKiosk/GermanTechPodcasts/refs/heads/main/podcasts.opml": {
+            "t": "German Tech Podcasts",
+            "u": "https://engineeringkiosk.com"
+        },
+        "https://engblogs.s3.amazonaws.com/engblogs.opml": {
+            "t": "Engineering Blogs",
+            "u": "https://engblogs.s3.amazonaws.com/engblogs.opml"
+        },
+        "https://www.bytecellar.com/blake-retro-feedly.opml": {
+            "u": "https://www.bytecellar.com"
+        },
+        "https://gwern.net/doc/personal/rss-subscriptions.opml": {
+            "u": "https://gwern.net"
+        },
+        "https://owen.org/wp-content/uploads/topfeeds.opml": {
+            "u": "https://owen.org"
+        },
+        "https://davidmarsden.info/.well-known/recommendations.opml": {
+            "u": "https://davidmarsden.info"
+        },
+        "https://bones.cogdogblog.com/stuff/podcasts/cogdog.opml": {
+            "u": "https://bones.cogdogblog.com"
+        },
+        "https://prealpinux.com/.well-known/recommendations.opml": {
+            "u": "https://prealpinux.com"
+        },
+        "https://pawel.orzech.me/.well-known/recommendations.opml": {
+            "u": "https://pawel.orzech.me"
+        },
+        "https://www.opennederland.nl/assets/opml/feeds.opml": {
+            "u": "https://www.opennederland.nl"
+        },
+        "https://b19.se/data/opml/findthatpod/findthatpod-the-best-podcasts-about-ai.opml": {
+            "u": "https://b19.se"
+        },
+        "https://peterc.org/misc/engblogs.opml": {
+            "u": "https://peterc.org"
         }
     }
 }
