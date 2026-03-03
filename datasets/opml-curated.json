@@ -189,6 +189,10 @@
         },
         "https://peterc.org/misc/engblogs.opml": {
             "u": "https://peterc.org"
+        },
+        "https://daverupert.com/rss-club/feeds.xml": {
+            "u": "https://daverupert.com/rss-club",
+            "t": "RSS Club"
         }
     }
 }
