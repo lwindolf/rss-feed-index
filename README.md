@@ -4,7 +4,7 @@
 This repo hosts
 
 1. a crawler for news feeds (RSS, Atom, ...)
-2. the current crawling result `index.json` for the [majestic million websites](https://majestic.com/reports/majestic-million) which
+2. the current crawling result `index.json` which
 is [CC BY Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/deed.en) licensed.
 3. a Github Pages [site](https://lwindolf.github.io/rss-feed-index/) to test the results
 
