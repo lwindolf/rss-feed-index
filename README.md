@@ -55,9 +55,7 @@ and then run
     datasets/urls_majestic.sh >domains.txt
     npm run crawl
 
-For parallel execution there is a `parallel.sh` script.
-
-After a completed crawl the `.meta.offset` field in `index.json` needs to be reset to 0.
+After a completed crawl start a new one with `npm run crawl -- --restart`.
 
 ## Crawler Ethics
 

@@ -171,6 +171,34 @@ function saveIndex(indexFile, result) {
     fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
 }
 
+function saveStatus(result) {
+    fs.writeFileSync("status.json", JSON.stringify({
+        meta: {
+            name    : "RSS Feed Crawler",
+            favicon : "https://lwindolf.github.io/rss-feed-index/feed.svg",
+            links   : {
+                "Website" : "https://lwindolf.github.io/rss-feed-index",
+                "Source"  : "https://github.com/lwindolf/rss-feed-index"
+            },
+        },
+        data: {
+            offset    : result.meta.offset,
+            urls      : Object.keys(result.urls).length,
+            blogrolls : Object.keys(result.blogrolls).length
+            // FIXME: new added feeds (not yet parsed)
+            // FIXME: new added blogrolls (not yet parsed)
+            // FIXME: memory usage
+        },
+        schedule: {
+            running    : (result.meta.complete != true),
+            started    : result.meta.generated,
+            lastUpdate : Math.ceil(new Date().getTime() / 1000),
+            nextRun    : 0,         // no next run scheduled
+            maxAge     : 15*60      // if running != true and no change for 15min -> job is dead
+        }
+    }, null, 2));
+}
+
 // @urls        list of URLs to crawl (protocol can be missing, will default to https!) (or undefined when updating the index)
 // @restart     boolean to indicate whether to restart the crawl (instead of continuing at last position)
 async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, restart = false) {
@@ -260,11 +288,13 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         // save updated index
         delete result.processing[url];
         saveIndex(indexFile, result);
+        saveStatus(result);
     }
 
     console.log("Crawling completed.");
     result.meta.complete = true;
     saveIndex(indexFile, result);
+    saveStatus(result);
 }
 
 const args = process.argv.slice(2);
@@ -309,12 +339,6 @@ if (args.length > 1) {
         // Save merged target data
         fs.writeFileSync(targetFile, JSON.stringify(targetData, null, 2));
         console.log(`Merged ${sourceFile} into ${targetFile}.`);
-    } else if (args[0] === '--parallel') {
-        if (args.length < 4) {
-            console.error("Usage: node crawler.js --parallel <URL file> <worker nr> <offset> <count>");
-            process.exit(1);
-        }
-        run(`index${args[2]}.json`, fs.readFileSync(args[1], 'utf8').split('\n'), parseInt(args[3]), parseInt(args[4]));
     } else if (args[0] === '--add') {
         if (args.length < 2) {
             console.error("Usage: node crawler.js --add <URL file>");
@@ -335,11 +359,8 @@ if (args.length > 1) {
     # Testing a single URL
     node crawler.js --test <URL>
 
-    # Adding URLs from text file (single thread)
+    # Adding URLs from text file
     node crawler.js --add <url file>
-
-    # Running in parallel
-    node crawler.js --parallel <url file> <worker nr> <offset> <count>
 
     # Merging two JSON files
     node crawler.js --merge <source JSON> <target JSON>
@@ -350,5 +371,5 @@ if (args.length > 1) {
         process.exit(1);
     }
 } else {
-    run('index.json', undefined, 0, 100000, (args[0] === '--restart'));
+    run('index.json', undefined, 0, 10000000, (args[0] === '--restart'));
 }

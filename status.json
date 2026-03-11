@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "name": "RSS Feed Crawler",
+    "favicon": "https://lwindolf.github.io/rss-feed-index/icon.png",
+    "links": {
+      "Website": "https://lwindolf.github.io/rss-feed-index",
+      "Source": "https://github.com/lwindolf/rss-feed-index"
+    }
+  },
+  "data": {
+    "offset": 35,
+    "urls": 149583,
+    "blogrolls": 278
+  },
+  "schedule": {
+    "running": false,
+    "started": 1771788620,
+    "lastUpdate": 1773266972,
+    "nextRun": 0,
+    "maxAge": 900
+  }
+}
