@@ -2,3 +2,4 @@ node_modules/
 www/data/
 domains.txt
 *.log
+status.json
