@@ -193,7 +193,7 @@ function saveStatus(result) {
             running    : (result.meta.complete != true),
             started    : result.meta.generated,
             lastUpdate : Math.ceil(new Date().getTime() / 1000),
-            nextRun    : 0,         // no next run scheduled
+            refresh    : 5*60,      // fetch status every 5min
             maxAge     : 15*60      // if running != true and no change for 15min -> job is dead
         }
     }, null, 2));
