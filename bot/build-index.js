@@ -88,6 +88,9 @@ const meta = {
     urls: Object.keys(indexData.urls).length,
     feeds: feedCount,
     blogrolls: Object.keys(indexData.blogrolls).length,
+    minorBitMask: Object.fromEntries(
+        Object.entries(indexData.meta.minorBitMask || {}).map(([k, v]) => [v, k])
+    ),
     byFeedType: countByFeedType,
     byNS: countByNS,
     byTLD: countByTLD,

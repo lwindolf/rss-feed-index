@@ -2,6 +2,7 @@ export class RssFeedIndexSearch extends HTMLElement{
         // state
         #flatIndex;
         #data;
+        #meta;
 
         // shadow DOM
         #basePath;
@@ -34,9 +35,12 @@ export class RssFeedIndexSearch extends HTMLElement{
         }
 
         async #loadIndex() {
-                const response = await fetch(this.#basePath + 'url-title.json');
-                console.log(response.headers.get('Content-Length'));
-                const reader = response.body.getReader();
+                const response = await fetch(this.#basePath + 'meta.json');
+                this.#meta = await response.json();
+
+                const response2 = await fetch(this.#basePath + 'url-title.json');
+                console.log(response2.headers.get('Content-Length'));
+                const reader = response2.body.getReader();
 
                 let receivedLength = 0; // received that many bytes at the moment
                 let chunks = []; // array of received binary chunks (comprises the body)
@@ -100,26 +104,22 @@ export class RssFeedIndexSearch extends HTMLElement{
                 link.textContent = value.n ? value.n : '[no title]';
                 parent.appendChild(link);
 
+                const addLabel = (parent, text) => {
+                        if(!parent || !text)
+                                return;
 
-                if(value.t) {
                         const label = document.createElement('span');
                         label.className = 'label';
-                        label.textContent = 'long text';
+                        label.innerHTML = text;
+                        console.log(`Adding label ${text}`);
                         parent.appendChild(label);
-                }
+                };
 
-                if(value.m & 1) {
-                        const label = document.createElement('span');
-                        label.className = 'label';
-                        label.innerHTML = '&#127911;'; // 🎧
-                        parent.appendChild(label);
-                }
-
-                if(value.m & 2) {
-                        const label = document.createElement('span');
-                        label.className = 'label';
-                        label.innerHTML = '&#127916;'; // 🎬
-                        parent.appendChild(label);
+                if(value.t) addLabel(parent, 'long text');
+                if(value.m & 1) addLabel(parent, '&#127911;'); // 🎧
+                if(value.m & 2) addLabel(parent, '&#127916;'); // 🎬
+                for(let i = 0; i < Object.keys(this.#meta.minorBitMask).length; i++) {
+                        if(value.M & (1 << i)) addLabel(parent, this.#meta.minorBitMask[1 << i]);
                 }
         }
 
@@ -159,7 +159,6 @@ export class RssFeedIndexSearch extends HTMLElement{
                 this.#results.innerHTML = `<h2>Search Results (${list.length})</h2>`;
 
                 list.slice(0, 100).forEach(k => {
-                        console.log(k);
                         const div = document.createElement('div');
                         this.#addLink(div, k.domain, k.v);
                         this.#results.appendChild(div);
