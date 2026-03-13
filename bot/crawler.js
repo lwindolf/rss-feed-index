@@ -257,6 +257,8 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         result.meta.offset = 0;
     if (!urls)
         urls = Object.keys(result.urls);
+    if (!result.meta.minorBitMask)
+        result.meta.minorBitMask = minorBitMask;
 
     // additionally load main index (if this is a parallel run) this is needed for comparing with old results
     if (indexFile !== "index.json" && fs.existsSync("index.json")) {

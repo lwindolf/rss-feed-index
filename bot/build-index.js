@@ -11,6 +11,7 @@ if (!fs.existsSync(outputDir)) {
 // Read and parse the index.json file
 const indexFilePath = 'index.json';
 const indexData = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'));
+const minorNames = Object.keys(indexData.meta.minorBitMask || {});
 
 // Extract all domains url/name tuples
 // - Filter out Wordpress wfw comment feeds
@@ -22,6 +23,7 @@ let countByNS = {};
 let countByTLD = {};
 let countByProtocol = { http: 0, https: 0, gopher: 0 };
 let countByMedia = { audio: 0, video: 0 };
+let countByMinor = {};
 let urlTitle = {};
 Object.entries(indexData.urls).forEach(([url, feeds]) => {
     feeds.forEach((feed, i) => {
@@ -40,6 +42,17 @@ Object.entries(indexData.urls).forEach(([url, feeds]) => {
         countByFeedType[feed.f] = (countByFeedType[feed.f] || 0) + 1;
         countByMedia.audio += (feed.m && feed.m & 1) ? 1 : 0;
         countByMedia.video += (feed.m && feed.m & 2) ? 1 : 0;
+        if (feed.M) {
+            let m = feed.M;
+            let idx = 0;
+            while (m > 0 && idx < minorNames.length) {
+                if (m % 2 === 1) {
+                    countByMinor[minorNames[idx]] = (countByMinor[minorNames[idx]] || 0) + 1;
+                }
+                m = Math.floor(m / 2);
+                idx++;
+            }
+        }
         (feed.ns || []).forEach(ns => {
             countByNS[ns] = (countByNS[ns] || 0) + 1;
         });
@@ -57,6 +70,7 @@ Object.entries(indexData.urls).forEach(([url, feeds]) => {
         urlTitle[url].push({
             u: feedUrl,
             n: name,
+            M: feed.M ? feed.M : undefined,                     // minor bitmask
             m: feed.m ? feed.m : undefined,                     // media present
             t: (feed.t > 15 * 500) ? true : undefined             // flag for long-text
         });
@@ -79,6 +93,7 @@ const meta = {
     byTLD: countByTLD,
     byProtocol: countByProtocol,
     byMedia: countByMedia,
+    byMinor: countByMinor,
     lastUpdated: Math.floor(Date.now() / 1000)
 };
 const metaPath = path.join(outputDir, 'meta.json');

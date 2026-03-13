@@ -136,6 +136,27 @@
                                 </tr>
                             `).join('')}
                         </tbody>
+                    </table>
+
+
+                    <h3>Minor Web</h3>
+
+                    <table class="moreStats">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.entries(data.byMinor).sort((a,b) => b[1] - a[1]).map(([type, count]) => `
+                                <tr>
+                                    <td>${type}</td>
+                                    <td>${count}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
 
                 `;
             });
