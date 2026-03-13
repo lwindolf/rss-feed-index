@@ -20,18 +20,22 @@ echo "TC3: feed title"
 # Reuse TC1 crawl result
 echo "$output" | grep -q "n: 'DevOps Blog Feed'" || fail
 
-echo "TC4: Cloudflare adult filter"
+echo "TC4: minor flag is 3 (1=fediverse + 2=indieweb + 64=blogroll)"
+# Reuse TC1 crawl result
+echo "$output" | grep -q "M: 67" || fail
+
+echo "TC5: Cloudflare adult filter"
 output=$( node bot/crawler.js --test https://pornhub.com )
 echo "$output" | grep -q "Skipping pornhub.com - not resolvable" || fail
 
-echo "TC5: Comment feeds are ignored"
+echo "TC6: Comment feeds are ignored"
 output=$( node bot/crawler.js --test https://cookiedatabase.org )
 echo "$output" | grep -q "u: 'https://cookiedatabase.org/comments/feed/'" && fail || true
 
-echo "TC6: <link rel=\"blogroll\"> discovery"
+echo "TC7: <link rel=\"blogroll\"> discovery"
 output=$( node bot/crawler.js --test https://roytang.net )
 echo "$output" | grep -q "blogroll: 'https://roytang.net" || fail
 
-echo "TC7: micro.blog OPML discovery"
+echo "TC8: micro.blog OPML discovery"
 output=$( node bot/crawler.js --test https://john.philpin.com/ )
 echo "$output" | grep -q "blogroll: 'https://john.philpin.com/.well-known/recommendations.opml'" || fail

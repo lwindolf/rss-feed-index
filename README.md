@@ -20,7 +20,8 @@ The catalog JSON stored as `index.json` has the following format
             "f" : "rss",
             "ns" : [ "syn", "wfw", "dc" ],
             "d" : 1757110273,
-            "c" : 1757082347
+            "c" : 1757082347,
+            "m" : 0
         }]
     }
 
@@ -38,6 +39,7 @@ The meaning of the fields being
 | ns    | Namespaces / Features discovered                       |
 | r     | Timestamp of most recent item in the feed              |
 | d     | Timestamp of last crawl of the feed                    |
+| M     | "minor" communities bitmask, meaning defined by `.meta.minorBitmask` |
 
 All of the text fields are to be considered UTF-8 plain text and might need escaping.
 

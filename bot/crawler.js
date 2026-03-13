@@ -29,6 +29,21 @@ resolver.setServers(['1.1.1.3']);
 
 FeedParser.maxItems = 100;
 
+// Rate feeds in a Deleuzing way as belong to more or less minor communities
+// those flags can be used as search filters
+//
+// Note: the order does not imply priority, it's just mapping. The mapping
+// can always change so always read the mapping info from index.json
+const minorBitMask = {
+    fediverse : 1,      // blog owner has a fediverse account
+    indieweb  : 2,      // micropub, webmention or other indieweb features detected
+    mastodon  : 4,      // feed generator is mastodon
+    friendica : 8,      // feed is on friendica
+    wordpress : 16,     // feed generator is wordpress
+    funkwhale : 32,     // feed is on funkwhale
+    blogroll  : 64      // blog has a blogroll
+};
+
 const checkDomain = (domain) => {
     return new Promise((resolve) => {
         resolver.resolve(domain, (err, records) => {
@@ -49,6 +64,7 @@ async function processUrl(url) {
     let links = [];
     let feeds = [];
     let blogroll;
+    let minor = 0;
 
     try {
         const uri = new URL(url);
@@ -100,8 +116,17 @@ async function processUrl(url) {
 
         // Blogroll auto-discovery
         blogroll = await opmlAutoDiscover(html, url);
-        if(blogroll)
+        if(blogroll) {
             console.log(`-> Discovered blogroll: ${blogroll}`);
+            minor |= minorBitMask.blogroll;
+        }
+
+        // Minor discovery on HTML
+        if (/<meta\s+name=["']fediverse:creator["']/.test(html))
+            minor |= minorBitMask.fediverse;
+        if (/<link\s+rel=["']webmention["']/.test(html) ||
+            /<link\s+rel=["']micropub["']/.test(html))
+            minor |= minorBitMask.indieweb;
     } catch (e) {
         console.error(`-> Error during link discovery for ${url}: ${e.message}`);
         console.error(e.stack);
@@ -141,9 +166,8 @@ async function processUrl(url) {
                     n: f.title,
                     u: f.source,
                     f: f.type,
-                    ns: f.ns,
                     t: Math.floor(f.itemContentSize / f.itemCount),
-                    c: f.mostRecentItemTime,
+                    c: Math.floor(f.mostRecentItemTime),
                     d: Math.floor(new Date().getTime() / 1000)
                 };
 
@@ -154,6 +178,10 @@ async function processUrl(url) {
                     result.m = 1;
                 if (f.video)
                     result.m = result.m?result.m + 2 : 2;
+                if (minor != 0)
+                    result.M = minor;
+                if (f.ns.length > 0)
+                    result.ns = f.ns;
 
                 feeds.push(result);
                 console.info(`-> Found feed: ${f.source}`);
@@ -211,7 +239,8 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
             offset,
             start,
             count,
-            complete: false
+            complete: false,
+            minorBitMask
         },
         processing: {},
         urls: {},
@@ -365,7 +394,7 @@ if (args.length > 1) {
     # Merging two JSON files
     node crawler.js --merge <source JSON> <target JSON>
 
-    # Update blogrolls
+    # Update blogrolls from dataset sources
     node crawler.js --updateBlogrolls <index JSON>
     `);
         process.exit(1);
