@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
 
 // Ensure the output directory exists
 const outputDir = path.join('www', 'data');
@@ -14,9 +13,8 @@ const indexData = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'));
 const minorNames = Object.keys(indexData.meta.minorBitMask || {});
 
 // Extract all domains url/name tuples
-// - Filter out Wordpress wfw comment feeds
-// - Strip https:// protocol from URLs
-// - Only first 3 feeds per url
+// - skip outdated feeds
+// - count feature statistics
 let feedCount = 0;
 let countByFeedType = {};
 let countByNS = {};
@@ -32,7 +30,7 @@ Object.entries(indexData.urls).forEach(([url, feeds]) => {
             return;
 
         if (!urlTitle[url])
-            urlTitle[url] = [];
+            urlTitle[url] = { f: [] };
 
         // Statistic counting
         const tld = (new URL(url.includes('://') ? url : `https://${url}`)).hostname.split('.').slice(-1)[0];
@@ -67,19 +65,27 @@ Object.entries(indexData.urls).forEach(([url, feeds]) => {
         if (feedUrl.startsWith(url))
             feedUrl = feedUrl.slice(url.length);
 
-        urlTitle[url].push({
+        urlTitle[url].f.push({
             u: feedUrl,
             n: name,
-            M: feed.M, // minor bitmask
             m: feed.m, // media present
             t: (feed.t > 15 * 500) ? 1 : undefined // flag for long-text
         });
+        if(feed.M)
+            urlTitle[url].M = feed.M;
+        
+        // Find blogroll URL where parent page matches current url
+        const blogrollUrl = Object.entries(indexData.blogrolls)
+            .find(([blogrollKey, blogrollData]) => blogrollData.u === 'https://' + url)?.[0];
+        if (blogrollUrl)
+            urlTitle[url].b = blogrollUrl;
+
         feedCount++;
     });
 });
 
-// Write the url-title.json file
-const urlTitlePath = path.join(outputDir, 'url-title.json');
+// Write the url-feeds.json file
+const urlTitlePath = path.join(outputDir, 'url-feeds.json');
 fs.writeFileSync(urlTitlePath, JSON.stringify(urlTitle));
 
 // Update meta.json

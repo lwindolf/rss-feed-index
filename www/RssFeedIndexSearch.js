@@ -1,6 +1,5 @@
 export class RssFeedIndexSearch extends HTMLElement{
         // state
-        #flatIndex;
         #data;
         #meta;
 
@@ -49,7 +48,7 @@ export class RssFeedIndexSearch extends HTMLElement{
                 const response = await fetch(this.#basePath + 'meta.json');
                 this.#meta = await response.json();
 
-                const response2 = await fetch(this.#basePath + 'url-title.json');
+                const response2 = await fetch(this.#basePath + 'url-feeds.json');
                 console.log(response2.headers.get('Content-Length'));
                 const reader = response2.body.getReader();
 
@@ -80,12 +79,12 @@ export class RssFeedIndexSearch extends HTMLElement{
                 this.#loadRandom();
         }
 
-        #addLink(parent, domain, value) {
+        #addLink(parent, domain, feed) {
                 // Index does not contain default prefix "https://" and identical domains to save space
-                if (value.u[0] === '/')
-                        value.u = domain + value.u;
-                if (!value.u.includes('://'))
-                        value.u = 'https://' + value.u;
+                if (feed.u[0] === '/')
+                        feed.u = domain + feed.u;
+                if (!feed.u.includes('://'))
+                        feed.u = 'https://' + feed.u;
 
                 parent.className = 'feed-entry';
 
@@ -98,7 +97,7 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 const iconLink = document.createElement('a');
                 iconLink.className = 'icon';
-                iconLink.href = 'feed:' + value.u;
+                iconLink.href = 'feed:' + feed.u;
                 iconLink.target = '_blank';
                 parent.appendChild(iconLink);
 
@@ -110,9 +109,9 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 const link = document.createElement('a');
                 link.className = 'feed';
-                link.href = value.u;
+                link.href = feed.u;
                 link.target = '_blank';
-                link.textContent = value.n ? value.n : '[no title]';
+                link.textContent = feed.n ? feed.n : '[no title]';
                 parent.appendChild(link);
 
                 const addLabel = (parent, text) => {
@@ -126,11 +125,11 @@ export class RssFeedIndexSearch extends HTMLElement{
                         parent.appendChild(label);
                 };
 
-                if(value.t) addLabel(parent, 'long text');
-                if(value.m & 1) addLabel(parent, '&#127911;'); // 🎧
-                if(value.m & 2) addLabel(parent, '&#127916;'); // 🎬
+                if(feed.t) addLabel(parent, 'long text');
+                if(feed.m & 1) addLabel(parent, '&#127911;'); // 🎧
+                if(feed.m & 2) addLabel(parent, '&#127916;'); // 🎬
                 for(let i = 0; i < Object.keys(this.#meta.minorBitMask).length; i++) {
-                        if(value.M & (1 << i)) addLabel(parent, this.#meta.minorBitMask[1 << i]);
+                        if(this.#data[domain].M & (1 << i)) addLabel(parent, this.#meta.minorBitMask[1 << i]);
                 }
         }
 
@@ -141,7 +140,7 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 this.#results.innerHTML = '<h2>100 Random Feeds</h2>';
                 list.forEach(domain => {
-                        this.#data[domain].forEach(v => {
+                        this.#data[domain].f.forEach(v => {
                                 const div = document.createElement('div');
                                 this.#addLink(div, domain, v);
                                 this.#results.appendChild(div);
@@ -161,33 +160,30 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 console.log(`Searching for ${query}`, audio);
 
-                if(!this.#flatIndex) {
-                        // flatten the data structure to a list of {domain, url, name}
-                        this.#flatIndex = Object.keys(this.#data).map(domain => {
-                                return Object.entries(this.#data[domain]).map(([i, v]) => {
-                                        return { domain, v };
-                                });
-                        }).flat();
-                }
-                const list = this.#flatIndex.filter(e =>
-                        (e.v.u.toLowerCase().includes(query) ||
-                         e.v.n.toLowerCase().includes(query) ||
-                         e.domain.toLowerCase().includes(query))
-                        && (!longtext || e.v.t)
-                        && (!audio || e.v.m & 1)
-                        && (!video || e.v.m & 2)
-                        && (!indieweb || e.v.M & 2)
-                        && (!fediverse || e.v.M & 1)
-                        && (!blogroll || e.v.M & 64)
+                const list = Object.entries(this.#data).filter(([domain, value]) => {
+                        if ((indieweb  && !(value.M & 2)) ||
+                            (fediverse && !(value.M & 1)) ||
+                            (blogroll  && !(value.M & 64)))
+                            return false;
 
-                );
+                        return value.f.some(feed => {
+                                return (domain.toLowerCase().includes(query) ||
+                                        feed.u.toLowerCase().includes(query) ||
+                                        feed.n && feed.n.toLowerCase().includes(query))
+                                        && (!longtext || feed.t)
+                                        && (!audio || feed.m & 1)
+                                        && (!video || feed.m & 2);
+                        });
+                });
 
                 this.#results.innerHTML = `<h2>Search Results (${list.length})</h2>`;
 
-                list.slice(0, 100).forEach(k => {
-                        const div = document.createElement('div');
-                        this.#addLink(div, k.domain, k.v);
-                        this.#results.appendChild(div);
+                list.slice(0, 100).forEach(([domain, value]) => {
+                        value.f.forEach(feed => {
+                                const div = document.createElement('div');
+                                this.#addLink(div, domain, feed);
+                                this.#results.appendChild(div);
+                        });
                 });
 
                 if(query.length > 2) {
