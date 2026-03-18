@@ -14,7 +14,18 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 this.attachShadow({ mode: 'open' });
                 this.shadowRoot.innerHTML = `
-                        <input type="text" id="search" placeholder="Search for a domain / feed name..." disabled />
+                        <form>
+                                <input type="text" id="search" placeholder="Search for a domain / feed name..." disabled />
+                                <div>
+                                        <input type="checkbox" id="longtext" /> <label for="longtext" title="Search only feeds with long text content">Long Text</label>
+                                        <input type="checkbox" id="audio" /> <label for="audio" title="Search only feeds with embedded audio">Podcast</label>
+                                        <input type="checkbox" id="video" /> <label for="video" title="Search only feeds with embedded videos">Video</label>
+                                        <input type="checkbox" id="indieweb" /> <label for="indieweb" title="Search only Indieweb feeds">Indieweb</label>
+                                        <input type="checkbox" id="fediverse" /> <label for="fediverse" title="Search only Fediverse authors">Fediverse</label>
+                                        <input type="checkbox" id="blogroll" /> <label for="blogroll" title="Search only feeds with a blogroll">Blogroll</label>
+                                </div>
+                        </form>
+
                         <div id="search-results">Loading ...</div>
                 `;
 
@@ -29,7 +40,7 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 this.#results = this.shadowRoot.getElementById('search-results');
                 this.#searchInput = this.shadowRoot.getElementById('search');
-                this.#searchInput.addEventListener('input', this.#performSearch.bind(this));
+                this.shadowRoot.addEventListener('input', this.#performSearch.bind(this));
                 
                 this.#loadIndex();
         }
@@ -70,7 +81,7 @@ export class RssFeedIndexSearch extends HTMLElement{
         }
 
         #addLink(parent, domain, value) {
-                // Index does not contain default prefix "https://" and identical domains to safe space
+                // Index does not contain default prefix "https://" and identical domains to save space
                 if (value.u[0] === '/')
                         value.u = domain + value.u;
                 if (!value.u.includes('://'))
@@ -80,7 +91,7 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 const d = document.createElement('a');
                 d.className = 'domain';
-                d.href = 'https://' + domain;
+                d.href = domain.includes('://')?domain:'https://' + domain;
                 d.target = '_blank';
                 d.textContent = domain;
                 parent.appendChild(d);
@@ -111,7 +122,7 @@ export class RssFeedIndexSearch extends HTMLElement{
                         const label = document.createElement('span');
                         label.className = 'label';
                         label.innerHTML = text;
-                        console.log(`Adding label ${text}`);
+                        //console.log(`Adding label ${text}`);
                         parent.appendChild(label);
                 };
 
@@ -138,9 +149,17 @@ export class RssFeedIndexSearch extends HTMLElement{
                 });
         }
 
-        #performSearch(event) {
-                const query = event.target.value.toLowerCase();
-                console.log(`Searching for ${query}`);
+        #performSearch(event) {               
+                const form = event.target.closest('form');
+                const query = form.querySelector('#search').value.toLowerCase();
+                const longtext = form.querySelector('#longtext').checked;
+                const audio = form.querySelector('#audio').checked;
+                const video = form.querySelector('#video').checked;
+                const indieweb = form.querySelector('#indieweb').checked;
+                const fediverse = form.querySelector('#fediverse').checked;
+                const blogroll = form.querySelector('#blogroll').checked;
+
+                console.log(`Searching for ${query}`, audio);
 
                 if(!this.#flatIndex) {
                         // flatten the data structure to a list of {domain, url, name}
@@ -151,9 +170,16 @@ export class RssFeedIndexSearch extends HTMLElement{
                         }).flat();
                 }
                 const list = this.#flatIndex.filter(e =>
-                        e.v.u.toLowerCase().includes(query) ||
-                        e.v.n.toLowerCase().includes(query) ||
-                        e.domain.toLowerCase().includes(query)
+                        (e.v.u.toLowerCase().includes(query) ||
+                         e.v.n.toLowerCase().includes(query) ||
+                         e.domain.toLowerCase().includes(query))
+                        && (!longtext || e.v.t)
+                        && (!audio || e.v.m & 1)
+                        && (!video || e.v.m & 2)
+                        && (!indieweb || e.v.M & 2)
+                        && (!fediverse || e.v.M & 1)
+                        && (!blogroll || e.v.M & 64)
+
                 );
 
                 this.#results.innerHTML = `<h2>Search Results (${list.length})</h2>`;
