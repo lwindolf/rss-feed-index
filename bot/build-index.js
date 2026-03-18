@@ -72,7 +72,7 @@ Object.entries(indexData.urls).forEach(([url, feeds]) => {
             n: name,
             M: feed.M ? feed.M : undefined,                     // minor bitmask
             m: feed.m ? feed.m : undefined,                     // media present
-            t: (feed.t > 15 * 500) ? true : undefined             // flag for long-text
+            t: (feed.t > 15 * 500) ? 1 : undefined              // flag for long-text
         });
         feedCount++;
     });
