@@ -124,6 +124,8 @@ async function processUrl(url) {
         // Minor discovery on HTML
         if (/<meta\s+name=["']fediverse:creator["']/.test(html))
             minor |= minorBitMask.fediverse;
+        if (/<meta\s+name=["']generator["'][^>]+WordPress/.test(html))
+            minor |= minorBitMask.wordpress;
         if (/<link\s+rel=["']webmention["']/.test(html) ||
             /<link\s+rel=["']micropub["']/.test(html))
             minor |= minorBitMask.indieweb;
