@@ -70,9 +70,9 @@ Object.entries(indexData.urls).forEach(([url, feeds]) => {
         urlTitle[url].push({
             u: feedUrl,
             n: name,
-            M: feed.M ? feed.M : undefined,                     // minor bitmask
-            m: feed.m ? feed.m : undefined,                     // media present
-            t: (feed.t > 15 * 500) ? 1 : undefined              // flag for long-text
+            M: feed.M, // minor bitmask
+            m: feed.m, // media present
+            t: (feed.t > 15 * 500) ? 1 : undefined // flag for long-text
         });
         feedCount++;
     });
