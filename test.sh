@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+DIRNAME=$(dirname "$(readlink -f "$0")")
+TMPDIR=$(mktemp -d)
+
+trap 'rm -rf "$TMPDIR"' EXIT
 
 fail() {
     echo "Failed!"
@@ -39,3 +43,21 @@ echo "$output" | grep -q "blogroll: 'https://roytang.net" || fail
 echo "TC8: micro.blog OPML discovery"
 output=$( node bot/crawler.js --test https://john.philpin.com/ )
 echo "$output" | grep -q "blogroll: 'https://john.philpin.com/.well-known/recommendations.opml'" || fail
+
+echo "TC9: https:// prefix is stripped from resulting URLs"
+(
+    cd $TMPDIR
+    test -f index.json && rm index.json
+    echo "https://lzone.de" >domains.txt
+    output=$( node $DIRNAME/bot/crawler.js --add domains.txt )
+    grep -q '"lzone.de":' index.json || fail
+)
+
+echo "TC10: trailing slash is stripped from URL"
+(
+    cd $TMPDIR
+    test -f index.json && rm index.json
+    echo "https://lzone.de/" >domains.txt
+    output=$( node $DIRNAME/bot/crawler.js --add domains.txt )
+    grep -q '"lzone.de":' index.json || fail
+)

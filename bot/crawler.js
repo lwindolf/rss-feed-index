@@ -268,6 +268,20 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         oldResult = result;
     }
 
+    // cleanup duplicates
+    for (const u of Object.keys(result.urls)) {
+        // Drop result.urls[i] if it starts with https:// and there is another result without
+        // or rename it to just the domain. Also cover trailing slash.
+        if (u.startsWith("https://")) {
+            const replaced = u.replace(/^https?:\/\//, '').replace(/\/$/, '');
+            if (result.urls[replaced])
+                delete result.urls[u];
+            else
+                result.urls[replaced] = result.urls[u];
+        }
+        // FIXME: handle www subdomains with identical result as domain
+    }
+
     // loop over all URLs
     for (let i = result.meta.offset; i < urls.length; i++) {
         let url = urls[i];
@@ -277,6 +291,9 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
             console.log(`Reached crawl count of ${result.meta.count} URLs.`);
             break;
         }
+
+        // strip https:// and trailing slash from URL (this happens if URL input comes from --add)
+        url = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 
         result.meta.offset = i;
 
@@ -375,7 +392,7 @@ if (args.length > 1) {
             console.error("Usage: node crawler.js --add <URL file>");
             process.exit(1);
         }
-        run(`index.json`, fs.readFileSync(args[1], 'utf8').split('\n'), 0, 100000, true /* restart */);
+        run(`index.json`, fs.readFileSync(args[1], 'utf8').split('\n').filter(line => line.trim() !== ''), 0, 100000, true /* restart */);
     } else if (args[0] === '--updateBlogrolls') {
         const sourceData = JSON.parse(fs.readFileSync(args[1], 'utf8'));
         const blogrolls = JSON.parse(execSync('datasets/opml-all.js', { encoding: 'utf-8' }));
