@@ -14,17 +14,13 @@ export class RssFeedIndexSearch extends HTMLElement{
                 this.attachShadow({ mode: 'open' });
                 this.shadowRoot.innerHTML = `
                         <style>
-                                :root {
+                                :host {
+                                --highlight-fg: black;
                                 --highlight-bg: #ffff00;
                                 }
 
-                                @media (prefers-color-scheme: dark) {
-                                :root {
-                                        --highlight-bg: #665500;
-                                }
-                                }
-
                                 .highlight {
+                                        color: var(--highlight-fg);
                                         background-color: var(--highlight-bg);
                                 }
 
