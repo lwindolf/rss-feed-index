@@ -1,7 +1,47 @@
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4f4f4;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --link-color: #0066cc;
+    --link-visited: #551a8b;
+    --link-hover: #0052a3;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2a2a2a;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --border-color: #444;
+        --shadow-color: rgba(255, 255, 255, 0.1);
+        --link-color: #6bb6ff;
+        --link-visited: #b99bde;
+        --link-hover: #99d1ff;
+    }
+}
+
 body {
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-visited);
+}
+
+a:hover {
+    color: var(--link-hover);
 }
 
 .content {
@@ -17,23 +57,23 @@ body {
 }
 
 .stat {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 0.5em 1em;
     flex: 1 1 100px;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 table.moreStats td {
     padding: 0.5em 1em;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-collapse: collapse;
 }
 
 table.moreStats th {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     padding: 0.5em 1em;
 }
 
@@ -51,8 +91,21 @@ table.moreStats th {
     clear: both;
 }
 .bucket {
-    background: #f4f4f4;
+    background: var(--bg-secondary);
     width: 0.6rem;
     height: 0.6rem;
     flex: 0 0 0.6rem;
+}
+
+@media (prefers-color-scheme: dark) {
+input, select, textarea, button {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+}
+
+.label {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
 }

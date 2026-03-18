@@ -13,6 +13,60 @@ export class RssFeedIndexSearch extends HTMLElement{
 
                 this.attachShadow({ mode: 'open' });
                 this.shadowRoot.innerHTML = `
+                        <style>
+                                :root {
+                                --highlight-bg: #ffff00;
+                                }
+
+                                @media (prefers-color-scheme: dark) {
+                                :root {
+                                        --highlight-bg: #665500;
+                                }
+                                }
+
+                                .highlight {
+                                        background-color: var(--highlight-bg);
+                                }
+
+                                .feed-entry a.feed {
+                                        display:inline-block;
+                                        text-decoration: none;
+                                }
+
+                                .feed-entry a.domain {
+                                        font-weight: bold;
+                                        width: 25%;
+                                        display: inline-block;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                }
+
+                                .feed-entry img.icon {
+                                        width: 1.2rem;
+                                        height: 1.2rem;
+                                        vertical-align: middle;
+                                        margin-right: 0.3rem;
+                                }
+
+                                .feed-entry .label {
+                                        display: block;
+                                        float: right;
+                                        font-size: 0.8em;
+                                        padding: 0.2rem;
+                                        margin-left: 0.5em;
+                                        border-radius: 0.2rem;
+                                }
+
+                                input#search {
+                                        width: 100%;
+                                        padding: 0.5em;
+                                        margin: 0.5em 0;
+                                        border-radius: 4px;
+                                        font-size: 1em;
+                                        box-sizing: border-box;
+                                }
+                        </style>
                         <form>
                                 <input type="text" id="search" placeholder="Search for a domain / feed name..." disabled />
                                 <div>
@@ -28,15 +82,12 @@ export class RssFeedIndexSearch extends HTMLElement{
                         <div id="search-results">Loading ...</div>
                 `;
 
-                this.#basePath = this.getAttribute('base') || '/';
-                const stylePath = this.getAttribute('style');
-                if (stylePath) {
-                        const link = document.createElement('link');
-                        link.rel = 'stylesheet';
-                        link.href = stylePath;
-                        this.shadowRoot.appendChild(link);
-                }
-
+                this.shadowRoot.adoptedStyleSheets = [...document.styleSheets].filter(sheet => sheet.cssRules).map(sheet => {
+                        const newSheet = new CSSStyleSheet();
+                        newSheet.replaceSync([...sheet.cssRules].map(rule => rule.cssText).join('\n'));
+                        return newSheet;
+                });
+                this.#basePath = this.getAttribute('base');
                 this.#results = this.shadowRoot.getElementById('search-results');
                 this.#searchInput = this.shadowRoot.getElementById('search');
                 this.shadowRoot.addEventListener('input', this.#performSearch.bind(this));
