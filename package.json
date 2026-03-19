@@ -10,7 +10,7 @@
                 "test": "bash test.sh",
                 "systemd-start": "systemctl --user start rss-feed-index.service",
                 "systemd-stop": "systemctl --user stop rss-feed-index.service",
-                "systemd-install": "cp rss-feed-index.service ~/.config/systemd/user/ && sed -i \"s|REPLACEME_WORKDIR|$(pwd)|\" ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload && systemctl --user enable --now rss-feed-index.service",
+                "systemd-install": "mkdir -p ~/.config/systemd/user/ && cp rss-feed-index.service ~/.config/systemd/user/ && sed -i \"s|REPLACEME_WORKDIR|$(pwd)|\" ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload && systemctl --user enable --now rss-feed-index.service",
                 "systemd-uninstall": "systemctl --user stop rss-feed-index.service && systemctl --user disable rss-feed-index.service && rm ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload",
                 "systemd-log": "journalctl --user -u rss-feed-index.service -f"
         },
