@@ -4,9 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=node bot/crawler.js
+ExecStart=/usr/bin/node bot/crawler.js
 WorkingDirectory=REPLACEME_WORKDIR
-Restart=on-failure
+Restart=always
 RestartSec=5
 
 [Install]
