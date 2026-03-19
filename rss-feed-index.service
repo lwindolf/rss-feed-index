@@ -1,0 +1,13 @@
+[Unit]
+Description=RSS Feed Index Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=node bot/crawler.js
+WorkingDirectory=REPLACEME_WORKDIR
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
