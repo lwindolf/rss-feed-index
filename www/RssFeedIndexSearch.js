@@ -207,7 +207,7 @@ export class RssFeedIndexSearch extends HTMLElement{
                 const wordpress = form.querySelector('#wordpress').checked;
                 const blogroll = form.querySelector('#blogroll').checked;
 
-                console.log(`Searching for ${query}`, audio);
+                console.log(`Searching for ${query}`);
 
                 const list = Object.entries(this.#data).filter(([domain, value]) => {
                         // FIXME: get bits from meta.json
