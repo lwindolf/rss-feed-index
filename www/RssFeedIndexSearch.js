@@ -71,6 +71,7 @@ export class RssFeedIndexSearch extends HTMLElement{
                                         <input type="checkbox" id="video" /> <label for="video" title="Search only feeds with embedded videos">Video</label>
                                         <input type="checkbox" id="indieweb" /> <label for="indieweb" title="Search only Indieweb feeds">Indieweb</label>
                                         <input type="checkbox" id="fediverse" /> <label for="fediverse" title="Search only Fediverse authors">Fediverse</label>
+                                        <input type="checkbox" id="wordpress" /> <label for="wordpress" title="Search only WordPress blogs">WordPress</label>
                                         <input type="checkbox" id="blogroll" /> <label for="blogroll" title="Search only feeds with a blogroll">Blogroll</label>
                                 </div>
                         </form>
@@ -203,13 +204,16 @@ export class RssFeedIndexSearch extends HTMLElement{
                 const video = form.querySelector('#video').checked;
                 const indieweb = form.querySelector('#indieweb').checked;
                 const fediverse = form.querySelector('#fediverse').checked;
+                const wordpress = form.querySelector('#wordpress').checked;
                 const blogroll = form.querySelector('#blogroll').checked;
 
                 console.log(`Searching for ${query}`, audio);
 
                 const list = Object.entries(this.#data).filter(([domain, value]) => {
+                        // FIXME: get bits from meta.json
                         if ((indieweb  && !(value.M & 2)) ||
                             (fediverse && !(value.M & 1)) ||
+                            (wordpress && !(value.M & 16)) ||
                             (blogroll  && !(value.M & 64)))
                             return false;
 
