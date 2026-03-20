@@ -193,6 +193,13 @@
         "https://daverupert.com/rss-club/feeds.xml": {
             "u": "https://daverupert.com/rss-club",
             "t": "RSS Club"
+        },
+        "https://rmendes.net/blogrollapi/api/opml": {
+            "u": "https://rmendes.net"
+        },
+        "https://lzone.de/multi-status/feeds.opml": {
+            "u": "https://lzone.de/multi-status",
+            "t": "Multi Status Page Feed Collection"
         }
     }
 }
