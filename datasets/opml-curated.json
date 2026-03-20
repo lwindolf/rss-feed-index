@@ -200,6 +200,10 @@
         "https://lzone.de/multi-status/feeds.opml": {
             "u": "https://lzone.de/multi-status",
             "t": "Multi Status Page Feed Collection"
+        },
+        "https://minifeed.net/blogs/opml.xml": {
+            "u": "https://minifeed.net",
+            "t": "All blogs aggregated by minifeed.net"
         }
     }
 }
