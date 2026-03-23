@@ -55,9 +55,15 @@ First set up the repo
 and then run
     
     datasets/urls_majestic.sh >domains.txt
-    npm run crawl
+    npm run crawl -- --add domains.txt
 
-After a completed crawl start a new one with `npm run crawl -- --restart`.
+or run a crawl on the existing index with
+
+    rpn run crawl
+
+After a completed crawl start a new one with 
+
+    npm run crawl -- --restart
 
 ## Crawler Ethics
 
