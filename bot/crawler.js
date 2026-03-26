@@ -135,10 +135,8 @@ async function processUrl(url) {
     }
 
     for (let l of links) {
-        if (l.includes('/comments/feed') ||
-            l.includes('www.youtube.com') ||
-	        l.includes('/wp-json/wp/v2/pages'))
-            continue; // skip wordpress comment feeds and JSON
+        if (Config.urlBlockRegex.test(l))
+            continue;
         
         try {
             const f = await FeedUpdater.fetch(l);
@@ -182,7 +180,7 @@ async function processUrl(url) {
                     result.m = result.m?result.m + 2 : 2;
                 if (minor != 0)
                     result.M = minor;
-                if (f.ns.length > 0)
+                if (f.ns?.length > 0)
                     result.ns = f.ns;
 
                 feeds.push(result);
@@ -300,13 +298,12 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         result.meta.offset = i;
 
         // skip if already in index and recently updated
-        if (oldResult.urls[url] &&
-            oldResult.urls[url].length > 0) {
+        if (oldResult.urls[url]) {
             const diffDays = Math.floor((Math.floor(new Date().getTime() / 1000) - oldResult.urls[url][0].d) / (60 * 60 * 24));
             if (diffDays < 30
                 && oldResult.urls[url][0].t
             ) { // update only if older than 30 days
-                console.log(`Skipping ${url} - recently updated (${diffDays} days ago)`);
+                console.log(`Skipping ${i} ${url} - recently updated (${diffDays} days ago)`);
                 continue;
             }
         }
@@ -322,7 +319,7 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
 
         if (result.processing[url].try > maxRedirects) {
             delete result.processing[url];
-            console.log(`Skipping ${url} - exceeded max retries (${maxRedirects})`);
+            console.log(`Skipping ${i} ${url} - exceeded max retries (${maxRedirects})`);
             continue;
         }
 
