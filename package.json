@@ -17,6 +17,6 @@
         "dependencies": {
                 "jsdom": "^28.1.0",
                 "robots-parser": "^3.0.1",
-                "yaml": "^2.8.2"
+                "yaml": "^2.8.3"
         }
 }
