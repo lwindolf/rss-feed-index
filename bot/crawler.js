@@ -9,7 +9,7 @@ import { Config } from './config.js';
 import { Feed } from './feed.js';
 import { FeedParser } from '../lzone-feed-parser/src/parser.js';
 import { FeedUpdater } from './feedupdater.js';
-import { linkAutoDiscover, opmlAutoDiscover } from '../lzone-feed-parser/src/autodiscover.js';
+import { linkAutoDiscover, opmlAutoDiscover, parserAutoDiscover } from '../lzone-feed-parser/src/autodiscover.js';
 import robotsParser from '../node_modules/robots-parser/Robots.js';
 
 import process from 'process';
@@ -101,17 +101,25 @@ async function processUrl(url) {
             }
         }
 
-        // Feed auto-discovery
+        
         const html = await fetch(url, {
             headers: {
                 'User-Agent': Config.botName
             }
         });
-        links = await linkAutoDiscover(html, url);
-        console.log(`-> Discovered ${links.length} feed link(s):`, links);
-        if (links.length > 3) {
-            links = links.slice(0, 3);
-            console.log(`-> Using only the first 3 links`);
+
+        // Check first if URL is a feed link
+        if(await parserAutoDiscover(html, url)) {
+            console.log('-> Passed URL is a feed')
+            links.push(url);
+        } else {
+            // Feed auto-discovery from HTML
+            links = await linkAutoDiscover(html, url);
+            console.log(`-> Discovered ${links.length} feed link(s):`, links);
+            if (links.length > 3) {
+                links = links.slice(0, 3);
+                console.log(`-> Using only the first 3 links`);
+            }
         }
 
         // Blogroll auto-discovery
@@ -227,6 +235,75 @@ function saveStatus(result) {
     }, null, 2));
 }
 
+// Parse OPML blogroll data into summary info
+function parseOPML(blogrollData) {
+	try {
+		const parser = new DOMParser();
+		const xmlDoc = parser.parseFromString(blogrollData, "application/xml");
+		const parseError = xmlDoc.querySelector("parsererror");
+		if (!parseError) {
+			const root = xmlDoc.documentElement;
+			const outlineCount = (blogrollData.match(/<outline/g) || []).length;
+			return {
+				title       : root.querySelector('head > title')?.textContent,
+				ownerName   : root.querySelector('head > ownerName')?.textContent,
+				ownerId     : root.querySelector('head > ownerId')?.textContent,
+				lastUpdated : root.querySelector('head > dateModified')?.textContent,
+				outlineCount
+			};
+		} else {
+            console.error("OPML parsing error:", parseError.textContent);
+        }
+	} catch (e) {
+		console.error("Error parsing blogroll XML", e);
+	}
+	return null;
+}
+
+// Fetch and parse new/outdated blogroll
+//
+// Optional argument details allows for overriding certain properties
+async function updateBlogroll(result, blogroll, details = {}) {
+    const now = Math.floor(new Date().getTime() / 1000);
+
+    if(!blogroll)
+        return;
+
+    console.log(`Checking blogroll:`, blogroll);
+    if(!result.blogrolls[blogroll]?.d || (result.blogrolls[blogroll].d + 30 * 24 * 60 * 60 > now)) {
+        console.log(`-> Outdated. Fetching...`);
+        try {
+            const opml = parseOPML(await fetch(blogroll, {
+                headers: {
+                    'User-Agent': Config.botName
+                }
+            }));
+            if(opml && opml.outlineCount > 0) {
+                result.blogrolls[blogroll] = {
+                    u: details?.u || opml.ownerId,
+                    t: details?.t || opml.title,
+                    o: opml.ownerName,
+                    n: opml.outlineCount,
+                    d: now
+                };
+                console.log(result.blogrolls[blogroll]);
+            } else {
+                blogroll = null;
+            }
+        } catch (e) {
+            console.error(`-> Failed to fetch/parse blogroll ${blogroll}:`, e);
+            blogroll = null;
+        }
+    } else {
+        console.log(`-> Skipping blogroll as it is up to date:`, blogroll);
+    }
+
+    if (!blogroll) {
+        console.log(`-> Removing from index`);
+        delete result.blogrolls[blogroll];
+    }
+}
+
 // @urls        list of URLs to crawl (protocol can be missing, will default to https!) (or undefined when updating the index)
 // @restart     boolean to indicate whether to restart the crawl (instead of continuing at last position)
 async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, restart = false) {
@@ -327,10 +404,8 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         const { feeds, blogroll } = await processUrl(url.includes("://") ? url : `https://${url}`);
         if (feeds.length > 0)
             result.urls[url] = feeds;
-        if (blogroll)
-            result.blogrolls[blogroll] = { u: url };
-        else
-            delete result.blogrolls[blogroll];
+
+        await updateBlogroll(result, blogroll);
 
         // save updated index
         delete result.processing[url];
@@ -394,8 +469,12 @@ if (args.length > 1) {
         run(`index.json`, fs.readFileSync(args[1], 'utf8').split('\n').filter(line => line.trim() !== ''), 0, 100000, true /* restart */);
     } else if (args[0] === '--updateBlogrolls') {
         const sourceData = JSON.parse(fs.readFileSync(args[1], 'utf8'));
-        const blogrolls = JSON.parse(execSync('datasets/opml-all.js', { encoding: 'utf-8' }));
-        sourceData.blogrolls = blogrolls;
+        const all = JSON.parse(execSync('datasets/opml-all.js', { encoding: 'utf-8' }));
+        console.log(`Updating ${Object.keys(all.blogrolls).length} blogrolls...`);
+        console.log(all);
+        for (const [url, details] of Object.entries(all.blogrolls)) {
+            await updateBlogroll(sourceData, url, details);
+        }
         fs.writeFileSync(args[1], JSON.stringify(sourceData, null, 2));
     } else {
         console.error(`Unknown command. Usage:
