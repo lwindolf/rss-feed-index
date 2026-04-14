@@ -270,7 +270,7 @@ async function updateBlogroll(result, blogroll, details = {}) {
         return;
 
     console.log(`Checking blogroll:`, blogroll);
-    if(!result.blogrolls[blogroll]?.d || (result.blogrolls[blogroll].d + 30 * 24 * 60 * 60 > now)) {
+    if(!result.blogrolls[blogroll]?.d || (result.blogrolls[blogroll].d + 30 * 24 * 60 * 60 < now)) {
         console.log(`-> Outdated. Fetching...`);
         try {
             const opml = parseOPML(await fetch(blogroll, {
@@ -288,14 +288,15 @@ async function updateBlogroll(result, blogroll, details = {}) {
                 };
                 console.log(result.blogrolls[blogroll]);
             } else {
+                console.log(`-> No valid or empty OPML found.`);
                 blogroll = null;
             }
         } catch (e) {
-            console.error(`-> Failed to fetch/parse blogroll ${blogroll}:`, e);
+            console.error(`-> Failed to fetch/parse blogroll:`, e);
             blogroll = null;
         }
     } else {
-        console.log(`-> Skipping blogroll as it is up to date:`, blogroll);
+        console.log(`-> Up-to-date. Skipping...`);
     }
 
     if (!blogroll) {
