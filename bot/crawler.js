@@ -235,6 +235,11 @@ function saveStatus(result) {
     }, null, 2));
 }
 
+function getNonEmptyElement(root, selector) {
+    const element = root.querySelector(selector);
+    return element && element.textContent.trim() !== '' ? element.textContent.trim() : null;
+}
+
 // Parse OPML blogroll data into summary info
 function parseOPML(blogrollData) {
     const parser = new DOMParser();
@@ -244,10 +249,10 @@ function parseOPML(blogrollData) {
         const root = xmlDoc.documentElement;
         const outlineCount = (blogrollData.match(/<outline/g) || []).length;
         return {
-            title       : root.querySelector('head > title')?.textContent,
-            ownerName   : root.querySelector('head > ownerName')?.textContent,
-            ownerId     : root.querySelector('head > ownerId')?.textContent,
-            lastUpdated : root.querySelector('head > dateModified')?.textContent,
+            title       : getNonEmptyElement(root, 'head > title'),
+            ownerName   : getNonEmptyElement(root, 'head > ownerName'),
+            ownerId     : getNonEmptyElement(root, 'head > ownerId'),
+            lastUpdated : getNonEmptyElement(root, 'head > dateModified'),
             outlineCount
         };
     } else {
