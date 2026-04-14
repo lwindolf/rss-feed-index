@@ -237,27 +237,22 @@ function saveStatus(result) {
 
 // Parse OPML blogroll data into summary info
 function parseOPML(blogrollData) {
-	try {
-		const parser = new DOMParser();
-		const xmlDoc = parser.parseFromString(blogrollData, "application/xml");
-		const parseError = xmlDoc.querySelector("parsererror");
-		if (!parseError) {
-			const root = xmlDoc.documentElement;
-			const outlineCount = (blogrollData.match(/<outline/g) || []).length;
-			return {
-				title       : root.querySelector('head > title')?.textContent,
-				ownerName   : root.querySelector('head > ownerName')?.textContent,
-				ownerId     : root.querySelector('head > ownerId')?.textContent,
-				lastUpdated : root.querySelector('head > dateModified')?.textContent,
-				outlineCount
-			};
-		} else {
-            console.error("OPML parsing error:", parseError.textContent);
-        }
-	} catch (e) {
-		console.error("Error parsing blogroll XML", e);
-	}
-	return null;
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(blogrollData, "application/xml");
+    const parseError = xmlDoc.querySelector("parsererror");
+    if (!parseError) {
+        const root = xmlDoc.documentElement;
+        const outlineCount = (blogrollData.match(/<outline/g) || []).length;
+        return {
+            title       : root.querySelector('head > title')?.textContent,
+            ownerName   : root.querySelector('head > ownerName')?.textContent,
+            ownerId     : root.querySelector('head > ownerId')?.textContent,
+            lastUpdated : root.querySelector('head > dateModified')?.textContent,
+            outlineCount
+        };
+    } else {
+        throw new Error("OPML parsing error:", parseError.textContent);
+    }
 }
 
 // Fetch and parse new/outdated blogroll
@@ -278,7 +273,7 @@ async function updateBlogroll(result, blogroll, details = {}) {
                     'User-Agent': Config.botName
                 }
             }));
-            if(opml && opml.outlineCount > 0) {
+            if(opml.outlineCount > 0) {
                 result.blogrolls[blogroll] = {
                     u: details?.u || opml.ownerId,
                     t: details?.t || opml.title,
@@ -286,22 +281,22 @@ async function updateBlogroll(result, blogroll, details = {}) {
                     n: opml.outlineCount,
                     d: now
                 };
-                console.log(result.blogrolls[blogroll]);
             } else {
-                console.log(`-> No valid or empty OPML found.`);
-                blogroll = null;
+                throw new Error(`Empty OPML found.`);
             }
         } catch (e) {
-            console.error(`-> Failed to fetch/parse blogroll:`, e);
-            blogroll = null;
+            console.log("-> Error fetching blogroll!");
+            result.blogrolls[blogroll] = {
+                u: details?.u,
+                t: details?.t,
+                e: e.message,
+                d: now
+            };
         }
+
+        console.log(result.blogrolls[blogroll]);
     } else {
         console.log(`-> Up-to-date. Skipping...`);
-    }
-
-    if (!blogroll) {
-        console.log(`-> Removing from index`);
-        delete result.blogrolls[blogroll];
     }
 }
 

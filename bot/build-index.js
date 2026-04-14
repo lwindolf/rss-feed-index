@@ -109,10 +109,13 @@ const metaPath = path.join(outputDir, 'meta.json');
 fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
 
 // Update blogroll index
+const validBlogRolls = Object.fromEntries(
+    Object.entries(indexData.blogrolls).filter(([key, b]) => b.u && b.t && !b.e)
+);
 const blogrollPath = path.join(outputDir, 'blogroll.json');
 const blogrollData = {
-    blogrolls: indexData.blogrolls,
-    count: Object.keys(indexData.blogrolls).length,
+    blogrolls: validBlogRolls,
+    count: Object.keys(validBlogRolls).length,
     lastUpdated: Math.floor(Date.now() / 1000)
 };
 fs.writeFileSync(blogrollPath, JSON.stringify(blogrollData, null, 2));
