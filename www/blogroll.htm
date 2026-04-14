@@ -28,7 +28,7 @@
                 document.getElementById('blogrolls').innerHTML = `
                     <h2>List</h2>
 
-                    ${Object.keys(data.blogrolls).map(roll => `<div><a href="${roll}"><img class="icon" src="opml-icon-64x64.png"/>${data.blogrolls[roll].t ? data.blogrolls[roll].t : data.blogrolls[roll].u.replace("https://", "")}</a></div>`).join('')}
+                    ${Object.keys(data.blogrolls).map(roll => `<div><a href="${roll}"><img class="icon" src="opml-icon-64x64.png"/>${data.blogrolls[roll].t ? data.blogrolls[roll].t : roll}</a></div>`).join('')}
                 `;
 
             });
