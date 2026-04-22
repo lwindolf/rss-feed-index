@@ -132,7 +132,7 @@ Object.entries(indexData.blogrolls).forEach(([key, b]) => {
             b.M = 1;
         else if (blogrollDomains[b.D] < 5)
             b.M = 2;
-        if (b.M === 0 && b.D.match(/planet/i))
+        if (b.D.match(/planet/i))
             b.M = 4;
     }
 });
