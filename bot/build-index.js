@@ -140,12 +140,17 @@ Object.entries(indexData.blogrolls).forEach(([key, b]) => {
 const validBlogRolls = Object.fromEntries(
     Object.entries(indexData.blogrolls).filter(([key, b]) => !b.e)
 );
-const blogrollPath = path.join(outputDir, 'blogroll.json');
 const blogrollData = {
     blogrolls: validBlogRolls,
+    minorBitMask: {
+        "1": "catalog",
+        "2": "web",
+        "4": "planet"
+    },
     count: Object.keys(validBlogRolls).length,
     lastUpdated: Math.floor(Date.now() / 1000)
 };
+const blogrollPath = path.join(outputDir, 'blogroll.json');
 fs.writeFileSync(blogrollPath, JSON.stringify(blogrollData, null, 2));
 
 // Create a bucket index of max 100x100 buckets representing
