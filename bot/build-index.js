@@ -109,6 +109,34 @@ const metaPath = path.join(outputDir, 'meta.json');
 fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
 
 // Update blogroll index
+
+// Count domains first so we can categorize as catalog
+const blogrollDomains = {};
+Object.entries(indexData.blogrolls).forEach(([key, b]) => {
+    try {
+        const domain = b.u ? new URL(b.u).hostname : null;
+        if (domain) {
+            b.D = domain;
+            blogrollDomains[domain] = (blogrollDomains[domain] || 0) + 1;
+        }
+    } catch { }
+});
+
+// Label blogrolls in field M bitmask with 
+// - 1 = catalog    (if more than 5 blogrolls per domain)
+// - 2 = web        (if <5 blogrolls per domain)
+// - 4 = planet     (if domain contains "planet")
+Object.entries(indexData.blogrolls).forEach(([key, b]) => {
+    if (b.D) {
+        if (blogrollDomains[b.D] >= 5)
+            b.M = 1;
+        else if (blogrollDomains[b.D] < 5)
+            b.M = 2;
+        if (b.M === 0 && b.D.match(/planet/i))
+            b.M = 4;
+    }
+});
+
 const validBlogRolls = Object.fromEntries(
     Object.entries(indexData.blogrolls).filter(([key, b]) => !b.e)
 );
