@@ -101,8 +101,7 @@ async function processUrl(url) {
             }
         }
 
-        
-        const html = await fetch(url, {
+        let html = await fetch(url, {
             headers: {
                 'User-Agent': Config.botName
             }
@@ -137,6 +136,8 @@ async function processUrl(url) {
         if (/<link\s+rel=["']webmention["']/.test(html) ||
             /<link\s+rel=["']micropub["']/.test(html))
             minor |= minorBitMask.indieweb;
+        
+        html = null;
     } catch (e) {
         console.error(`-> Error during link discovery for ${url}: ${e.message}`);
         console.error(e.stack);
@@ -147,7 +148,7 @@ async function processUrl(url) {
             continue;
         
         try {
-            const f = await FeedUpdater.fetch(l);
+            let f = await FeedUpdater.fetch(l);
             if (Feed.ERROR_NONE == f.error && f.newItems && f.newItems.length > 0) {
                 f.itemCount = 0;
                 f.itemContentSize = 0;
@@ -169,6 +170,7 @@ async function processUrl(url) {
                             f.video = true;
                     });
                 });
+                f.newItems = null;
 
                 let result = {
                     n: f.title,
@@ -192,10 +194,11 @@ async function processUrl(url) {
                     result.ns = f.ns;
 
                 feeds.push(result);
-                console.info(`-> Found feed: ${f.source}`);
+                console.info(`-> Found feed: ${result.u}`);
             } else {
                 console.warn(`-> Failed to fetch feed ${l}: error ${f.error}`);
             }
+            f = null;
         } catch (e) {
             console.error(`-> Failed to fetch feed ${l}: exception ${e.message}`);
         }
@@ -240,9 +243,10 @@ function getNonEmptyElement(root, selector) {
     return element && element.textContent.trim() !== '' ? element.textContent.trim() : null;
 }
 
+const parser = new DOMParser();
+
 // Parse OPML blogroll data into summary info
 function parseOPML(blogrollData) {
-    const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(blogrollData, "application/xml");
     const parseError = xmlDoc.querySelector("parsererror");
     if (!parseError) {
@@ -307,16 +311,12 @@ async function updateBlogroll(result, blogroll, details = {}) {
 
 // @urls        list of URLs to crawl (protocol can be missing, will default to https!) (or undefined when updating the index)
 // @restart     boolean to indicate whether to restart the crawl (instead of continuing at last position)
-async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, restart = false) {
-    const start = offset;
-    let oldResult;
+async function run(indexFile = "index.json", urls, restart = false) {
     let result = {
         meta: {
             generated: Math.floor(new Date().getTime() / 1000),
             // saving the loop offset ensures the crawler can be restarted
-            offset,
-            start,
-            count,
+            offset: 0,
             complete: false,
             minorBitMask
         },
@@ -331,20 +331,13 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         result = JSON.parse(data);
     }
 
+    result.meta.complete = false;
     if (restart)
         result.meta.offset = 0;
     if (!urls)
         urls = Object.keys(result.urls);
     if (!result.meta.minorBitMask)
         result.meta.minorBitMask = minorBitMask;
-
-    // additionally load main index (if this is a parallel run) this is needed for comparing with old results
-    if (indexFile !== "index.json" && fs.existsSync("index.json")) {
-        const data = fs.readFileSync("index.json", 'utf8');
-        oldResult = JSON.parse(data);
-    } else {
-        oldResult = result;
-    }
 
     // cleanup duplicates
     for (const u of Object.keys(result.urls)) {
@@ -363,12 +356,6 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
     // loop over all URLs
     for (let i = result.meta.offset; i < urls.length; i++) {
         let url = urls[i];
-        
-        // stop after meta.count URLs
-        if (i >= start + result.meta.count) {
-            console.log(`Reached crawl count of ${result.meta.count} URLs.`);
-            break;
-        }
 
         // strip https:// and trailing slash from URL (this happens if URL input comes from --add)
         url = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
@@ -376,10 +363,10 @@ async function run(indexFile = "index.json", urls, offset = 0, count = 1000000, 
         result.meta.offset = i;
 
         // skip if already in index and recently updated
-        if (oldResult.urls[url]) {
-            const diffDays = Math.floor((Math.floor(new Date().getTime() / 1000) - oldResult.urls[url][0].d) / (60 * 60 * 24));
+        if (result.urls[url]) {
+            const diffDays = Math.floor((Math.floor(new Date().getTime() / 1000) - result.urls[url][0].d) / (60 * 60 * 24));
             if (diffDays < 30
-                && oldResult.urls[url][0].t
+                && result.urls[url][0].t
             ) { // update only if older than 30 days
                 console.log(`Skipping ${i} ${url} - recently updated (${diffDays} days ago)`);
                 continue;
@@ -467,7 +454,7 @@ if (args.length > 1) {
             console.error("Usage: node crawler.js --add <URL file>");
             process.exit(1);
         }
-        run(`index.json`, fs.readFileSync(args[1], 'utf8').split('\n').filter(line => line.trim() !== ''), 0, 100000, true /* restart */);
+        run(`index.json`, fs.readFileSync(args[1], 'utf8').split('\n').filter(line => line.trim() !== ''), true /* restart */);
     } else if (args[0] === '--updateBlogrolls') {
         const sourceData = JSON.parse(fs.readFileSync(args[1], 'utf8'));
         const all = JSON.parse(execSync('datasets/opml-all.js', { encoding: 'utf-8' }));
@@ -498,5 +485,5 @@ if (args.length > 1) {
         process.exit(1);
     }
 } else {
-    run('index.json', undefined, 0, 10000000, (args[0] === '--restart'));
+    run('index.json', undefined, (args[0] === '--restart'));
 }
