@@ -8,7 +8,7 @@ if (!fs.existsSync(outputDir)) {
 }
 
 // Read and parse the index.json file
-const indexFilePath = 'index.json';
+const indexFilePath = path.join('index', 'index.json');
 const indexData = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'));
 const minorNames = Object.keys(indexData.meta.minorBitMask || {});
 
