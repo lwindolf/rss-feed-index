@@ -482,17 +482,10 @@ async function continousRun(indexDir, restart) {
 
         processInputFiles(result, indexDir);
 
-        // processInputFiles() will reset result.meta.complete if new stuff needs processing, if not we can sleep
-        if(result.meta.complete) {
-            console.log(`Sleeping for ${sleepIntervalMinutes}min`);
-            await new Promise(resolve => {
-                idleTimeoutId = setTimeout(resolve, sleepIntervalMinutes * 60 * 1000);
-            });
-        } else {
-            await new Promise(resolve => {
-                idleTimeoutId = setTimeout(resolve, 15 * 1000);
-            });
-        }
+        console.log(`Sleeping for ${sleepIntervalMinutes}min`);
+        await new Promise(resolve => {
+            idleTimeoutId = setTimeout(resolve, sleepIntervalMinutes * 60 * 1000);
+        });
     }
 }
 
