@@ -54,7 +54,7 @@ const checkDomain = (domain) => {
             if (err) {
                 resolve(false); // Domain is not resolvable
             } else {
-                if (records && records.length == 1 && records[0] === '0.0.0.0') {
+                if (records && records.length === 1 && records[0] === '0.0.0.0') {
                     resolve(false); // Blocked by Cloudflare family filter
                 } else {
                     resolve(true); // Domain is resolvable
@@ -180,7 +180,7 @@ async function processUrl(url) {
                     n: f.title,
                     u: f.source,
                     f: f.type,
-                    t: Math.floor(f.itemContentSize / f.itemCount),
+                    t: f.itemCount?Math.floor(f.itemContentSize / f.itemCount) : 0,
                     c: Math.floor(f.mostRecentItemTime),
                     d: Math.floor(new Date().getTime() / 1000)
                 };
@@ -264,7 +264,7 @@ function parseOPML(blogrollData) {
             outlineCount
         };
     } else {
-        throw new Error("OPML parsing error:", parseError.textContent);
+        throw new Error("OPML parsing error:" + parseError.textContent);
     }
 }
 
@@ -329,8 +329,8 @@ function getIndex(indexDir, restart) {
     };
 
     // load existing index if it exists
-    if (fs.existsSync(indexDir + "/index.json")) {
-        const data = fs.readFileSync(indexDir + "/index.json", 'utf8');
+    if (fs.existsSync(path.join(indexDir, "index.json"))) {
+        const data = fs.readFileSync(path.join(indexDir, "index.json"), 'utf8');
         result = JSON.parse(data);
 
         if (restart) {
@@ -422,7 +422,7 @@ async function run(result, indexDir) {
     saveStatus(result, indexDir);
 }
 
-function processInputFiles(result, indexDir) {
+async function processInputFiles(result, indexDir) {
 
     // Check for URLs lists (.txt files) in input directory
     try {
@@ -437,9 +437,9 @@ function processInputFiles(result, indexDir) {
                 if (!result.urls[cleanUrl]) {
                     result.urls[cleanUrl] = [];
                     console.log(`Added new URL from input: ${cleanUrl}`);
-                    processUrl(url).then(({ feeds, blogroll }) => {
+                    processUrl(url).then(async ({ feeds, blogroll }) => {
                         result.urls[cleanUrl] = feeds;
-                        updateBlogroll(result, blogroll);
+                        await updateBlogroll(result, blogroll);
                     });
                 } else {
                     console.log(`URL already exists in index: ${cleanUrl}`);
@@ -460,27 +460,26 @@ function processInputFiles(result, indexDir) {
 // @indexDir    directory containing the index and input files
 // @restart     boolean to indicate whether to restart the crawl (instead of continuing at last position)
 async function continousRun(indexDir, restart) {
+    let result = getIndex(indexDir, restart);
+
     console.log("Starting continous crawl")
     console.log("  indexDir =", indexDir);
     console.log("  restart =", restart);
-
-    let result = getIndex(indexDir, restart);
-    const indexAgeInDays = Math.floor((Date.now() / 1000 - result.meta.generated) / (60 * 60 * 24));
-
     console.log("  offset =", result.meta.offset);
     console.log("  complete =", result.meta.complete);
-    console.log("  index age =", indexAgeInDays, "days");
 
     while (!shutdown) {
+        const indexAgeInDays = Math.floor((Date.now() / 1000 - result.meta.generated) / (60 * 60 * 24));
+
         // Start a crawl if index is not fresh or complete
         if (!result.meta.complete || (indexUpdateIntervalDays - indexAgeInDays <= 0)) {
             console.log("Index needs updating...")
-            run(result, indexDir);
+            await run(result, indexDir);
         } else {
             console.log("Index needs no updating yet. Next update in", indexUpdateIntervalDays - indexAgeInDays, "days");
         }
 
-        processInputFiles(result, indexDir);
+        await processInputFiles(result, indexDir);
 
         console.log(`Sleeping for ${sleepIntervalMinutes}min`);
         await new Promise(resolve => {
