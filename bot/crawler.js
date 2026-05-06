@@ -12,6 +12,7 @@ import { FeedUpdater } from './feedupdater.js';
 import { linkAutoDiscover, opmlAutoDiscover, parserAutoDiscover } from '../lzone-feed-parser/src/autodiscover.js';
 import robotsParser from '../node_modules/robots-parser/Robots.js';
 
+import path from 'path';
 import process from 'process';
 import fs from 'fs';
 import dns from 'dns';
@@ -211,11 +212,11 @@ async function processUrl(url) {
 }
 
 function saveIndex(result, indexDir) {
-    fs.writeFileSync(indexDir + "/index.json", JSON.stringify(result, null, 2));
+    fs.writeFileSync(path.join(indexDir, "index.json"), JSON.stringify(result, null, 2));
 }
 
 function saveStatus(result, indexDir) {
-    fs.writeFileSync(indexDir + "/status.json", JSON.stringify({
+    fs.writeFileSync(path.join(indexDir, "status.json"), JSON.stringify({
         meta: {
             name    : "RSS Feed Crawler",
             favicon : "https://lwindolf.github.io/rss-feed-index/feed.svg",
@@ -426,10 +427,10 @@ async function processInputFiles(result, indexDir) {
 
     // Check for URLs lists (.txt files) in input directory
     try {
-        const inputFiles = fs.readdirSync(indexDir + '/input').filter(f => f.endsWith('.txt'));
+        const inputFiles = fs.readdirSync(path.join(indexDir, 'input')).filter(f => f.endsWith('.txt'));
         for (const file of inputFiles) {
             console.log(`Processing input file: ${file}`);
-            const content = fs.readFileSync(indexDir + '/input/' + file, 'utf8');
+            const content = fs.readFileSync(path.join(indexDir, 'input', file), 'utf8');
             const urls = content.split('\n').filter(line => line.trim() !== '');
 
             for (const url of urls) {
@@ -445,8 +446,8 @@ async function processInputFiles(result, indexDir) {
                     console.log(`URL already exists in index: ${cleanUrl}`);
                 }
             }
-                
-            fs.unlinkSync(indexDir + '/input/' + file);
+
+            fs.unlinkSync(path.join(indexDir, 'input', file));
             console.log(`Finished processing input file: ${file}`);
         }
         saveIndex(result, indexDir);
