@@ -4,7 +4,7 @@
 This repo hosts
 
 1. a crawler for news feeds (RSS, Atom, ...)
-2. the current crawling result `index.json`
+2. the current crawling result `index/index.json`
 3. a Github Pages [site](https://lwindolf.github.io/rss-feed-index/) to test the results
 
 ## Crawler Usage
@@ -16,18 +16,18 @@ First set up the repo
 
     npm i
 
-and then run
+Start the continuous crawler
+
+    npm run crawl
+
+Add stuff to crawl in the `index/input` directory
     
-    datasets/urls_majestic.sh >domains.txt
-    npm run crawl -- --add domains.txt
+    datasets/urls_majestic.sh >index/input/urls.txt
+    cp datasets/opml-curated.json index/input/
 
-or run a crawl on the existing index with
-
-    rpn run crawl
-
-After a completed crawl start a new one with 
-
-    npm run crawl -- --restart
+In `index/input` JSON files are considered to be blogroll inputs (see `opml-curated.json` 
+for format) while `.txt` files are simple list of URLs to be added. Once a file is processed
+the crawler will remove the input file.
 
 ## Crawler Ethics
 

@@ -15,7 +15,11 @@ import robotsParser from '../node_modules/robots-parser/Robots.js';
 import process from 'process';
 import fs from 'fs';
 import dns from 'dns';
-import { execSync } from 'child_process';
+
+const sleepIntervalMinutes = 15;
+const indexUpdateIntervalDays = 30;
+let shutdown = false;
+let idleTimeoutId = null;
 
 process.on('uncaughtException', function (err) {
   console.log('Uncaught exception: ' + err);
@@ -274,7 +278,7 @@ async function updateBlogroll(result, blogroll, details = {}) {
         return;
 
     console.log(`Checking blogroll:`, blogroll);
-    if(!result.blogrolls[blogroll]?.d || (result.blogrolls[blogroll].d + 30 * 24 * 60 * 60 < now)) {
+    if(!result.blogrolls[blogroll]?.d || (result.blogrolls[blogroll].d + indexUpdateIntervalDays * 24 * 60 * 60 < now)) {
         console.log(`-> Outdated. Fetching...`);
         try {
             const opml = parseOPML(await fetch(blogroll, {
@@ -309,9 +313,8 @@ async function updateBlogroll(result, blogroll, details = {}) {
     }
 }
 
-// @urls        list of URLs to crawl (protocol can be missing, will default to https!) (or undefined when updating the index)
-// @restart     boolean to indicate whether to restart the crawl (instead of continuing at last position)
-async function run(indexFile = "index.json", urls, restart = false) {
+// Load existing index or create a new one and return it
+function getIndex(filename, restart) {
     let result = {
         meta: {
             generated: Math.floor(new Date().getTime() / 1000),
@@ -326,19 +329,22 @@ async function run(indexFile = "index.json", urls, restart = false) {
     };
 
     // load existing index if it exists
-    if (fs.existsSync(indexFile)) {
-        const data = fs.readFileSync(indexFile, 'utf8');
+    if (fs.existsSync(filename)) {
+        const data = fs.readFileSync(filename, 'utf8');
         result = JSON.parse(data);
+
+        if (restart) {
+            result.meta.complete = false;
+            result.meta.offset = 0;
+        }
+    } else {
+        saveIndex(filename, result);
     }
 
-    result.meta.complete = false;
-    if (restart)
-        result.meta.offset = 0;
-    if (!urls)
-        urls = Object.keys(result.urls);
-    if (!result.meta.minorBitMask)
-        result.meta.minorBitMask = minorBitMask;
+    return result;
+}
 
+async function run(result, indexFile) {
     // cleanup duplicates
     for (const u of Object.keys(result.urls)) {
         // Drop result.urls[i] if it starts with https:// and there is another result without
@@ -354,6 +360,7 @@ async function run(indexFile = "index.json", urls, restart = false) {
     }
 
     // loop over all URLs
+    const urls = Object.keys(result.urls);
     for (let i = result.meta.offset; i < urls.length; i++) {
         let url = urls[i];
 
@@ -363,11 +370,14 @@ async function run(indexFile = "index.json", urls, restart = false) {
         result.meta.offset = i;
 
         // skip if already in index and recently updated
-        if (result.urls[url]) {
+        if (result.urls[url] &&
+            result.urls[url][0] &&
+            result.urls[url][0].d &&
+            result.urls[url][0].t) {
             const diffDays = Math.floor((Math.floor(new Date().getTime() / 1000) - result.urls[url][0].d) / (60 * 60 * 24));
-            if (diffDays < 30
+            if (diffDays < indexUpdateIntervalDays
                 && result.urls[url][0].t
-            ) { // update only if older than 30 days
+            ) { // update only if older than x days
                 console.log(`Skipping ${i} ${url} - recently updated (${diffDays} days ago)`);
                 continue;
             }
@@ -399,6 +409,11 @@ async function run(indexFile = "index.json", urls, restart = false) {
         delete result.processing[url];
         saveIndex(indexFile, result);
         saveStatus(result);
+
+        // FIXME: periodically check for added feed URLs and blogrolls during crawl too
+
+        if (shutdown)
+            process.exit(0);
     }
 
     console.log("Crawling completed.");
@@ -407,83 +422,127 @@ async function run(indexFile = "index.json", urls, restart = false) {
     saveStatus(result);
 }
 
-const args = process.argv.slice(2);
-if (args.length > 1) {
-    if (args[0] === '--test') {
-        processUrl(args[1]).then(feeds => {
-            console.log(`Feeds discovered for ${args[1]}:`, feeds);
-        }).catch(err => {
-            console.error(`Error processing domain ${args[1]}:`, err);
-        });
-    } else if (args[0] === '--merge') {
-        if (args.length < 3) {
-            console.error("Usage: node crawler.js --merge <source JSON> <target JSON>");
-            process.exit(1);
-        }
-        const sourceFile = args[1];
-        const targetFile = args[2];
-        if (!fs.existsSync(sourceFile)) {
-            console.error(`Source file ${sourceFile} does not exist.`);
-            process.exit(1);
-        }
-        if (!fs.existsSync(targetFile)) {
-            console.error(`Target file ${targetFile} does not exist.`);
-            process.exit(1);
-        }
-        const sourceData = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
-        const targetData = JSON.parse(fs.readFileSync(targetFile, 'utf8'));
+function processInputFiles(result, indexDir) {
 
-        if (!sourceData.meta.complete) {
-            console.error(`Source file ${sourceFile} is not marked as complete.`);
-            process.exit(1);
-        }
-        
-        // Merge domains
-        for (const [domain, feeds] of Object.entries(sourceData.domains)) {
-            targetData.domains[domain] = feeds;
-        }
-        targetData.blogrolls = { ...targetData.blogrolls, ...sourceData.blogrolls };
-        targetData.meta.generated = Math.max(sourceData.meta.generated, targetData.meta.generated)
-        targetData.meta.offset = Math.max(sourceData.meta.offset, targetData.meta.offset);
+    // Check for URLs lists (.txt files) in input directory
+    try {
+        const inputFiles = fs.readdirSync(indexDir + '/input').filter(f => f.endsWith('.txt'));
+        for (const file of inputFiles) {
+            console.log(`Processing input file: ${file}`);
+            const content = fs.readFileSync(indexDir + '/input/' + file, 'utf8');
+            const urls = content.split('\n').filter(line => line.trim() !== '');
 
-        // Save merged target data
-        fs.writeFileSync(targetFile, JSON.stringify(targetData, null, 2));
-        console.log(`Merged ${sourceFile} into ${targetFile}.`);
-    } else if (args[0] === '--add') {
-        if (args.length < 2) {
-            console.error("Usage: node crawler.js --add <URL file>");
-            process.exit(1);
+            for (const url of urls) {
+                const cleanUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+                if (!result.urls[cleanUrl]) {
+                    result.urls[cleanUrl] = [];
+                    console.log(`Added new URL from input: ${cleanUrl}`);
+                    processUrl(url).then(({ feeds, blogroll }) => {
+                        result.urls[cleanUrl] = feeds;
+                        updateBlogroll(result, blogroll);
+                    });
+                } else {
+                    console.log(`URL already exists in index: ${cleanUrl}`);
+                }
+            }
+                
+            fs.unlinkSync(indexDir + '/input/' + file);
+            console.log(`Finished processing input file: ${file}`);
         }
-        run(`index.json`, fs.readFileSync(args[1], 'utf8').split('\n').filter(line => line.trim() !== ''), true /* restart */);
-    } else if (args[0] === '--updateBlogrolls') {
-        const sourceData = JSON.parse(fs.readFileSync(args[1], 'utf8'));
-        const all = JSON.parse(execSync('datasets/opml-all.js', { encoding: 'utf-8' }));
-        console.log(`Updating ${Object.keys(all.blogrolls).length} blogrolls...`);
-        console.log(all);
-        for (const [url, details] of Object.entries(all.blogrolls)) {
-            await updateBlogroll(sourceData, url, details);
+        saveIndex(indexDir + "/index.json", result);
+    } catch (e) {
+        console.error(`Error processing input directory: ${e.message}`);
+    }
+}
+
+// function to periodically start full crawls and continuosly add new content
+//
+// @indexDir    directory containing the index and input files
+// @restart     boolean to indicate whether to restart the crawl (instead of continuing at last position)
+async function continousRun(indexDir, restart) {
+    console.log("Starting continous crawl")
+    console.log("  indexDir =", indexDir);
+    console.log("  restart =", restart);
+
+    let result = getIndex(indexDir + "/index.json", restart);
+    const indexAgeInDays = Math.floor((Date.now() / 1000 - result.meta.generated) / (60 * 60 * 24));
+
+    console.log("  offset =", result.meta.offset);
+    console.log("  complete =", result.meta.complete);
+    console.log("  index age =", indexAgeInDays, "days");
+
+    while (!shutdown) {
+        // Start a crawl if index is not fresh or complete
+        if (!result.meta.complete || (indexUpdateIntervalDays - indexAgeInDays <= 0)) {
+            console.log("Index needs updating...")
+            run(result, indexDir + "/index.json");
+        } else {
+            console.log("Index needs no updating yet. Next update in", indexUpdateIntervalDays - indexAgeInDays, "days");
         }
-        fs.writeFileSync(args[1], JSON.stringify(sourceData, null, 2));
+
+        processInputFiles(result, indexDir);
+
+        // processInputFiles() will reset result.meta.complete if new stuff needs processing, if not we can sleep
+        if(result.meta.complete) {
+            console.log(`Sleeping for ${sleepIntervalMinutes}min`);
+            await new Promise(resolve => {
+                idleTimeoutId = setTimeout(resolve, sleepIntervalMinutes * 60 * 1000);
+            });
+        } else {
+            await new Promise(resolve => {
+                idleTimeoutId = setTimeout(resolve, 15 * 1000);
+            });
+        }
+    }
+}
+
+// poor man's not really race free shutdown
+function shutdownCb(signal) {
+    shutdown = true;
+
+    if(idleTimeoutId) {
+        clearTimeout(idleTimeoutId);
+        console.log(`Received ${signal}. Shutting down...`);
     } else {
-        console.error(`Unknown command. Usage:
+        console.log(`Received ${signal}. Shutting down after next URL...`);
+    }
+}
+
+const args = process.argv.slice(2);
+const command = args[0];
+
+if (!command) {
+    console.error(`Usage:
 
     # Continuous mode (single thread)
-    node crawler.js [--restart]
+    node crawler.js --run [--restart] [<index directory>]
 
     # Testing a single URL
     node crawler.js --test <URL>
-
-    # Adding URLs from text file
-    node crawler.js --add <url file>
-
-    # Merging two JSON files
-    node crawler.js --merge <source JSON> <target JSON>
-
-    # Update blogrolls from dataset sources
-    node crawler.js --updateBlogrolls <index JSON>
     `);
+    process.exit(1);
+}
+
+if (command === '--test') {
+    const url = args[1];
+    if (!url) {
+        console.error('Error: --test requires a URL argument');
         process.exit(1);
     }
+    processUrl(url).then(result => {
+        console.log(`Feeds discovered for ${url}:`, result);
+    }).catch(err => {
+        console.error(`Error processing URL ${url}:`, err);
+    });
+} else if (command === '--run') {
+    const restart = args.includes('--restart');
+    const indexDir = args.find(arg => arg !== '--run' && arg !== '--restart') || 'index';
+    continousRun(indexDir, restart);
 } else {
-    run('index.json', undefined, (args[0] === '--restart'));
+    console.error(`Unknown command: ${command}`);
+    process.exit(1);
 }
+
+
+process.on('SIGTERM', () => shutdownCb('SIGTERM'));
+process.on('SIGINT', () => shutdownCb('SIGINT'));
