@@ -210,12 +210,12 @@ async function processUrl(url) {
     return { feeds, blogroll };
 }
 
-function saveIndex(indexFile, result) {
-    fs.writeFileSync(indexFile, JSON.stringify(result, null, 2));
+function saveIndex(result, indexDir) {
+    fs.writeFileSync(indexDir + "/index.json", JSON.stringify(result, null, 2));
 }
 
-function saveStatus(result) {
-    fs.writeFileSync("status.json", JSON.stringify({
+function saveStatus(result, indexDir) {
+    fs.writeFileSync(indexDir + "/status.json", JSON.stringify({
         meta: {
             name    : "RSS Feed Crawler",
             favicon : "https://lwindolf.github.io/rss-feed-index/feed.svg",
@@ -314,7 +314,7 @@ async function updateBlogroll(result, blogroll, details = {}) {
 }
 
 // Load existing index or create a new one and return it
-function getIndex(filename, restart) {
+function getIndex(indexDir, restart) {
     let result = {
         meta: {
             generated: Math.floor(new Date().getTime() / 1000),
@@ -329,8 +329,8 @@ function getIndex(filename, restart) {
     };
 
     // load existing index if it exists
-    if (fs.existsSync(filename)) {
-        const data = fs.readFileSync(filename, 'utf8');
+    if (fs.existsSync(indexDir + "/index.json")) {
+        const data = fs.readFileSync(indexDir + "/index.json", 'utf8');
         result = JSON.parse(data);
 
         if (restart) {
@@ -338,13 +338,13 @@ function getIndex(filename, restart) {
             result.meta.offset = 0;
         }
     } else {
-        saveIndex(filename, result);
+        saveIndex(result, indexDir);
     }
 
     return result;
 }
 
-async function run(result, indexFile) {
+async function run(result, indexDir) {
     // cleanup duplicates
     for (const u of Object.keys(result.urls)) {
         // Drop result.urls[i] if it starts with https:// and there is another result without
@@ -390,7 +390,7 @@ async function run(result, indexFile) {
         else
             result.processing[url].try = (result.processing[url].try || 0) + 1;
 
-        saveIndex(indexFile, result);
+        saveIndex(result, indexDir);
 
         if (result.processing[url].try > maxRedirects) {
             delete result.processing[url];
@@ -407,8 +407,8 @@ async function run(result, indexFile) {
 
         // save updated index
         delete result.processing[url];
-        saveIndex(indexFile, result);
-        saveStatus(result);
+        saveIndex(result, indexDir);
+        saveStatus(result, indexDir);
 
         // FIXME: periodically check for added feed URLs and blogrolls during crawl too
 
@@ -418,8 +418,8 @@ async function run(result, indexFile) {
 
     console.log("Crawling completed.");
     result.meta.complete = true;
-    saveIndex(indexFile, result);
-    saveStatus(result);
+    saveIndex(result, indexDir);
+    saveStatus(result, indexDir);
 }
 
 function processInputFiles(result, indexDir) {
@@ -449,7 +449,7 @@ function processInputFiles(result, indexDir) {
             fs.unlinkSync(indexDir + '/input/' + file);
             console.log(`Finished processing input file: ${file}`);
         }
-        saveIndex(indexDir + "/index.json", result);
+        saveIndex(result, indexDir);
     } catch (e) {
         console.error(`Error processing input directory: ${e.message}`);
     }
@@ -464,7 +464,7 @@ async function continousRun(indexDir, restart) {
     console.log("  indexDir =", indexDir);
     console.log("  restart =", restart);
 
-    let result = getIndex(indexDir + "/index.json", restart);
+    let result = getIndex(indexDir, restart);
     const indexAgeInDays = Math.floor((Date.now() / 1000 - result.meta.generated) / (60 * 60 * 24));
 
     console.log("  offset =", result.meta.offset);
@@ -475,7 +475,7 @@ async function continousRun(indexDir, restart) {
         // Start a crawl if index is not fresh or complete
         if (!result.meta.complete || (indexUpdateIntervalDays - indexAgeInDays <= 0)) {
             console.log("Index needs updating...")
-            run(result, indexDir + "/index.json");
+            run(result, indexDir);
         } else {
             console.log("Index needs no updating yet. Next update in", indexUpdateIntervalDays - indexAgeInDays, "days");
         }
