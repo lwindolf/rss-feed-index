@@ -234,7 +234,6 @@ function saveStatus(result, indexDir) {
             // FIXME: memory usage
         },
         schedule: {
-            running    : (result.meta.complete != true),
             started    : result.meta.generated,
             lastUpdate : Math.ceil(new Date().getTime() / 1000),
             refresh    : 5*60,      // fetch status every 5min
