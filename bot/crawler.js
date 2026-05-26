@@ -216,6 +216,9 @@ function saveIndex(result, indexDir) {
 }
 
 function saveStatus(result, indexDir) {
+    const refreshInterval = 5*60;
+    const updateInterval = indexUpdateIntervalDays*24*60*60;
+
     fs.writeFileSync(path.join(indexDir, "status.json"), JSON.stringify({
         meta: {
             name    : "RSS Feed Crawler",
@@ -228,16 +231,17 @@ function saveStatus(result, indexDir) {
         data: {
             offset    : result.meta.offset,
             urls      : Object.keys(result.urls).length,
-            blogrolls : Object.keys(result.blogrolls).length
+            blogrolls : Object.keys(result.blogrolls).length,
+            complete  : result.meta.complete
             // FIXME: new added feeds (not yet parsed)
             // FIXME: new added blogrolls (not yet parsed)
             // FIXME: memory usage
         },
         schedule: {
-            started    : result.meta.generated,
-            lastUpdate : Math.ceil(new Date().getTime() / 1000),
-            refresh    : 5*60,      // fetch status every 5min
-            maxAge     : 15*60      // if running != true and no change for 15min -> job is dead
+            lastUpdate : result.meta.generated,
+            nextRun    : result.meta.generated + updateInterval,
+            refresh    : refreshInterval, // how often the status should be refreshed (e.g. for frontend display)
+            maxAge     : updateInterval
         }
     }, null, 2));
 }
