@@ -3,3 +3,4 @@ www/data/
 domains.txt
 *.log
 status.json
+commit-status.json

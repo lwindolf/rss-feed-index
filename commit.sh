@@ -5,7 +5,7 @@ set -euo pipefail
 
 jq .meta index/index.json
 
-cat <<EOT >index/commit-status.json
+cat <<EOT >commit-status.json
 {
   "meta": {
     "name": "RSS Feed Daily Index Commit",
