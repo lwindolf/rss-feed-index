@@ -463,10 +463,10 @@ async function processInputFiles(result, indexDir) {
 //
 // @indexDir    directory containing the index and input files
 // @restart     boolean to indicate whether to restart the crawl (instead of continuing at last position)
-async function continousRun(indexDir, restart) {
+async function continuousRun(indexDir, restart) {
     let result = getIndex(indexDir, restart);
 
-    console.log("Starting continous crawl")
+    console.log("Starting continuous crawl")
     console.log("  indexDir =", indexDir);
     console.log("  restart =", restart);
     console.log("  offset =", result.meta.offset);
@@ -476,11 +476,26 @@ async function continousRun(indexDir, restart) {
         const indexAgeInDays = Math.floor((Date.now() / 1000 - result.meta.generated) / (60 * 60 * 24));
 
         // Start a crawl if index is not fresh or complete
-        if (!result.meta.complete || (indexUpdateIntervalDays - indexAgeInDays <= 0)) {
-            console.log("Index needs updating...")
+        if (indexAgeInDays >= indexUpdateIntervalDays) {          
+            console.log("Index age is > update interval, setting restart flag");
+            restart = true;
+        }
+
+        // On restart reset crawler state
+        if (restart) {
+            console.log("Restart requested, resetting state");
+            result.meta.offset = 0;
+            result.meta.complete = false;
+            result.meta.generated = Math.floor(new Date().getTime() / 1000);
+            saveIndex(result, indexDir);
+            restart = false;
+        }
+
+        if (!result.meta.complete) {
+            console.log("Index is not complete, starting...");
             await run(result, indexDir);
         } else {
-            console.log("Index needs no updating yet. Next update in", indexUpdateIntervalDays - indexAgeInDays, "days");
+            console.log(`Index is complete and fresh (age: ${indexAgeInDays} days). Next update in ${indexUpdateIntervalDays - indexAgeInDays} days`);
         }
 
         await processInputFiles(result, indexDir);
@@ -533,7 +548,7 @@ if (command === '--test') {
 } else if (command === '--run') {
     const restart = args.includes('--restart');
     const indexDir = args.find(arg => arg !== '--run' && arg !== '--restart') || 'index';
-    continousRun(indexDir, restart);
+    continuousRun(indexDir, restart);
 } else {
     console.error(`Unknown command: ${command}`);
     process.exit(1);
