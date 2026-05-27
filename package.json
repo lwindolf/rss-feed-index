@@ -13,7 +13,7 @@
                 "systemd-install": "loginctl enable-linger $USER && mkdir -p ~/.config/systemd/user/ && cp rss-feed-index.service ~/.config/systemd/user/ && sed -i \"s|REPLACEME_WORKDIR|$(pwd)|\" ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload && systemctl --user enable --now rss-feed-index.service",
                 "systemd-uninstall": "systemctl --user stop rss-feed-index.service && systemctl --user disable rss-feed-index.service && rm ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload",
                 "systemd-log": "journalctl --user -u rss-feed-index.service -f",
-                "systemd-commit": "systemctl --user stop rss-feed-index.service && jq .meta index/index.json && git commit -m 'Update index' index/index.json && git push; systemctl --user start rss-feed-index.service"
+                "systemd-commit": "systemctl --user stop rss-feed-index.service && bash commit.sh && systemctl --user start rss-feed-index.service"
         },
         "dependencies": {
                 "jsdom": "^28.1.0",
