@@ -222,9 +222,9 @@ function saveStatus(result, indexDir) {
     fs.writeFileSync(path.join(indexDir, "status.json"), JSON.stringify({
         meta: {
             name    : "RSS Feed Crawler",
-            favicon : "https://lwindolf.github.io/rss-feed-index/feed.svg",
+            favicon : "https://lzone.de/rss-feed-index/feed.svg",
             links   : {
-                "Website" : "https://lwindolf.github.io/rss-feed-index",
+                "Website" : "https://lzone.de/rss-feed-index",
                 "Source"  : "https://github.com/lwindolf/rss-feed-index"
             },
         },

@@ -6,14 +6,14 @@
         "scripts": {
                 "crawl": "node bot/crawler.js --run",
                 "build-www": "node bot/build-index.js",
+		"install-www": "mkdir -p /var/www/rss-feed-index/index && cp -r www/* /var/www/rss-feed-index && jq .meta index/index.json && cp -r index/* /var/www/rss-feed-index/index",
                 "start": "npx serve www",
                 "test": "bash test.sh",
                 "systemd-start": "systemctl --user start rss-feed-index.service",
                 "systemd-stop": "systemctl --user stop rss-feed-index.service",
                 "systemd-install": "loginctl enable-linger $USER && mkdir -p ~/.config/systemd/user/ && cp rss-feed-index.service ~/.config/systemd/user/ && sed -i \"s|REPLACEME_WORKDIR|$(pwd)|\" ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload && systemctl --user enable --now rss-feed-index.service",
                 "systemd-uninstall": "systemctl --user stop rss-feed-index.service && systemctl --user disable rss-feed-index.service && rm ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload",
-                "systemd-log": "journalctl --user -u rss-feed-index.service -f",
-                "systemd-commit": "systemctl --user stop rss-feed-index.service && bash commit.sh && systemctl --user start rss-feed-index.service"
+                "systemd-log": "journalctl --user -u rss-feed-index.service -f"
         },
         "dependencies": {
                 "jsdom": "^28.1.0",

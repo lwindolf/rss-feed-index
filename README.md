@@ -1,11 +1,12 @@
 
 # RSS Feed Index
 
-This repo hosts
+This is a simple a crawler for news feeds (RSS, Atom) and OPML blogrolls.
+The index produced is intended for feed readers to use for feed discovery.
 
-1. a crawler for news feeds (RSS, Atom, ...)
-2. the current crawling result `index/index.json`
-3. a Github Pages [site](https://lwindolf.github.io/rss-feed-index/) to test the results
+The crawler state and data can be accessed at [https://lzone.de/rss-feed-index](https://lzone.de/rss-feed-index)
+
+An end user website for searching the index is [https://lwindolf.github.io/rss-finder](https://lwindolf.github.io/rss-finder)
 
 ## Crawler Usage
 
