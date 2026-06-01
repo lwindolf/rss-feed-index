@@ -1,4 +1,3 @@
-
 # RSS Feed Index
 
 This is a simple a crawler for feeds (RSS, Atom) and OPML blogrolls.
@@ -17,18 +16,18 @@ First set up the repo
 
     npm i
 
-Start the continuous crawler
-
-    npm run crawl
-
 Add stuff to crawl in the `index/input` directory
     
     datasets/urls_majestic.sh >index/input/urls.txt
     cp datasets/opml-curated.json index/input/
 
-In `index/input` JSON files are considered to be blogroll inputs (see `opml-curated.json` 
-for format) while `.txt` files are simple list of URLs to be added. Once a file is processed
-the crawler will remove the input file.
+Note: In `index/input/` `.json files are considered to be blogroll inputs 
+(see `opml-curated.json` for format) while `.txt` files are simple list of 
+URLs to be added. Once a file is processed the crawler will remove the input file.
+
+Finally start the continuous crawl
+
+    npm run crawl
 
 ## Web GUI
 
