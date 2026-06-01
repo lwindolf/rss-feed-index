@@ -1,7 +1,7 @@
 
 # RSS Feed Index
 
-This is a simple a crawler for news feeds (RSS, Atom) and OPML blogrolls.
+This is a simple a crawler for feeds (RSS, Atom) and OPML blogrolls.
 The index produced is intended for feed readers to use for feed discovery.
 
 The crawler state and data can be accessed at [https://lzone.de/rss-feed-index](https://lzone.de/rss-feed-index)
@@ -29,6 +29,10 @@ Add stuff to crawl in the `index/input` directory
 In `index/input` JSON files are considered to be blogroll inputs (see `opml-curated.json` 
 for format) while `.txt` files are simple list of URLs to be added. Once a file is processed
 the crawler will remove the input file.
+
+## Web GUI
+
+Either run `npm start` or `npm run install-www` to deploy it to `/var/www/rss-feed-index`.
 
 ## Crawler Ethics
 

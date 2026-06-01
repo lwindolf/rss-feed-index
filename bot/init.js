@@ -1,3 +1,5 @@
+// vim: set ts=4 sw=4:
+
 import { JSDOM } from 'jsdom';
 
 // window as global for ESM browser modules

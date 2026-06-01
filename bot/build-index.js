@@ -1,3 +1,12 @@
+// vim: set ts=4 sw=4:
+
+// Script to build a compressed index of usable feeds.
+//
+// TODO: Support multiple indexes with different feed types
+// (e.g. fediverse, indieweb, wordpress, internet...) to give
+// users a choice about not searching for mainstream garbage
+// and safe network bandwidth too
+
 import fs from 'fs';
 import path from 'path';
 
