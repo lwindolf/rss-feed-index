@@ -10,6 +10,7 @@ import { Feed } from './feed.js';
 import { FeedParser } from '../lzone-feed-parser/src/parser.js';
 import { FeedUpdater } from './feedupdater.js';
 import { linkAutoDiscover, opmlAutoDiscover, parserAutoDiscover } from '../lzone-feed-parser/src/autodiscover.js';
+import { buildIndex } from './build-index.js';
 import robotsParser from '../node_modules/robots-parser/Robots.js';
 
 import path from 'path';
@@ -424,6 +425,7 @@ async function run(result, indexDir) {
     result.meta.complete = true;
     saveIndex(result, indexDir);
     saveStatus(result, indexDir);
+    buildIndex();
 }
 
 async function processInputFiles(result, indexDir) {
@@ -441,10 +443,9 @@ async function processInputFiles(result, indexDir) {
                 if (!result.urls[cleanUrl]) {
                     result.urls[cleanUrl] = [];
                     console.log(`Added new URL from input: ${cleanUrl}`);
-                    processUrl(url).then(async ({ feeds, blogroll }) => {
-                        result.urls[cleanUrl] = feeds;
-                        await updateBlogroll(result, blogroll);
-                    });
+                    let { feeds, blogroll } = await processUrl(url);
+                    result.urls[cleanUrl] = feeds;
+                    await updateBlogroll(result, blogroll);
                 } else {
                     console.log(`URL already exists in index: ${cleanUrl}`);
                 }
@@ -454,6 +455,7 @@ async function processInputFiles(result, indexDir) {
             console.log(`Finished processing input file: ${file}`);
         }
         saveIndex(result, indexDir);
+        buildIndex();
     } catch (e) {
         console.error(`Error processing input directory: ${e.message}`);
     }
