@@ -432,6 +432,7 @@ async function processInputFiles(result, indexDir) {
 
     // Check for URLs lists (.txt files) in input directory
     try {
+        let changes = false;
         const inputFiles = fs.readdirSync(path.join(indexDir, 'input')).filter(f => f.endsWith('.txt'));
         for (const file of inputFiles) {
             console.log(`Processing input file: ${file}`);
@@ -446,6 +447,7 @@ async function processInputFiles(result, indexDir) {
                     let { feeds, blogroll } = await processUrl(url);
                     result.urls[cleanUrl] = feeds;
                     await updateBlogroll(result, blogroll);
+                    changes = true;
                 } else {
                     console.log(`URL already exists in index: ${cleanUrl}`);
                 }
@@ -454,8 +456,10 @@ async function processInputFiles(result, indexDir) {
             fs.unlinkSync(path.join(indexDir, 'input', file));
             console.log(`Finished processing input file: ${file}`);
         }
-        saveIndex(result, indexDir);
-        buildIndex();
+        if(changes) {
+            saveIndex(result, indexDir);
+            buildIndex();
+        }
     } catch (e) {
         console.error(`Error processing input directory: ${e.message}`);
     }
