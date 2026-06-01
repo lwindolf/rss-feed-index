@@ -11,6 +11,8 @@ import fs from 'fs';
 import path from 'path';
 
 export function buildIndex() {
+    console.log("Building index...");
+
     // Ensure the output directory exists
     const outputDir = path.join('www', 'data');
     if (!fs.existsSync(outputDir)) {
@@ -200,4 +202,6 @@ export function buildIndex() {
     // Write the bucket index to a file
     const bucketIndexPath = path.join(outputDir, 'bucket-index.json');
     fs.writeFileSync(bucketIndexPath, JSON.stringify({ lastUpdated: now, buckets: bucketIndex }, null, 2));
+
+    console.log("Index built successfully.");
 }
