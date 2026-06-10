@@ -7,7 +7,7 @@
                 "start": "npx serve www",
                 "test": "bash test.sh && npm audit",
                 "crawl": "node bot/crawler.js --run",
-		"install-www": "mkdir -p /var/www/rss-feed-index/index && cp -r www/* /var/www/rss-feed-index && ln -f index/index.json /var/www/rss-feed-index/index/index.json && ln -f index/status.json /var/www/rss-feed-index/index/status.json",
+                "install-www": "mkdir -p /var/www/rss-feed-index/index && cp -r www/* /var/www/rss-feed-index && ln -f index/index.json /var/www/rss-feed-index/index/index.json && ln -f index/status.json /var/www/rss-feed-index/index/status.json",
                 "systemd-start": "systemctl --user start rss-feed-index.service",
                 "systemd-stop": "systemctl --user stop rss-feed-index.service",
                 "systemd-install": "loginctl enable-linger $USER && mkdir -p ~/.config/systemd/user/ && cp rss-feed-index.service ~/.config/systemd/user/ && sed -i \"s|REPLACEME_WORKDIR|$(pwd)|\" ~/.config/systemd/user/rss-feed-index.service && systemctl --user daemon-reload && systemctl --user enable --now rss-feed-index.service",
