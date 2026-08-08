@@ -204,6 +204,10 @@
         "https://minifeed.net/blogs/opml.xml": {
             "u": "https://minifeed.net",
             "t": "All blogs aggregated by minifeed.net"
-        }
+        },
+	"https://bubbles.town/blogs.opml": {
+	    "u": "https://bubbles.town",
+	    "t": "All blogs aggregated by Bubbles"
+	}
     }
 }
