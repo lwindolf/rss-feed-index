@@ -43,7 +43,7 @@
             "t": "gnulinux.ch Linux-Podcasts",
             "u": "https://gnulinux.ch"
         },
-        "https://raw.githubusercontent.com/lwindolf/blogs/refs/heads/main/Blogs/Liferea/assets/german-tv.opml": {
+        "https://codeberg.org/lwindolf/blogs/src/branch/main/www/liferea/blog/md/assets/german-tv.opml": {
             "t": "RSS Feeds für deutschsprachiges TV"
         },
         "https://jeffmackinnon.com/docs/blogs.opml": {
